@@ -1,0 +1,162 @@
+D:\Zktech\ZKTeco Using C#\BioMatrix\BioMetrixCore\bin\Debug\BioMetrixCore.exe.config
+D:\Zktech\ZKTeco Using C#\BioMatrix\BioMetrixCore\bin\Debug\BioMetrixCore.exe
+D:\Zktech\ZKTeco Using C#\BioMatrix\BioMetrixCore\bin\Debug\BioMetrixCore.pdb
+D:\Zktech\ZKTeco Using C#\BioMatrix\BioMetrixCore\obj\Debug\BioMetrixCore.csprojResolveAssemblyReference.cache
+D:\Zktech\ZKTeco Using C#\BioMatrix\BioMetrixCore\obj\Debug\Interop.zkemkeeper.dll
+D:\Zktech\ZKTeco Using C#\BioMatrix\BioMetrixCore\obj\Debug\BioMetrixCore.csproj.ResolveComReference.cache
+D:\Zktech\ZKTeco Using C#\BioMatrix\BioMetrixCore\obj\Debug\BioMetrixCore.DataEmpty.resources
+D:\Zktech\ZKTeco Using C#\BioMatrix\BioMetrixCore\obj\Debug\BioMetrixCore.Master.resources
+D:\Zktech\ZKTeco Using C#\BioMatrix\BioMetrixCore\obj\Debug\BioMetrixCore.Properties.Resources.resources
+D:\Zktech\ZKTeco Using C#\BioMatrix\BioMetrixCore\obj\Debug\BioMetrixCore.csproj.GenerateResource.Cache
+D:\Zktech\ZKTeco Using C#\BioMatrix\BioMetrixCore\obj\Debug\BioMetrixCore.exe
+D:\Zktech\ZKTeco Using C#\BioMatrix\BioMetrixCore\obj\Debug\BioMetrixCore.pdb
+D:\BioMetrix\BioMatrix\BioMetrixCore\bin\Debug\BioMetrixCore.exe.config
+D:\BioMetrix\BioMatrix\BioMetrixCore\obj\Debug\Interop.zkemkeeper.dll
+D:\BioMetrix\BioMatrix\BioMetrixCore\obj\Debug\BioMetrixCore.csproj.ResolveComReference.cache
+D:\BioMetrix\BioMatrix\BioMetrixCore\obj\Debug\BioMetrixCore.exe
+D:\BioMetrix\BioMatrix\BioMetrixCore\obj\Debug\BioMetrixCore.pdb
+D:\BioMetrix\BioMatrix\BioMetrixCore\bin\Debug\BioMetrixCore.exe
+D:\BioMetrix\BioMatrix\BioMetrixCore\bin\Debug\BioMetrixCore.pdb
+D:\BioMetrix\BioMatrix\BioMetrixCore\obj\Debug\BioMetrixCore.csprojResolveAssemblyReference.cache
+D:\BioMetrix\BioMatrix\BioMetrixCore\obj\Debug\BioMetrixCore.DataEmpty.resources
+D:\BioMetrix\BioMatrix\BioMetrixCore\obj\Debug\BioMetrixCore.Master.resources
+D:\BioMetrix\BioMatrix\BioMetrixCore\obj\Debug\BioMetrixCore.Properties.Resources.resources
+D:\BioMetrix\BioMatrix\BioMetrixCore\obj\Debug\BioMetrixCore.csproj.GenerateResource.Cache
+C:\Users\AZETASOFT\Downloads\BioMatrix\BioMatrix\BioMetrixCore\bin\Debug\BioMetrixCore.exe.config
+C:\Users\AZETASOFT\Downloads\BioMatrix\BioMatrix\BioMetrixCore\bin\Debug\BioMetrixCore.exe
+C:\Users\AZETASOFT\Downloads\BioMatrix\BioMatrix\BioMetrixCore\bin\Debug\BioMetrixCore.pdb
+C:\Users\AZETASOFT\Downloads\BioMatrix\BioMatrix\BioMetrixCore\obj\Debug\BioMetrixCore.csprojAssemblyReference.cache
+C:\Users\AZETASOFT\Downloads\BioMatrix\BioMatrix\BioMetrixCore\obj\Debug\Interop.zkemkeeper.dll
+C:\Users\AZETASOFT\Downloads\BioMatrix\BioMatrix\BioMetrixCore\obj\Debug\BioMetrixCore.csproj.ResolveComReference.cache
+C:\Users\AZETASOFT\Downloads\BioMatrix\BioMatrix\BioMetrixCore\obj\Debug\BioMetrixCore.DataEmpty.resources
+C:\Users\AZETASOFT\Downloads\BioMatrix\BioMatrix\BioMetrixCore\obj\Debug\BioMetrixCore.Master.resources
+C:\Users\AZETASOFT\Downloads\BioMatrix\BioMatrix\BioMetrixCore\obj\Debug\BioMetrixCore.Properties.Resources.resources
+C:\Users\AZETASOFT\Downloads\BioMatrix\BioMatrix\BioMetrixCore\obj\Debug\BioMetrixCore.csproj.GenerateResource.cache
+C:\Users\AZETASOFT\Downloads\BioMatrix\BioMatrix\BioMetrixCore\obj\Debug\BioMetrixCore.csproj.CoreCompileInputs.cache
+C:\Users\AZETASOFT\Downloads\BioMatrix\BioMatrix\BioMetrixCore\obj\Debug\BioMetrixCore.exe
+C:\Users\AZETASOFT\Downloads\BioMatrix\BioMatrix\BioMetrixCore\obj\Debug\BioMetrixCore.pdb
+D:\SISTEMA\BioMatrix\BioMatrix\BioMetrixCore\obj\Debug\BioMetrixCore.DataEmpty.resources
+D:\SISTEMA\BioMatrix\BioMatrix\BioMetrixCore\obj\Debug\BioMetrixCore.Master.resources
+D:\SISTEMA\BioMatrix\BioMatrix\BioMetrixCore\obj\Debug\BioMetrixCore.Properties.Resources.resources
+D:\SISTEMA\BioMatrix\BioMatrix\BioMetrixCore\obj\Debug\BioMetrixCore.csproj.GenerateResource.cache
+D:\SISTEMA\BioMatrix\BioMatrix\BioMetrixCore\obj\Debug\BioMetrixCore.exe
+D:\SISTEMA\BioMatrix\BioMatrix\BioMetrixCore\obj\Debug\BioMetrixCore.pdb
+D:\SISTEMA\BioMatrix\BioMatrix\BioMetrixCore\bin\Debug\BioMetrixCore.exe.config
+D:\SISTEMA\BioMatrix\BioMatrix\BioMetrixCore\bin\Debug\BioMetrixCore.exe
+D:\SISTEMA\BioMatrix\BioMatrix\BioMetrixCore\bin\Debug\BioMetrixCore.pdb
+D:\SISTEMA\BioMatrix\BioMatrix\BioMetrixCore\obj\Debug\Interop.zkemkeeper.dll
+D:\SISTEMA\BioMatrix\BioMatrix\BioMetrixCore\obj\Debug\BioMetrixCore.csproj.ResolveComReference.cache
+D:\SISTEMA\BioMatrix\BioMatrix\BioMetrixCore\obj\Debug\BioMetrixCore.Presentacion.FrmUsuarios.resources
+D:\SISTEMA\BioMatrix\BioMatrix\BioMetrixCore\obj\Debug\BioMetrixCore.Presentacion.FrmAsisencias.resources
+D:\SISTEMA\BioMatrix\BioMatrix\BioMetrixCore\obj\Debug\BioMetrixCore.csprojResolveAssemblyReference.cache
+D:\SISTEMA\BioMatrix\BioMatrix\BioMetrixCore\bin\Debug\db.sdf
+G:\sist planilla\BioMatrix\BioMatrix\BioMetrixCore\obj\Debug\BioMetrixCore.csprojAssemblyReference.cache
+G:\sist planilla\BioMatrix\BioMatrix\BioMetrixCore\obj\Debug\BioMetrixCore.DataEmpty.resources
+G:\sist planilla\BioMatrix\BioMatrix\BioMetrixCore\obj\Debug\BioMetrixCore.Master.resources
+G:\sist planilla\BioMatrix\BioMatrix\BioMetrixCore\obj\Debug\BioMetrixCore.Presentacion.FrmAsisencias.resources
+G:\sist planilla\BioMatrix\BioMatrix\BioMetrixCore\obj\Debug\BioMetrixCore.Presentacion.FrmUsuarios.resources
+G:\sist planilla\BioMatrix\BioMatrix\BioMetrixCore\obj\Debug\BioMetrixCore.Properties.Resources.resources
+G:\sist planilla\BioMatrix\BioMatrix\BioMetrixCore\obj\Debug\BioMetrixCore.csproj.GenerateResource.cache
+G:\sist planilla\BioMatrix\BioMatrix\BioMetrixCore\obj\Debug\BioMetrixCore.csproj.CoreCompileInputs.cache
+G:\sist planilla\BioMatrix\BioMatrix\BioMetrixCore\obj\Debug\BioMetrixCore.exe
+G:\sist planilla\BioMatrix\BioMatrix\BioMetrixCore\obj\Debug\BioMetrixCore.pdb
+G:\sist planilla\BioMatrix\BioMatrix\BioMetrixCore\bin\Debug\BioMetrixCore.exe.config
+G:\sist planilla\BioMatrix\BioMatrix\BioMetrixCore\bin\Debug\BioMetrixCore.exe
+G:\sist planilla\BioMatrix\BioMatrix\BioMetrixCore\bin\Debug\BioMetrixCore.pdb
+G:\sist planilla\BioMatrix\BioMatrix\BioMetrixCore\obj\Debug\Interop.zkemkeeper.dll
+G:\sist planilla\BioMatrix\BioMatrix\BioMetrixCore\obj\Debug\BioMetrixCore.csproj.ResolveComReference.cache
+G:\sist planilla\BioMatrix\BioMatrix\BioMetrixCore\bin\Debug\System.Data.SQLite.xml
+G:\sist planilla\BioMatrix\BioMatrix\BioMetrixCore\bin\Debug\System.Data.SQLite.dll.config
+G:\sist planilla\BioMatrix\BioMatrix\BioMetrixCore\obj\Debug\BioMetrixCore.Presentacion.FrmReporteAsistencia.resources
+G:\sist planilla\BioMatrix\BioMatrix\BioMetrixCore\obj\Debug\BioMetrixCore.csproj.CopyComplete
+G:\sist planilla\BioMatrix\BioMatrix\BioMetrixCore\bin\Debug\EntityFramework.dll
+G:\sist planilla\BioMatrix\BioMatrix\BioMetrixCore\bin\Debug\EntityFramework.SqlServer.dll
+G:\sist planilla\BioMatrix\BioMatrix\BioMetrixCore\bin\Debug\EntityFramework.xml
+G:\sist planilla\BioMatrix\BioMatrix\BioMetrixCore\bin\Debug\EntityFramework.SqlServer.xml
+G:\sist planilla\BioMatrix\BioMatrix\BioMetrixCore\obj\Debug\RdlCompile.cache
+G:\sist planilla\BioMatrix\BioMatrix\BioMetrixCore\obj\Debug\RdlCompile.compiled
+G:\sist planilla\BioMatrix\BioMatrix\BioMetrixCore\bin\Debug\SqlServerTypes\x64\msvcr120.dll
+G:\sist planilla\BioMatrix\BioMatrix\BioMetrixCore\bin\Debug\SqlServerTypes\x64\SqlServerSpatial140.dll
+G:\sist planilla\BioMatrix\BioMatrix\BioMetrixCore\bin\Debug\SqlServerTypes\x86\msvcr120.dll
+G:\sist planilla\BioMatrix\BioMatrix\BioMetrixCore\bin\Debug\SqlServerTypes\x86\SqlServerSpatial140.dll
+G:\sist planilla\BioMatrix\BioMatrix\BioMetrixCore\bin\Debug\Microsoft.ReportViewer.Common.dll
+G:\sist planilla\BioMatrix\BioMatrix\BioMetrixCore\bin\Debug\Microsoft.ReportViewer.Design.dll
+G:\sist planilla\BioMatrix\BioMatrix\BioMetrixCore\bin\Debug\Microsoft.ReportViewer.WinForms.dll
+G:\sist planilla\BioMatrix\BioMatrix\BioMetrixCore\bin\Debug\Microsoft.SqlServer.Types.dll
+G:\sist planilla\BioMatrix\BioMatrix\BioMetrixCore\bin\Debug\Microsoft.ReportViewer.ProcessingObjectModel.dll
+G:\sist planilla\BioMatrix\BioMatrix\BioMetrixCore\bin\Debug\Microsoft.ReportViewer.DataVisualization.dll
+G:\sist planilla\BioMatrix\BioMatrix\BioMetrixCore\bin\Debug\EnvDTE.dll
+G:\sist planilla\BioMatrix\BioMatrix\BioMetrixCore\bin\Debug\Microsoft.VisualStudio.Shell.Interop.dll
+G:\sist planilla\BioMatrix\BioMatrix\BioMetrixCore\bin\Debug\Microsoft.VisualStudio.Shell.Interop.8.0.dll
+G:\sist planilla\BioMatrix\BioMatrix\BioMetrixCore\bin\Debug\stdole.dll
+G:\sist planilla\BioMatrix\BioMatrix\BioMetrixCore\bin\Debug\Microsoft.VisualStudio.OLE.Interop.dll
+G:\sist planilla\BioMatrix\BioMatrix\BioMetrixCore\bin\Debug\Microsoft.VisualStudio.TextManager.Interop.dll
+G:\sist planilla\BioMatrix\BioMatrix\BioMetrixCore\bin\Debug\Microsoft.VisualStudio.VSHelp.dll
+G:\sist planilla\BioMatrix\BioMatrix\BioMetrixCore\bin\Debug\Microsoft.VisualStudio.Shell.Interop.9.0.dll
+G:\sist planilla\BioMatrix\BioMatrix\BioMetrixCore\bin\Debug\Microsoft.VisualStudio.TextManager.Interop.8.0.dll
+G:\sist planilla\BioMatrix\BioMatrix\BioMetrixCore\bin\Debug\Microsoft.VisualStudio.ProjectAggregator.dll
+G:\sist planilla\BioMatrix\BioMatrix\BioMetrixCore\bin\Debug\Microsoft.VisualStudio.ComponentModelHost.dll
+G:\sist planilla\BioMatrix\BioMatrix\BioMetrixCore\bin\Debug\Microsoft.VisualStudio.TemplateWizardInterface.dll
+G:\sist planilla\BioMatrix\BioMatrix\BioMetrixCore\bin\Debug\Microsoft.VisualStudio.Debugger.InteropA.dll
+G:\sist planilla\BioMatrix\BioMatrix\BioMetrixCore\bin\Debug\EnvDTE80.dll
+G:\sist planilla\BioMatrix\BioMatrix\BioMetrixCore\bin\Debug\Microsoft.Build.Tasks.Core.dll
+G:\sist planilla\BioMatrix\BioMatrix\BioMetrixCore\bin\Debug\Microsoft.VisualStudio.Data.Services.dll
+G:\sist planilla\BioMatrix\BioMatrix\BioMetrixCore\bin\Debug\VSLangProj.dll
+G:\sist planilla\BioMatrix\BioMatrix\BioMetrixCore\bin\Debug\Microsoft.VisualStudio.Shell.Interop.11.0.dll
+G:\sist planilla\BioMatrix\BioMatrix\BioMetrixCore\bin\Debug\Microsoft.VisualStudio.Data.Core.dll
+G:\sist planilla\BioMatrix\BioMatrix\BioMetrixCore\bin\Debug\Microsoft.VisualStudio.Shell.Interop.10.0.dll
+G:\sist planilla\BioMatrix\BioMatrix\BioMetrixCore\bin\Debug\VSLangProj80.dll
+G:\sist planilla\BioMatrix\BioMatrix\BioMetrixCore\bin\Debug\Microsoft.VisualStudio.ManagedInterfaces.dll
+G:\sist planilla\BioMatrix\BioMatrix\BioMetrixCore\bin\Debug\Microsoft.VisualStudio.Debugger.Interop.11.0.dll
+G:\sist planilla\BioMatrix\BioMatrix\BioMetrixCore\bin\Debug\System.Threading.Tasks.Dataflow.dll
+G:\sist planilla\BioMatrix\BioMatrix\BioMetrixCore\bin\Debug\Microsoft.VisualStudio.GraphModel.dll
+G:\sist planilla\BioMatrix\BioMatrix\BioMetrixCore\bin\Debug\Microsoft.MSXML.dll
+G:\sist planilla\BioMatrix\BioMatrix\BioMetrixCore\bin\Debug\Microsoft.Build.Utilities.Core.dll
+G:\sist planilla\BioMatrix\BioMatrix\BioMetrixCore\bin\Debug\Microsoft.VisualStudio.TextManager.Interop.10.0.dll
+G:\sist planilla\BioMatrix\BioMatrix\BioMetrixCore\bin\Debug\Microsoft.Build.Framework.dll
+G:\sist planilla\BioMatrix\BioMatrix\BioMetrixCore\bin\Debug\VSLangProj2.dll
+G:\sist planilla\BioMatrix\BioMatrix\BioMetrixCore\bin\Debug\Microsoft.VisualStudio.TemplateWizardInterface.xml
+G:\sist planilla\BioMatrix\BioMatrix\BioMetrixCore\bin\Debug\de\Microsoft.ReportViewer.Common.resources.dll
+G:\sist planilla\BioMatrix\BioMatrix\BioMetrixCore\bin\Debug\es\Microsoft.ReportViewer.Common.resources.dll
+G:\sist planilla\BioMatrix\BioMatrix\BioMetrixCore\bin\Debug\fr\Microsoft.ReportViewer.Common.resources.dll
+G:\sist planilla\BioMatrix\BioMatrix\BioMetrixCore\bin\Debug\it\Microsoft.ReportViewer.Common.resources.dll
+G:\sist planilla\BioMatrix\BioMatrix\BioMetrixCore\bin\Debug\ja\Microsoft.ReportViewer.Common.resources.dll
+G:\sist planilla\BioMatrix\BioMatrix\BioMetrixCore\bin\Debug\ko\Microsoft.ReportViewer.Common.resources.dll
+G:\sist planilla\BioMatrix\BioMatrix\BioMetrixCore\bin\Debug\pt\Microsoft.ReportViewer.Common.resources.dll
+G:\sist planilla\BioMatrix\BioMatrix\BioMetrixCore\bin\Debug\ru\Microsoft.ReportViewer.Common.resources.dll
+G:\sist planilla\BioMatrix\BioMatrix\BioMetrixCore\bin\Debug\zh-CHS\Microsoft.ReportViewer.Common.resources.dll
+G:\sist planilla\BioMatrix\BioMatrix\BioMetrixCore\bin\Debug\zh-CHT\Microsoft.ReportViewer.Common.resources.dll
+G:\sist planilla\BioMatrix\BioMatrix\BioMetrixCore\bin\Debug\de\Microsoft.ReportViewer.Design.resources.dll
+G:\sist planilla\BioMatrix\BioMatrix\BioMetrixCore\bin\Debug\es\Microsoft.ReportViewer.Design.resources.dll
+G:\sist planilla\BioMatrix\BioMatrix\BioMetrixCore\bin\Debug\fr\Microsoft.ReportViewer.Design.resources.dll
+G:\sist planilla\BioMatrix\BioMatrix\BioMetrixCore\bin\Debug\it\Microsoft.ReportViewer.Design.resources.dll
+G:\sist planilla\BioMatrix\BioMatrix\BioMetrixCore\bin\Debug\ja\Microsoft.ReportViewer.Design.resources.dll
+G:\sist planilla\BioMatrix\BioMatrix\BioMetrixCore\bin\Debug\ko\Microsoft.ReportViewer.Design.resources.dll
+G:\sist planilla\BioMatrix\BioMatrix\BioMetrixCore\bin\Debug\pt\Microsoft.ReportViewer.Design.resources.dll
+G:\sist planilla\BioMatrix\BioMatrix\BioMetrixCore\bin\Debug\ru\Microsoft.ReportViewer.Design.resources.dll
+G:\sist planilla\BioMatrix\BioMatrix\BioMetrixCore\bin\Debug\zh-CHS\Microsoft.ReportViewer.Design.resources.dll
+G:\sist planilla\BioMatrix\BioMatrix\BioMetrixCore\bin\Debug\zh-CHT\Microsoft.ReportViewer.Design.resources.dll
+G:\sist planilla\BioMatrix\BioMatrix\BioMetrixCore\bin\Debug\de\Microsoft.ReportViewer.WinForms.resources.dll
+G:\sist planilla\BioMatrix\BioMatrix\BioMetrixCore\bin\Debug\es\Microsoft.ReportViewer.WinForms.resources.dll
+G:\sist planilla\BioMatrix\BioMatrix\BioMetrixCore\bin\Debug\fr\Microsoft.ReportViewer.WinForms.resources.dll
+G:\sist planilla\BioMatrix\BioMatrix\BioMetrixCore\bin\Debug\it\Microsoft.ReportViewer.WinForms.resources.dll
+G:\sist planilla\BioMatrix\BioMatrix\BioMetrixCore\bin\Debug\ja\Microsoft.ReportViewer.WinForms.resources.dll
+G:\sist planilla\BioMatrix\BioMatrix\BioMetrixCore\bin\Debug\ko\Microsoft.ReportViewer.WinForms.resources.dll
+G:\sist planilla\BioMatrix\BioMatrix\BioMetrixCore\bin\Debug\pt\Microsoft.ReportViewer.WinForms.resources.dll
+G:\sist planilla\BioMatrix\BioMatrix\BioMetrixCore\bin\Debug\ru\Microsoft.ReportViewer.WinForms.resources.dll
+G:\sist planilla\BioMatrix\BioMatrix\BioMetrixCore\bin\Debug\zh-CHS\Microsoft.ReportViewer.WinForms.resources.dll
+G:\sist planilla\BioMatrix\BioMatrix\BioMetrixCore\bin\Debug\zh-CHT\Microsoft.ReportViewer.WinForms.resources.dll
+G:\sist planilla\BioMatrix\BioMatrix\BioMetrixCore\bin\Debug\de\Microsoft.ReportViewer.DataVisualization.resources.dll
+G:\sist planilla\BioMatrix\BioMatrix\BioMetrixCore\bin\Debug\es\Microsoft.ReportViewer.DataVisualization.resources.dll
+G:\sist planilla\BioMatrix\BioMatrix\BioMetrixCore\bin\Debug\fr\Microsoft.ReportViewer.DataVisualization.resources.dll
+G:\sist planilla\BioMatrix\BioMatrix\BioMetrixCore\bin\Debug\it\Microsoft.ReportViewer.DataVisualization.resources.dll
+G:\sist planilla\BioMatrix\BioMatrix\BioMetrixCore\bin\Debug\ja\Microsoft.ReportViewer.DataVisualization.resources.dll
+G:\sist planilla\BioMatrix\BioMatrix\BioMetrixCore\bin\Debug\ko\Microsoft.ReportViewer.DataVisualization.resources.dll
+G:\sist planilla\BioMatrix\BioMatrix\BioMetrixCore\bin\Debug\pt\Microsoft.ReportViewer.DataVisualization.resources.dll
+G:\sist planilla\BioMatrix\BioMatrix\BioMetrixCore\bin\Debug\ru\Microsoft.ReportViewer.DataVisualization.resources.dll
+G:\sist planilla\BioMatrix\BioMatrix\BioMetrixCore\bin\Debug\zh-CHS\Microsoft.ReportViewer.DataVisualization.resources.dll
+G:\sist planilla\BioMatrix\BioMatrix\BioMetrixCore\bin\Debug\zh-CHT\Microsoft.ReportViewer.DataVisualization.resources.dll
+G:\sist planilla\BioMatrix\BioMatrix\BioMetrixCore\bin\Debug\es\Microsoft.VisualStudio.Data.Services.resources.dll
+G:\sist planilla\BioMatrix\BioMatrix\BioMetrixCore\bin\Debug\es\Microsoft.VisualStudio.Data.Core.resources.dll
+G:\sist planilla\BioMatrix\BioMatrix\BioMetrixCore\bin\Debug\es\Microsoft.VisualStudio.GraphModel.resources.dll
+G:\sist planilla\BioMatrix\BioMatrix\BioMetrixCore\obj\Debug\BioMetrixCore.exe.config
