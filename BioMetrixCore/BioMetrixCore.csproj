@@ -86,12 +86,19 @@
     <Compile Include="Controls\DataEmpty.Designer.cs">
       <DependentUpon>DataEmpty.cs</DependentUpon>
     </Compile>
+    <Compile Include="Datos\FAsistencia.cs" />
     <Compile Include="Datos\FUsuario.cs" />
     <Compile Include="Datos\SqlCompactHelper.cs" />
     <Compile Include="Datos\SQLiteHelper.cs" />
     <Compile Include="EditarAppConfig.cs" />
+    <Compile Include="Entidad\Asistencia.cs" />
     <Compile Include="Entidad\Usuario.cs" />
     <Compile Include="Info\UserIDInfo.cs" />
+    <Compile Include="Presentacion\DataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Presentacion\FrmAsisencias.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -153,6 +160,17 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <None Include="packages.config" />
+    <None Include="Presentacion\DataSet1.xsc">
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="Presentacion\DataSet1.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSet1.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Presentacion\DataSet1.xss">
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -169,7 +187,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="db.sdf" />
     <Content Include="dlls\zkemkeeper.dll" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BioMetrixCore.Datos;
+using BioMetrixCore.Entidad;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -24,14 +26,13 @@ namespace BioMetrixCore.Presentacion
         private void FrmAsisencias_Load(object sender, EventArgs e)
         {
 
-
         }
 
         private void btnDatosDispositivo_Click(object sender, EventArgs e)
         {
             try
             {
-    
+                ClearGrid();
                 ICollection<MachineInfo> lstMachineInfo = manipulator.GetLogData(objZkeeper, numeroDispositivo);
 
                 if (lstMachineInfo != null && lstMachineInfo.Count > 0)
@@ -70,6 +71,68 @@ namespace BioMetrixCore.Presentacion
             dgvDatos.Controls.Clear();
             dgvDatos.Rows.Clear();
             dgvDatos.Columns.Clear();
+        }
+
+        private void btnSincronizar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (1 >= 1)
+                {
+
+                    foreach (DataGridViewRow row in dgvDatos.Rows)
+                    {
+                        Asistencia asistencia = new Asistencia();
+                        asistencia.NumeroEquipo= Convert.ToInt32(row.Cells["NumeroEquipo"].Value.ToString());
+                        asistencia.CodigoEmpleado= Convert.ToDouble(row.Cells["CodigoEmpleado"].Value.ToString());
+                        asistencia.ModoAcceso= Convert.ToInt32(row.Cells["ModoAcceso"].Value.ToString());
+                        asistencia.TipoRegistro= Convert.ToInt32(row.Cells["TipoRegistro"].Value.ToString());
+                        asistencia.Fecha= Convert.ToDateTime(row.Cells["Fecha"].Value.ToString());
+
+                        if (Convert.ToInt32(row.Cells["TipoRegistro"].Value.ToString())==0)//ingreso
+                        {
+                            int returnDetalleId = FAsistencia.InsertarIngreso(asistencia);
+                        }
+                        else if (Convert.ToInt32(row.Cells["TipoRegistro"].Value.ToString()) == 5)//salida
+                        {
+                            int returnDetalleId = FAsistencia.InsertarSalida(asistencia);
+                        }
+                        
+
+                    }
+
+                    MessageBox.Show("Se sincronizó correctamente.");
+                }
+                else
+                {
+                    //Productor productor = new Productor();
+                    //productor.Id = Convert.ToInt32(txtCodigo.Text);
+
+                    //int returnId = FProductor.Actualizar(productor);
+                    //Close();
+                }
+            }
+
+
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + ex.StackTrace);
+            }
+        }
+
+        private void btnListaLocal_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                ClearGrid();
+                DataSet ds = FAsistencia.GetAllFechas();
+                DataTable dt = ds.Tables[0];
+                dgvDatos.DataSource = dt;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + ex.StackTrace);
+            }
         }
     }
 }

@@ -66,6 +66,7 @@
             this.btnListaLocal.TabIndex = 10;
             this.btnListaLocal.Text = "Copia Local";
             this.btnListaLocal.UseVisualStyleBackColor = true;
+            this.btnListaLocal.Click += new System.EventHandler(this.btnListaLocal_Click);
             // 
             // dgvDatos
             // 
@@ -83,7 +84,7 @@
             this.btnSincronizar.TabIndex = 9;
             this.btnSincronizar.Text = "Sincronizar";
             this.btnSincronizar.UseVisualStyleBackColor = true;
-            this.btnSincronizar.Click += new System.EventHandler(this.btnDatosDispositivo_Click);
+            this.btnSincronizar.Click += new System.EventHandler(this.btnSincronizar_Click);
             // 
             // FrmAsisencias
             // 
