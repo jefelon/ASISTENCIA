@@ -25,7 +25,11 @@ namespace BioMetrixCore.Presentacion
         public int numeroDispositivo;
         private void FrmAsisencias_Load(object sender, EventArgs e)
         {
-
+            DataSet dse = FEmpleado.GetAll();
+            DataTable dte = dse.Tables[0];
+            cmbEmpleado.ValueMember = "Id";
+            cmbEmpleado.DisplayMember = "NombreTexto";
+            cmbEmpleado.DataSource = dte;
         }
 
         private void btnDatosDispositivo_Click(object sender, EventArgs e)
@@ -125,9 +129,49 @@ namespace BioMetrixCore.Presentacion
             try
             {
                 ClearGrid();
-                DataSet ds = FAsistencia.GetAllFechas();
-                DataTable dt = ds.Tables[0];
-                dgvDatos.DataSource = dt;
+
+                
+                DateTime fechaInicio = dtpDesde.Value, fechaFin = dtpHasta.Value;
+                int col = 3,fila=6;
+
+                Microsoft.Office.Interop.Excel.Application ExApp;
+                ExApp = new Microsoft.Office.Interop.Excel.Application();
+                Microsoft.Office.Interop.Excel._Workbook oWBook;
+                Microsoft.Office.Interop.Excel._Worksheet oSheet;
+                oWBook = ExApp.Workbooks.Open("D:/planilla.xlsx", Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing);
+                oSheet = (Microsoft.Office.Interop.Excel._Worksheet)oWBook.ActiveSheet;
+                foreach (DataRowView item in cmbEmpleado.Items)
+                    {
+                        double horas = 0;
+                        int idEmpleado = Convert.ToInt32(item.Row[0].ToString());
+                        
+                        for (var d = fechaInicio; d <= fechaFin; d = d.AddDays(1))
+                        {
+                            DataSet ds = FAsistencia.GetAllFechas(Convert.ToDateTime(d.ToShortDateString()), idEmpleado);
+                            DataTable dt = ds.Tables[0];
+                            col++;
+                            horas = Convert.ToDouble(dt.Rows[0]["HorasAc"]);
+
+                            oSheet.Cells[fila, col] = horas;
+                            oSheet.Cells[fila, col].Interior.Color = Color.Green;
+
+                        }
+                    col = 3;
+                    fila++;
+                    horas = 0;
+
+                }
+                //========================SECCION EXCEL
+                ExApp.Visible = false;
+                ExApp.UserControl = true;
+                oWBook.Save();
+                ExApp.ActiveWorkbook.Close(true, "D:/planilla.xlsx", Type.Missing);
+                ExApp.Quit();
+                ExApp = null;
+
+                MessageBox.Show("ok");
+                //====================FIN SECCION EXCEL
+
             }
             catch (Exception ex)
             {

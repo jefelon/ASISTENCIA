@@ -391,8 +391,8 @@ namespace BioMetrixCore
 
         private void asistenciaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FrmReporteAsistencia form = new FrmReporteAsistencia();
-            form.Show();
+            //FrmReporteAsistencia form = new FrmReporteAsistencia();
+            //form.Show();
         }
     }
 }

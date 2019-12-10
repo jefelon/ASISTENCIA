@@ -33,6 +33,9 @@
             this.btnListaLocal = new System.Windows.Forms.Button();
             this.dgvDatos = new System.Windows.Forms.DataGridView();
             this.btnSincronizar = new System.Windows.Forms.Button();
+            this.dtpDesde = new System.Windows.Forms.DateTimePicker();
+            this.dtpHasta = new System.Windows.Forms.DateTimePicker();
+            this.cmbEmpleado = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDatos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -86,11 +89,38 @@
             this.btnSincronizar.UseVisualStyleBackColor = true;
             this.btnSincronizar.Click += new System.EventHandler(this.btnSincronizar_Click);
             // 
+            // dtpDesde
+            // 
+            this.dtpDesde.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpDesde.Location = new System.Drawing.Point(379, 32);
+            this.dtpDesde.Name = "dtpDesde";
+            this.dtpDesde.Size = new System.Drawing.Size(101, 20);
+            this.dtpDesde.TabIndex = 12;
+            // 
+            // dtpHasta
+            // 
+            this.dtpHasta.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpHasta.Location = new System.Drawing.Point(508, 31);
+            this.dtpHasta.Name = "dtpHasta";
+            this.dtpHasta.Size = new System.Drawing.Size(101, 20);
+            this.dtpHasta.TabIndex = 12;
+            // 
+            // cmbEmpleado
+            // 
+            this.cmbEmpleado.FormattingEnabled = true;
+            this.cmbEmpleado.Location = new System.Drawing.Point(255, 29);
+            this.cmbEmpleado.Name = "cmbEmpleado";
+            this.cmbEmpleado.Size = new System.Drawing.Size(118, 21);
+            this.cmbEmpleado.TabIndex = 13;
+            // 
             // FrmAsisencias
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 536);
+            this.Controls.Add(this.cmbEmpleado);
+            this.Controls.Add(this.dtpHasta);
+            this.Controls.Add(this.dtpDesde);
             this.Controls.Add(this.lblStatus);
             this.Controls.Add(this.btnSincronizar);
             this.Controls.Add(this.btnDatosDispositivo);
@@ -111,5 +141,8 @@
         private System.Windows.Forms.Button btnListaLocal;
         private System.Windows.Forms.DataGridView dgvDatos;
         private System.Windows.Forms.Button btnSincronizar;
+        private System.Windows.Forms.DateTimePicker dtpDesde;
+        private System.Windows.Forms.DateTimePicker dtpHasta;
+        private System.Windows.Forms.ComboBox cmbEmpleado;
     }
 }
