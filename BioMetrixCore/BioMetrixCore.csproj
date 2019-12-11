@@ -92,6 +92,8 @@
       <DependentUpon>DataEmpty.cs</DependentUpon>
     </Compile>
     <Compile Include="Datos\FAsistencia.cs" />
+    <Compile Include="Datos\FDatosAnuales.cs" />
+    <Compile Include="Datos\FDatosMensuales.cs" />
     <Compile Include="Datos\FEmpleado.cs" />
     <Compile Include="Datos\FUsuario.cs" />
     <Compile Include="Datos\SqlCompactHelper.cs" />
@@ -106,6 +108,30 @@
     </Compile>
     <Compile Include="Presentacion\FrmAsisencias.Designer.cs">
       <DependentUpon>FrmAsisencias.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentacion\FrmDatosAnuales.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentacion\FrmDatosAnuales.Designer.cs">
+      <DependentUpon>FrmDatosAnuales.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentacion\FrmDatosAnualesRegistrar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentacion\FrmDatosAnualesRegistrar.Designer.cs">
+      <DependentUpon>FrmDatosAnualesRegistrar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentacion\FrmDatosMensuales.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentacion\FrmDatosMensuales.Designer.cs">
+      <DependentUpon>FrmDatosMensuales.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentacion\FrmDatosMensualesRegistrar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentacion\FrmDatosMensualesRegistrar.Designer.cs">
+      <DependentUpon>FrmDatosMensualesRegistrar.cs</DependentUpon>
     </Compile>
     <Compile Include="Presentacion\FrmUsuarios.cs">
       <SubType>Form</SubType>
@@ -137,6 +163,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\FrmAsisencias.resx">
       <DependentUpon>FrmAsisencias.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentacion\FrmDatosAnuales.resx">
+      <DependentUpon>FrmDatosAnuales.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentacion\FrmDatosAnualesRegistrar.resx">
+      <DependentUpon>FrmDatosAnualesRegistrar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentacion\FrmDatosMensuales.resx">
+      <DependentUpon>FrmDatosMensuales.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentacion\FrmDatosMensualesRegistrar.resx">
+      <DependentUpon>FrmDatosMensualesRegistrar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\FrmUsuarios.resx">
       <DependentUpon>FrmUsuarios.cs</DependentUpon>

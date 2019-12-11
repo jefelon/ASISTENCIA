@@ -410,5 +410,17 @@ namespace BioMetrixCore
 
             }
         }
+
+        private void datosAnualesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmDatosAnuales form = new FrmDatosAnuales();
+            form.Show();
+        }
+
+        private void datosMensualesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmDatosMensuales form = new FrmDatosMensuales();
+            form.Show();
+        }
     }
 }

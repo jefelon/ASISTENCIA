@@ -52,6 +52,7 @@
             this.equiposToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.asistenciasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.configuracionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.datosAnualesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reportesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.asistenciaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.btnUploadUserInfo = new System.Windows.Forms.Button();
@@ -65,6 +66,7 @@
             this.btnPullData = new System.Windows.Forms.Button();
             this.btnDownloadFingerPrint = new System.Windows.Forms.Button();
             this.dgvRecords = new System.Windows.Forms.DataGridView();
+            this.datosMensualesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pnlHeader.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -301,9 +303,19 @@
             // 
             // configuracionToolStripMenuItem
             // 
+            this.configuracionToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.datosAnualesToolStripMenuItem,
+            this.datosMensualesToolStripMenuItem});
             this.configuracionToolStripMenuItem.Name = "configuracionToolStripMenuItem";
             this.configuracionToolStripMenuItem.Size = new System.Drawing.Size(95, 20);
             this.configuracionToolStripMenuItem.Text = "Configuracion";
+            // 
+            // datosAnualesToolStripMenuItem
+            // 
+            this.datosAnualesToolStripMenuItem.Name = "datosAnualesToolStripMenuItem";
+            this.datosAnualesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.datosAnualesToolStripMenuItem.Text = "Datos Anuales";
+            this.datosAnualesToolStripMenuItem.Click += new System.EventHandler(this.datosAnualesToolStripMenuItem_Click);
             // 
             // reportesToolStripMenuItem
             // 
@@ -428,6 +440,13 @@
             this.dgvRecords.Size = new System.Drawing.Size(778, 344);
             this.dgvRecords.TabIndex = 894;
             // 
+            // datosMensualesToolStripMenuItem
+            // 
+            this.datosMensualesToolStripMenuItem.Name = "datosMensualesToolStripMenuItem";
+            this.datosMensualesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.datosMensualesToolStripMenuItem.Text = "Datos Mensuales";
+            this.datosMensualesToolStripMenuItem.Click += new System.EventHandler(this.datosMensualesToolStripMenuItem_Click);
+            // 
             // Master
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -505,6 +524,8 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.RadioButton rbtUsb;
         private System.Windows.Forms.RadioButton rbtRed;
+        private System.Windows.Forms.ToolStripMenuItem datosAnualesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem datosMensualesToolStripMenuItem;
     }
 }
 

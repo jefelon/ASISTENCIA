@@ -387,3 +387,7 @@ D:\SISTEMAS\ASISTENCIA\BioMetrixCore\bin\Debug\System.Data.SQLite.dll
 D:\SISTEMAS\ASISTENCIA\BioMetrixCore\bin\Debug\System.Data.SQLite.EF6.dll
 D:\SISTEMAS\ASISTENCIA\BioMetrixCore\bin\Debug\System.Data.SQLite.Linq.dll
 D:\SISTEMAS\ASISTENCIA\BioMetrixCore\obj\Debug\Interop.Office.dll
+D:\SISTEMAS\ASISTENCIA\BioMetrixCore\obj\Debug\BioMetrixCore.Presentacion.FrmDatosAnuales.resources
+D:\SISTEMAS\ASISTENCIA\BioMetrixCore\obj\Debug\BioMetrixCore.Presentacion.FrmDatosAnualesRegistrar.resources
+D:\SISTEMAS\ASISTENCIA\BioMetrixCore\obj\Debug\BioMetrixCore.Presentacion.FrmDatosMensuales.resources
+D:\SISTEMAS\ASISTENCIA\BioMetrixCore\obj\Debug\BioMetrixCore.Presentacion.FrmDatosMensualesRegistrar.resources
