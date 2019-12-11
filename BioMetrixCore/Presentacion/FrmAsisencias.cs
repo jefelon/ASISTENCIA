@@ -23,6 +23,7 @@ namespace BioMetrixCore.Presentacion
         public ZkemClient objZkeeper;
         public bool estado;
         public int numeroDispositivo;
+        private static DataTable dt = new DataTable();
         private void FrmAsisencias_Load(object sender, EventArgs e)
         {
             DataSet dse = FEmpleado.GetAll();
@@ -30,22 +31,46 @@ namespace BioMetrixCore.Presentacion
             cmbEmpleado.ValueMember = "Id";
             cmbEmpleado.DisplayMember = "NombreTexto";
             cmbEmpleado.DataSource = dte;
+
+            DataSet dse2 = FEmpleado.GetAll();
+            DataTable dte2 = dse2.Tables[0];
+            cmbEmp.ValueMember = "Id";
+            cmbEmp.DisplayMember = "NombreTexto";
+            cmbEmp.DataSource = dte2;
+
+            if (estado)
+            {
+                lblStatus.Text = "Conectado.";
+                lblStatus.BackColor = Color.Green;
+            }
+            else
+            {
+                lblStatus.BackColor = Color.Red;
+                lblStatus.Text = "Desconectado.";
+            }
         }
 
         private void btnDatosDispositivo_Click(object sender, EventArgs e)
         {
             try
             {
-                ClearGrid();
-                ICollection<MachineInfo> lstMachineInfo = manipulator.GetLogData(objZkeeper, numeroDispositivo);
-
-                if (lstMachineInfo != null && lstMachineInfo.Count > 0)
+                if (estado==true)
                 {
-                    BindToGridView(lstMachineInfo);
-                    DisplayListOutput(lstMachineInfo.Count + " regristros encontrados!!");
+                    ClearGrid();
+                    ICollection<MachineInfo> lstMachineInfo = manipulator.GetLogData(objZkeeper, numeroDispositivo);
+
+                    if (lstMachineInfo != null && lstMachineInfo.Count > 0)
+                    {
+                        BindToGridView(lstMachineInfo);
+                        DisplayListOutput(lstMachineInfo.Count + " regristros encontrados!!");
+                    }
+                    else
+                        DisplayListOutput("No se encontraro registros.");
                 }
                 else
-                    DisplayListOutput("No se encontraro registros.");
+                {
+                    MessageBox.Show("Conéctese al dispositivo de asistencia.");
+                }
             }
             catch (Exception ex)
             {
@@ -81,39 +106,33 @@ namespace BioMetrixCore.Presentacion
         {
             try
             {
-                if (1 >= 1)
+                if (estado==true)
                 {
-
-                    foreach (DataGridViewRow row in dgvDatos.Rows)
+                    if (MessageBox.Show("¿Está seguro de sincronizar el dispositivo con la base de datos.?  Esto es lo que pasará. \n " +
+                    "Se eliminará todo y se insertará nuevamente todos los registros.", "Sincronizando...",
+                    MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
                     {
-                        Asistencia asistencia = new Asistencia();
-                        asistencia.NumeroEquipo= Convert.ToInt32(row.Cells["NumeroEquipo"].Value.ToString());
-                        asistencia.CodigoEmpleado= Convert.ToDouble(row.Cells["CodigoEmpleado"].Value.ToString());
-                        asistencia.ModoAcceso= Convert.ToInt32(row.Cells["ModoAcceso"].Value.ToString());
-                        asistencia.TipoRegistro= Convert.ToInt32(row.Cells["TipoRegistro"].Value.ToString());
-                        asistencia.Fecha= Convert.ToDateTime(row.Cells["Fecha"].Value.ToString());
-
-                        if (Convert.ToInt32(row.Cells["TipoRegistro"].Value.ToString())==0)//ingreso
+                        foreach (DataGridViewRow row in dgvDatos.Rows)
                         {
+                            Asistencia asistencia = new Asistencia();
+                            asistencia.NumeroEquipo = Convert.ToInt32(row.Cells["NumeroEquipo"].Value.ToString());
+                            asistencia.CodigoEmpleado = Convert.ToDouble(row.Cells["CodigoEmpleado"].Value.ToString());
+                            asistencia.ModoAcceso = Convert.ToInt32(row.Cells["ModoAcceso"].Value.ToString());
+                            asistencia.TipoRegistro = Convert.ToInt32(row.Cells["TipoRegistro"].Value.ToString());
+                            asistencia.Fecha = Convert.ToDateTime(row.Cells["Fecha"].Value.ToString());
+
+
                             int returnDetalleId = FAsistencia.InsertarIngreso(asistencia);
-                        }
-                        else if (Convert.ToInt32(row.Cells["TipoRegistro"].Value.ToString()) == 5)//salida
-                        {
-                            int returnDetalleId = FAsistencia.InsertarSalida(asistencia);
-                        }
-                        
+                            
 
+                        }
                     }
 
                     MessageBox.Show("Se sincronizó correctamente.");
                 }
                 else
                 {
-                    //Productor productor = new Productor();
-                    //productor.Id = Convert.ToInt32(txtCodigo.Text);
-
-                    //int returnId = FProductor.Actualizar(productor);
-                    //Close();
+                    MessageBox.Show("Conéctese al dispositivo de asistencia.");
                 }
             }
 
@@ -129,10 +148,28 @@ namespace BioMetrixCore.Presentacion
             try
             {
                 ClearGrid();
+                DataSet ds = FAsistencia.GetAll();
+                dt = ds.Tables[0];
+                dgvDatos.DataSource = dt;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + ex.StackTrace);
+            }
+        }
 
-                
+        private void btnReporte_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                ClearGrid();
+
+
                 DateTime fechaInicio = dtpDesde.Value, fechaFin = dtpHasta.Value;
-                int col = 3,fila=6;
+                int anio = fechaInicio.Year;
+                int mes = fechaInicio.Month;
+                int col = 3, fila = 6;
+                int filas = 0;
 
                 Microsoft.Office.Interop.Excel.Application ExApp;
                 ExApp = new Microsoft.Office.Interop.Excel.Application();
@@ -141,26 +178,144 @@ namespace BioMetrixCore.Presentacion
                 oWBook = ExApp.Workbooks.Open("D:/planilla.xlsx", Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing);
                 oSheet = (Microsoft.Office.Interop.Excel._Worksheet)oWBook.ActiveSheet;
                 foreach (DataRowView item in cmbEmpleado.Items)
-                    {
-                        double horas = 0;
-                        int idEmpleado = Convert.ToInt32(item.Row[0].ToString());
-                        
-                        for (var d = fechaInicio; d <= fechaFin; d = d.AddDays(1))
-                        {
-                            DataSet ds = FAsistencia.GetAllFechas(Convert.ToDateTime(d.ToShortDateString()), idEmpleado);
-                            DataTable dt = ds.Tables[0];
-                            col++;
-                            horas = Convert.ToDouble(dt.Rows[0]["HorasAc"]);
+                {
+                    double horas = 0;
+                    double horacu = 0;
+                    double horadom = 0;
+                    int idEmpleado = Convert.ToInt32(item.Row[0].ToString());
 
-                            oSheet.Cells[fila, col] = horas;
-                            oSheet.Cells[fila, col].Interior.Color = Color.Green;
+                    filas++;
+
+                    for (var d = fechaInicio; d <= fechaFin; d = d.AddDays(1))
+                    {
+                        DataSet ds = FAsistencia.GetFechas(Convert.ToDateTime(d.ToShortDateString()), idEmpleado);
+                        DataTable dt = ds.Tables[0];
+                        col++;
+                        if (d.DayOfWeek == DayOfWeek.Sunday)
+                        {
+                            horadom = Convert.ToDouble(dt.Rows[0]["HorasAc"].ToString());
 
                         }
+
+                        else
+                        {
+                            horas = Convert.ToDouble(dt.Rows[0]["HorasAc"].ToString());
+                            horacu += horas;
+                        }
+                        oSheet.Cells[fila, col] = horas;
+                        oSheet.Cells[fila, col].Interior.Color = Color.Green;
+
+                    }
+                    // OTROS DATOS                          
+                    DataSet ds2 = FAsistencia.GetAllDatos(anio, mes, idEmpleado);
+                    DataTable dt2 = ds2.Tables[0];
+                    var empleadoId = dt2.Rows[0]["EmpleadoId"].ToString();
+                    var nombreTexto = dt2.Rows[0]["NombreTexto"].ToString();
+                    var apellidos = dt2.Rows[0]["Apellidos"].ToString();
+                    var cargo = dt2.Rows[0]["Cargo"].ToString();
+                    double salario = Convert.ToDouble(dt2.Rows[0]["Salario"].ToString());
+                    double porhora = (salario / 30) / 8;
+
+                    oSheet.Cells[fila, 1] = empleadoId;//ID EMPLEADO
+                    oSheet.Cells[fila, 2] = nombreTexto + " " + apellidos;//NOMBRES APELLIDOS
+                    oSheet.Cells[fila, 3] = cargo; //CARGO
+                    oSheet.Cells[fila, 12] = porhora; //POR HORA
+                    oSheet.Cells[fila, 13] = porhora * horacu; //BASICO
+
+                    double saldo = horadom - 2;
+                    double doshoras = horadom - saldo;
+                    doshoras = doshoras * 1.25;
+                    saldo = saldo * 1.35;
+
+                    oSheet.Cells[fila, 14] = doshoras + saldo; //DOMINICAL
+
+                    //======ASIGNACION FAMILIAR
+                    double asigfam = 0;
+                    double remMin = Convert.ToDouble(dt2.Rows[0]["RemMin"].ToString());
+                    double porAsigfam = Convert.ToDouble(dt2.Rows[0]["AsigFam"].ToString());
+                    porAsigfam = porAsigfam / 100;
+                    if (dt2.Rows[0]["AsigFam"].ToString() == "1")
+                    {
+                        asigfam = ((((porAsigfam * remMin) / 30) * 7) / 48) * horacu; // ES MAS SIMPLE
+                    }
+                    oSheet.Cells[fila, 15] = asigfam; //ASIGNACION FAMILIAR
+
+                    //======SNP ONP
+                    double onp = Convert.ToDouble(dt2.Rows[0]["OnpDat"].ToString());
+                    onp = onp / 100;
+                    if (dt2.Rows[0]["Onp"].ToString() == "1")
+                    {
+                        oSheet.Cells[fila, 18].Formula = string.Format("=+Q" + fila + "*" + onp);
+                    }
+
+                    //======AFP COM
+                    double afpCom = Convert.ToDouble(dt2.Rows[0]["AfpCom"].ToString());
+                    afpCom = afpCom / 100;
+                    if (dt2.Rows[0]["Afp"].ToString() == "1")
+                    {
+                        oSheet.Cells[fila, 19].Formula = string.Format("=+Q" + fila + "*" + afpCom);
+                    }
+                    //======AFP PRIM COM
+                    double afpPrimCom = Convert.ToDouble(dt2.Rows[0]["AfpPrimCom"].ToString());
+                    afpPrimCom = afpCom / 100;
+                    if (dt2.Rows[0]["Afp"].ToString() == "1")
+                    {
+                        oSheet.Cells[fila, 20].Formula = string.Format("=+Q" + fila + "*" + afpPrimCom);
+                    }
+                    //======AFP APORTE
+                    double afpApo = Convert.ToDouble(dt2.Rows[0]["AfpDat"].ToString());
+                    afpApo = afpApo / 100;
+                    if (dt2.Rows[0]["Afp"].ToString() == "1")
+                    {
+                        oSheet.Cells[fila, 21].Formula = string.Format("=+Q" + fila + "*" + afpApo);
+
+                        // SUM
+                        oSheet.Cells[fila, 22].Formula = string.Format("=SUMA(S10: U10");
+                    }
+                    //======RENTA 5                 
+                    if (dt2.Rows[0]["Afp"].ToString() == "1")
+                    {
+                        // oSheet.Cells[fila, 24].Formula = string.Format("=Q" + fila + "*" + afpApo + "");
+
+                    }
+                    //======TOTAL DESCUENTO    
+                    double totDesc = 0;
+                    if (dt2.Rows[0]["Afp"].ToString() == "1")
+                    {
+                        oSheet.Cells[fila, 25].Formula = string.Format("=+V" + fila);
+
+                    }
+                    else if (dt2.Rows[0]["Onp"].ToString() == "1")
+                    {
+                        oSheet.Cells[fila, 25].Formula = string.Format("=+R" + fila + "W" + fila + "X" + fila + "");
+                    }
+
+                    //======NETO A PAGAR 
+                    oSheet.Cells[fila, 26].Formula = string.Format("=+Y" + fila);
+
+                    //======ESSALUD
+                    double essalud = Convert.ToDouble(dt2.Rows[0]["Essalud"].ToString());
+                    essalud = essalud / 100;
+                    oSheet.Cells[fila, 27].Formula = string.Format("=+Q" + fila + "*" + essalud);
+
+                    //======TOTAL APORTAC                  
+                    oSheet.Cells[fila, 27].Formula = string.Format("=SUMA(AA8:AC8)");
+
                     col = 3;
                     fila++;
                     horas = 0;
+                    horacu = 0;
 
                 }
+
+                //APLICANDO TOTALES
+                //filas = filas + 1;
+                //int i;
+                //for (i = 13; i <= 30; i++)
+                //{
+                //    oSheet.Cells[filas, i].Formula = string.Format("=SUMA(L6:L14)");
+                //}
+
                 //========================SECCION EXCEL
                 ExApp.Visible = false;
                 ExApp.UserControl = true;
@@ -172,6 +327,77 @@ namespace BioMetrixCore.Presentacion
                 MessageBox.Show("ok");
                 //====================FIN SECCION EXCEL
 
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + ex.StackTrace);
+            }
+        }
+
+        private void btnBorrarBase_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (MessageBox.Show("¿Está seguro de eliminar todos los registros de asistencia de la base de datos? \n Se eliminara todo, sin posibilidad de recuperar. \n " +
+                    "No se borrará del dispositivo de asistrencia.", "Eliminar Asistencias",
+                MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+                {
+
+                    if (FAsistencia.EliminarTodo() > 0)
+                    {
+                        FrmAsisencias_Load(null, null);
+                    }
+                    else
+                    {
+                        MessageBox.Show("No se pudo eliminar...", "No se puede eliminar");
+
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + ex.StackTrace);
+            }
+        }
+
+        private void cmbEmp_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                DataView dv = new DataView(dt.Copy()); //dt es la tabla que creamos al inicio de esta hoja
+                dv.RowFilter = " NombreTexto Like '" + cmbEmp.Text + "%'";
+                dgvDatos.DataSource = dv;
+            }
+            catch
+            {
+
+            }
+        }
+
+        private void dtpDesde_ValueChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                ClearGrid();
+                DataSet ds = FAsistencia.GetFiltro(Convert.ToInt32(cmbEmp.SelectedValue.ToString()), dtpDesde.Value, dtpHasta.Value);
+                dt = ds.Tables[0];
+                dgvDatos.DataSource = dt;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + ex.StackTrace);
+            }
+        }
+
+        private void dtpHasta_ValueChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                ClearGrid();
+                DataSet ds = FAsistencia.GetFiltro(Convert.ToInt32(cmbEmp.SelectedValue.ToString()), dtpDesde.Value, dtpHasta.Value);
+                dt = ds.Tables[0];
+                dgvDatos.DataSource = dt;
             }
             catch (Exception ex)
             {

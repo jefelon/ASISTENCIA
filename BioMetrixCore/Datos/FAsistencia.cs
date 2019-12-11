@@ -18,17 +18,39 @@ namespace BioMetrixCore.Datos
                 {
 
                 };
-            return SQLHelper.ExecuteDataSet("select * from tblAsistencia order by id; ", dbParams);
+            return SQLHelper.ExecuteDataSet("usp_Datos_FAsistencia_GetAll", dbParams);
 
         }
-        public static DataSet GetAllFechas(DateTime fecha, int empleadoId)
+        public static DataSet GetFechas(DateTime fecha, int empleadoId)
         {
             SqlParameter[] dbParams = new SqlParameter[]
                 {
                     SQLHelper.MakeParam("@Fecha", SqlDbType.DateTime, 0, fecha),
                     SQLHelper.MakeParam("@EmpleadoId", SqlDbType.Int, 0, empleadoId),
                 };
-            return SQLHelper.ExecuteDataSet("usp_Datos_FAsistencia_GetAll", dbParams);
+            return SQLHelper.ExecuteDataSet("usp_Datos_FAsistencia_GetFechas", dbParams);
+
+        }
+        public static DataSet GetAllDatos(int anio, int mes,int empleadoId)
+        {
+            SqlParameter[] dbParams = new SqlParameter[]
+                {
+                    SQLHelper.MakeParam("@Anio", SqlDbType.Int, 0, anio),
+                    SQLHelper.MakeParam("@Mes", SqlDbType.Int, 0, mes),
+                    SQLHelper.MakeParam("@EmpleadoId", SqlDbType.Int, 0, empleadoId),
+                };
+            return SQLHelper.ExecuteDataSet("usp_Datos_FAsistencia_GetAllDatos", dbParams);
+
+        }
+        public static DataSet GetFiltro(int empleadoId, DateTime desde, DateTime hasta)
+        {
+            SqlParameter[] dbParams = new SqlParameter[]
+                {
+                    SQLHelper.MakeParam("@EmpleadoId", SqlDbType.Int, 0, empleadoId),
+                    SQLHelper.MakeParam("@Desde", SqlDbType.Date, 0, desde),
+                    SQLHelper.MakeParam("@Hasta", SqlDbType.Date, 0, hasta),
+                };
+            return SQLHelper.ExecuteDataSet("usp_Datos_FAsistencia_GetFiltro", dbParams);
 
         }
         public static int Insertar(Asistencia asistencia)
@@ -55,7 +77,7 @@ namespace BioMetrixCore.Datos
                     SQLHelper.MakeParam("@TipoRegistro", SqlDbType.Int, 0, asistencia.TipoRegistro),
                     SQLHelper.MakeParam("@Fecha", SqlDbType.DateTime, 0, asistencia.Fecha),
                 };
-            return Convert.ToInt32(SQLHelper.ExecuteScalar("insert into tblIngreso(NumeroEquipo, CodigoEmpleado, ModoAcceso,TipoRegistro,Fecha) values(@NumeroEquipo, @CodigoEmpleado, @ModoAcceso,@TipoRegistro,@Fecha); select last_insert_rowid();", dbParams));
+            return Convert.ToInt32(SQLHelper.ExecuteScalar("usp_Datos_FAsistencia_InsertarRegistro", dbParams));
         }
         public static int InsertarSalida(Asistencia asistencia)
         {
@@ -107,6 +129,15 @@ namespace BioMetrixCore.Datos
                     SQLHelper.MakeParam("@Id", SqlDbType.Int, 0, asistencia.Id),
                 };
             return Convert.ToInt32(SQLHelper.ExecuteScalar("DELETE FROM tblAsistencia WHERE Id= @Id", dbParams));
+
+        }
+        public static int EliminarTodo()
+        {
+            SqlParameter[] dbParams = new SqlParameter[]
+                {
+
+                };
+            return Convert.ToInt32(SQLHelper.ExecuteScalar("usp_Datos_FAsistencia_EliminarTodo", dbParams));
 
         }
     }

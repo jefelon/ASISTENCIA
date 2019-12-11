@@ -167,7 +167,6 @@ D:\SISTEMAS\ASISTENCIA\BioMetrixCore\obj\Debug\BioMetrixCore.csproj.ResolveComRe
 D:\SISTEMAS\ASISTENCIA\BioMetrixCore\obj\Debug\BioMetrixCore.DataEmpty.resources
 D:\SISTEMAS\ASISTENCIA\BioMetrixCore\obj\Debug\BioMetrixCore.Master.resources
 D:\SISTEMAS\ASISTENCIA\BioMetrixCore\obj\Debug\BioMetrixCore.Presentacion.FrmAsisencias.resources
-D:\SISTEMAS\ASISTENCIA\BioMetrixCore\obj\Debug\BioMetrixCore.Presentacion.FrmReporteAsistencia.resources
 D:\SISTEMAS\ASISTENCIA\BioMetrixCore\obj\Debug\BioMetrixCore.Presentacion.FrmUsuarios.resources
 D:\SISTEMAS\ASISTENCIA\BioMetrixCore\obj\Debug\BioMetrixCore.Properties.Resources.resources
 D:\SISTEMAS\ASISTENCIA\BioMetrixCore\obj\Debug\BioMetrixCore.csproj.GenerateResource.cache
@@ -384,3 +383,7 @@ D:\SISTEMA\ASISTENCIA\BioMetrixCore\obj\Debug\BioMetrixCore.csproj.CopyComplete
 D:\SISTEMA\ASISTENCIA\BioMetrixCore\obj\Debug\BioMetrixCore.exe
 D:\SISTEMA\ASISTENCIA\BioMetrixCore\obj\Debug\BioMetrixCore.pdb
 D:\SISTEMA\ASISTENCIA\BioMetrixCore\obj\Debug\Interop.Office.dll
+D:\SISTEMAS\ASISTENCIA\BioMetrixCore\bin\Debug\System.Data.SQLite.dll
+D:\SISTEMAS\ASISTENCIA\BioMetrixCore\bin\Debug\System.Data.SQLite.EF6.dll
+D:\SISTEMAS\ASISTENCIA\BioMetrixCore\bin\Debug\System.Data.SQLite.Linq.dll
+D:\SISTEMAS\ASISTENCIA\BioMetrixCore\obj\Debug\Interop.Office.dll

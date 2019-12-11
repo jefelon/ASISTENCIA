@@ -24,15 +24,15 @@ namespace BioMetrixCore
                 isDeviceConnected = value;
                 if (isDeviceConnected)
                 {
-                    ShowStatusBar("The device is connected !!", true);
-                    btnConnect.Text = "Disconnect";
+                    ShowStatusBar("¡El dispositivo está conectado!", true);
+                    btnConnect.Text = "Desconectar";
                     ToggleControls(true);
                 }
                 else
                 {
-                    ShowStatusBar("The device is diconnected !!", true);
+                    ShowStatusBar("¡El dispositivo está desconectado!", false);
                     objZkeeper.Disconnect();
-                    btnConnect.Text = "Connect";
+                    btnConnect.Text = "Conectar";
                     ToggleControls(false);
                 }
             }
@@ -52,8 +52,6 @@ namespace BioMetrixCore
             btnGetAllUserID.Enabled = value;
             btnUploadUserInfo.Enabled = value;
             tbxMachineNumber.Enabled = !value;
-            tbxPort.Enabled = !value;
-            tbxDeviceIP.Enabled = !value;
 
         }
 
@@ -77,9 +75,9 @@ namespace BioMetrixCore
             {
                 case UniversalStatic.acx_Disconnect:
                     {
-                        ShowStatusBar("The device is switched off", true);
+                        ShowStatusBar("El dispositivo está apagado", true);
                         DisplayEmpty();
-                        btnConnect.Text = "Connect";
+                        btnConnect.Text = "Conectar";
                         ToggleControls(false);
                         break;
                     }
@@ -155,9 +153,9 @@ namespace BioMetrixCore
             lblStatus.ForeColor = Color.White;
 
             if (type)
-                lblStatus.BackColor = Color.FromArgb(79, 208, 154);
+                lblStatus.BackColor = Color.Green;
             else
-                lblStatus.BackColor = Color.FromArgb(230, 112, 134);
+                lblStatus.BackColor = Color.Red;
         }
 
 
@@ -169,13 +167,13 @@ namespace BioMetrixCore
 
             bool isValidIpA = UniversalStatic.ValidateIP(ipAddress);
             if (!isValidIpA)
-                throw new Exception("The Device IP is invalid !!");
+                throw new Exception("Ip del dispositivo inválido !!");
 
             isValidIpA = UniversalStatic.PingTheDevice(ipAddress);
             if (isValidIpA)
-                ShowStatusBar("The device is active", true);
+                ShowStatusBar("El dispositivo esta activo.", true);
             else
-                ShowStatusBar("Could not read any response", false);
+                ShowStatusBar("No se pudo leer ninguna respuesta.", false);
         }
 
         private void btnGetAllUserID_Click(object sender, EventArgs e)
@@ -187,12 +185,12 @@ namespace BioMetrixCore
                 if (lstUserIDInfo != null && lstUserIDInfo.Count > 0)
                 {
                     BindToGridView(lstUserIDInfo);
-                    ShowStatusBar(lstUserIDInfo.Count + " records found !!", true);
+                    ShowStatusBar(lstUserIDInfo.Count + " registros encontrados !!", true);
                 }
                 else
                 {
                     DisplayEmpty();
-                    DisplayListOutput("No records found");
+                    DisplayListOutput("No se encontró registros.");
                 }
 
             }
@@ -218,10 +216,10 @@ namespace BioMetrixCore
                 if (lstFingerPrintTemplates != null && lstFingerPrintTemplates.Count > 0)
                 {
                     BindToGridView(lstFingerPrintTemplates);
-                    ShowStatusBar(lstFingerPrintTemplates.Count + " records found !!", true);
+                    ShowStatusBar(lstFingerPrintTemplates.Count + " registros encontrados !!", true);
                 }
                 else
-                    DisplayListOutput("No records found");
+                    DisplayListOutput("No se encontró registros.");
             }
             catch (Exception ex)
             {
@@ -242,10 +240,10 @@ namespace BioMetrixCore
                 if (lstMachineInfo != null && lstMachineInfo.Count > 0)
                 {
                     BindToGridView(lstMachineInfo);
-                    ShowStatusBar(lstMachineInfo.Count + " records found !!", true);
+                    ShowStatusBar(lstMachineInfo.Count + " registros encontrados !!", true);
                 }
                 else
-                    DisplayListOutput("No records found");
+                    DisplayListOutput("No se encontró registros.");
             }
             catch (Exception ex)
             {
@@ -300,7 +298,7 @@ namespace BioMetrixCore
             this.Cursor = Cursors.WaitCursor;
 
             var resultDia = DialogResult.None;
-            resultDia = MessageBox.Show("Do you wish to Power Off the Device ??", "Power Off Device", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            resultDia = MessageBox.Show("¿Desea apagar el dispositivo?", "Encender/Apagar Dispositivo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (resultDia == DialogResult.Yes)
             {
                 bool deviceOff = objZkeeper.PowerOffDevice(int.Parse(tbxMachineNumber.Text.Trim()));
@@ -313,13 +311,13 @@ namespace BioMetrixCore
         private void btnRestartDevice_Click(object sender, EventArgs e)
         {
 
-            DialogResult rslt = MessageBox.Show("Do you wish to restart the device now ??", "Restart Device", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            DialogResult rslt = MessageBox.Show("¿Desea reiniciar el dispositivo ahora ? ", "Reiniciar Dispositivo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (rslt == DialogResult.Yes)
             {
                 if (objZkeeper.RestartDevice(int.Parse(tbxMachineNumber.Text.Trim())))
-                    ShowStatusBar("The device is being restarted, Please wait...", true);
+                    ShowStatusBar("El dispositivo se está reiniciando., Por favor espera...", true);
                 else
-                    ShowStatusBar("Operation failed,please try again", false);
+                    ShowStatusBar("Operación fallida, intente nuevamente", false);
             }
 
         }
@@ -393,6 +391,24 @@ namespace BioMetrixCore
         {
             //FrmReporteAsistencia form = new FrmReporteAsistencia();
             //form.Show();
+        }
+
+        private void rbtUsb_CheckedChanged(object sender, EventArgs e)
+        {
+            if(rbtUsb.Checked==true)
+            {
+                tbxDeviceIP.Enabled = false;
+                tbxPort.Enabled = false;
+                btnPingDevice.Enabled = false;
+            }
+            if (rbtRed.Checked == true)
+            {
+                tbxDeviceIP.Enabled = true;
+                tbxPort.Enabled = true;
+                btnPingDevice.Enabled = true;
+
+
+            }
         }
     }
 }

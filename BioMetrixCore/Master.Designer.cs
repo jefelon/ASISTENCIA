@@ -39,6 +39,9 @@
             this.label3 = new System.Windows.Forms.Label();
             this.tbxMachineNumber = new System.Windows.Forms.TextBox();
             this.pnlHeader = new System.Windows.Forms.Panel();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.rbtRed = new System.Windows.Forms.RadioButton();
+            this.rbtUsb = new System.Windows.Forms.RadioButton();
             this.lblHeader = new System.Windows.Forms.Label();
             this.lblDeviceInfo = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
@@ -49,6 +52,8 @@
             this.equiposToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.asistenciasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.configuracionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.reportesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.asistenciaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.btnUploadUserInfo = new System.Windows.Forms.Button();
             this.btnPowerOff = new System.Windows.Forms.Button();
             this.btnRestartDevice = new System.Windows.Forms.Button();
@@ -60,9 +65,8 @@
             this.btnPullData = new System.Windows.Forms.Button();
             this.btnDownloadFingerPrint = new System.Windows.Forms.Button();
             this.dgvRecords = new System.Windows.Forms.DataGridView();
-            this.reportesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.asistenciaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pnlHeader.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRecords)).BeginInit();
             this.SuspendLayout();
@@ -70,9 +74,10 @@
             // tbxDeviceIP
             // 
             this.tbxDeviceIP.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbxDeviceIP.Location = new System.Drawing.Point(296, 9);
+            this.tbxDeviceIP.Enabled = false;
+            this.tbxDeviceIP.Location = new System.Drawing.Point(332, 9);
             this.tbxDeviceIP.Name = "tbxDeviceIP";
-            this.tbxDeviceIP.Size = new System.Drawing.Size(99, 22);
+            this.tbxDeviceIP.Size = new System.Drawing.Size(86, 22);
             this.tbxDeviceIP.TabIndex = 0;
             this.tbxDeviceIP.Text = "172.18.12.222";
             // 
@@ -80,17 +85,17 @@
             // 
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(238, 12);
+            this.label1.Location = new System.Drawing.Point(285, 13);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(52, 13);
+            this.label1.Size = new System.Drawing.Size(41, 13);
             this.label1.TabIndex = 1;
-            this.label1.Text = "Device IP";
+            this.label1.Text = " IP Dis.";
             // 
             // label2
             // 
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(401, 14);
+            this.label2.Location = new System.Drawing.Point(424, 14);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(28, 13);
             this.label2.TabIndex = 3;
@@ -99,10 +104,11 @@
             // tbxPort
             // 
             this.tbxPort.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbxPort.Location = new System.Drawing.Point(433, 9);
+            this.tbxPort.Enabled = false;
+            this.tbxPort.Location = new System.Drawing.Point(458, 9);
             this.tbxPort.MaxLength = 6;
             this.tbxPort.Name = "tbxPort";
-            this.tbxPort.Size = new System.Drawing.Size(56, 22);
+            this.tbxPort.Size = new System.Drawing.Size(38, 22);
             this.tbxPort.TabIndex = 2;
             this.tbxPort.Text = "4370";
             this.tbxPort.TextChanged += new System.EventHandler(this.tbxPort_TextChanged);
@@ -121,6 +127,7 @@
             // btnPingDevice
             // 
             this.btnPingDevice.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnPingDevice.Enabled = false;
             this.btnPingDevice.Location = new System.Drawing.Point(720, 9);
             this.btnPingDevice.Name = "btnPingDevice";
             this.btnPingDevice.Size = new System.Drawing.Size(75, 23);
@@ -145,11 +152,11 @@
             // 
             this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(495, 14);
+            this.label3.Location = new System.Drawing.Point(502, 14);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(95, 13);
+            this.label3.Size = new System.Drawing.Size(88, 13);
             this.label3.TabIndex = 7;
-            this.label3.Text = "Machine Number";
+            this.label3.Text = "Numero Equipo";
             // 
             // tbxMachineNumber
             // 
@@ -165,6 +172,7 @@
             // pnlHeader
             // 
             this.pnlHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(236)))), ((int)(((byte)(236)))));
+            this.pnlHeader.Controls.Add(this.groupBox1);
             this.pnlHeader.Controls.Add(this.lblHeader);
             this.pnlHeader.Controls.Add(this.label1);
             this.pnlHeader.Controls.Add(this.tbxDeviceIP);
@@ -177,9 +185,42 @@
             this.pnlHeader.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlHeader.Location = new System.Drawing.Point(0, 24);
             this.pnlHeader.Name = "pnlHeader";
-            this.pnlHeader.Size = new System.Drawing.Size(815, 37);
+            this.pnlHeader.Size = new System.Drawing.Size(815, 39);
             this.pnlHeader.TabIndex = 712;
             this.pnlHeader.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlHeader_Paint);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.rbtRed);
+            this.groupBox1.Controls.Add(this.rbtUsb);
+            this.groupBox1.Location = new System.Drawing.Point(139, 3);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(140, 34);
+            this.groupBox1.TabIndex = 9;
+            this.groupBox1.TabStop = false;
+            // 
+            // rbtRed
+            // 
+            this.rbtRed.AutoSize = true;
+            this.rbtRed.Location = new System.Drawing.Point(75, 11);
+            this.rbtRed.Name = "rbtRed";
+            this.rbtRed.Size = new System.Drawing.Size(46, 17);
+            this.rbtRed.TabIndex = 0;
+            this.rbtRed.Text = "RED";
+            this.rbtRed.UseVisualStyleBackColor = true;
+            // 
+            // rbtUsb
+            // 
+            this.rbtUsb.AutoSize = true;
+            this.rbtUsb.Checked = true;
+            this.rbtUsb.Location = new System.Drawing.Point(16, 11);
+            this.rbtUsb.Name = "rbtUsb";
+            this.rbtUsb.Size = new System.Drawing.Size(46, 17);
+            this.rbtUsb.TabIndex = 0;
+            this.rbtUsb.TabStop = true;
+            this.rbtUsb.Text = "USB";
+            this.rbtUsb.UseVisualStyleBackColor = true;
+            this.rbtUsb.CheckedChanged += new System.EventHandler(this.rbtUsb_CheckedChanged);
             // 
             // lblHeader
             // 
@@ -235,26 +276,26 @@
             // usuariosToolStripMenuItem
             // 
             this.usuariosToolStripMenuItem.Name = "usuariosToolStripMenuItem";
-            this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
             this.usuariosToolStripMenuItem.Text = "Usuarios";
             this.usuariosToolStripMenuItem.Click += new System.EventHandler(this.usuariosToolStripMenuItem_Click);
             // 
             // horariosToolStripMenuItem
             // 
             this.horariosToolStripMenuItem.Name = "horariosToolStripMenuItem";
-            this.horariosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.horariosToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
             this.horariosToolStripMenuItem.Text = "Horarios";
             // 
             // equiposToolStripMenuItem
             // 
             this.equiposToolStripMenuItem.Name = "equiposToolStripMenuItem";
-            this.equiposToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.equiposToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
             this.equiposToolStripMenuItem.Text = "Equipos";
             // 
             // asistenciasToolStripMenuItem
             // 
             this.asistenciasToolStripMenuItem.Name = "asistenciasToolStripMenuItem";
-            this.asistenciasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.asistenciasToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
             this.asistenciasToolStripMenuItem.Text = "Asistencias";
             this.asistenciasToolStripMenuItem.Click += new System.EventHandler(this.asistenciasToolStripMenuItem_Click);
             // 
@@ -263,6 +304,21 @@
             this.configuracionToolStripMenuItem.Name = "configuracionToolStripMenuItem";
             this.configuracionToolStripMenuItem.Size = new System.Drawing.Size(95, 20);
             this.configuracionToolStripMenuItem.Text = "Configuracion";
+            // 
+            // reportesToolStripMenuItem
+            // 
+            this.reportesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.asistenciaToolStripMenuItem});
+            this.reportesToolStripMenuItem.Name = "reportesToolStripMenuItem";
+            this.reportesToolStripMenuItem.Size = new System.Drawing.Size(65, 20);
+            this.reportesToolStripMenuItem.Text = "Reportes";
+            // 
+            // asistenciaToolStripMenuItem
+            // 
+            this.asistenciaToolStripMenuItem.Name = "asistenciaToolStripMenuItem";
+            this.asistenciaToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
+            this.asistenciaToolStripMenuItem.Text = "Asistencia";
+            this.asistenciaToolStripMenuItem.Click += new System.EventHandler(this.asistenciaToolStripMenuItem_Click);
             // 
             // btnUploadUserInfo
             // 
@@ -372,21 +428,6 @@
             this.dgvRecords.Size = new System.Drawing.Size(778, 344);
             this.dgvRecords.TabIndex = 894;
             // 
-            // reportesToolStripMenuItem
-            // 
-            this.reportesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.asistenciaToolStripMenuItem});
-            this.reportesToolStripMenuItem.Name = "reportesToolStripMenuItem";
-            this.reportesToolStripMenuItem.Size = new System.Drawing.Size(65, 20);
-            this.reportesToolStripMenuItem.Text = "Reportes";
-            // 
-            // asistenciaToolStripMenuItem
-            // 
-            this.asistenciaToolStripMenuItem.Name = "asistenciaToolStripMenuItem";
-            this.asistenciaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.asistenciaToolStripMenuItem.Text = "Asistencia";
-            this.asistenciaToolStripMenuItem.Click += new System.EventHandler(this.asistenciaToolStripMenuItem_Click);
-            // 
             // Master
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -416,6 +457,8 @@
             this.Text = "Biometric Device Demo";
             this.pnlHeader.ResumeLayout(false);
             this.pnlHeader.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRecords)).EndInit();
@@ -459,6 +502,9 @@
         private System.Windows.Forms.ToolStripMenuItem asistenciasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem reportesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem asistenciaToolStripMenuItem;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.RadioButton rbtUsb;
+        private System.Windows.Forms.RadioButton rbtRed;
     }
 }
 

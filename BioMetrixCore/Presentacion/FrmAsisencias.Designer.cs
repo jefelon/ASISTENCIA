@@ -36,6 +36,9 @@
             this.dtpDesde = new System.Windows.Forms.DateTimePicker();
             this.dtpHasta = new System.Windows.Forms.DateTimePicker();
             this.cmbEmpleado = new System.Windows.Forms.ComboBox();
+            this.btnReporte = new System.Windows.Forms.Button();
+            this.cmbEmp = new System.Windows.Forms.ComboBox();
+            this.btnBorrarBase = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDatos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -47,7 +50,7 @@
             this.lblStatus.Margin = new System.Windows.Forms.Padding(3, 5, 3, 0);
             this.lblStatus.Name = "lblStatus";
             this.lblStatus.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
-            this.lblStatus.Size = new System.Drawing.Size(800, 25);
+            this.lblStatus.Size = new System.Drawing.Size(838, 25);
             this.lblStatus.TabIndex = 11;
             this.lblStatus.Text = "label3";
             // 
@@ -76,7 +79,7 @@
             this.dgvDatos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDatos.Location = new System.Drawing.Point(12, 77);
             this.dgvDatos.Name = "dgvDatos";
-            this.dgvDatos.Size = new System.Drawing.Size(776, 426);
+            this.dgvDatos.Size = new System.Drawing.Size(814, 426);
             this.dgvDatos.TabIndex = 8;
             // 
             // btnSincronizar
@@ -92,42 +95,77 @@
             // dtpDesde
             // 
             this.dtpDesde.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpDesde.Location = new System.Drawing.Point(379, 32);
+            this.dtpDesde.Location = new System.Drawing.Point(526, 29);
             this.dtpDesde.Name = "dtpDesde";
             this.dtpDesde.Size = new System.Drawing.Size(101, 20);
             this.dtpDesde.TabIndex = 12;
+            this.dtpDesde.ValueChanged += new System.EventHandler(this.dtpDesde_ValueChanged);
             // 
             // dtpHasta
             // 
             this.dtpHasta.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpHasta.Location = new System.Drawing.Point(508, 31);
+            this.dtpHasta.Location = new System.Drawing.Point(644, 29);
             this.dtpHasta.Name = "dtpHasta";
             this.dtpHasta.Size = new System.Drawing.Size(101, 20);
             this.dtpHasta.TabIndex = 12;
+            this.dtpHasta.ValueChanged += new System.EventHandler(this.dtpHasta_ValueChanged);
             // 
             // cmbEmpleado
             // 
             this.cmbEmpleado.FormattingEnabled = true;
-            this.cmbEmpleado.Location = new System.Drawing.Point(255, 29);
+            this.cmbEmpleado.Location = new System.Drawing.Point(12, 2);
             this.cmbEmpleado.Name = "cmbEmpleado";
             this.cmbEmpleado.Size = new System.Drawing.Size(118, 21);
             this.cmbEmpleado.TabIndex = 13;
+            this.cmbEmpleado.Visible = false;
+            // 
+            // btnReporte
+            // 
+            this.btnReporte.Location = new System.Drawing.Point(751, 26);
+            this.btnReporte.Name = "btnReporte";
+            this.btnReporte.Size = new System.Drawing.Size(75, 23);
+            this.btnReporte.TabIndex = 14;
+            this.btnReporte.Text = "Reporte";
+            this.btnReporte.UseVisualStyleBackColor = true;
+            this.btnReporte.Click += new System.EventHandler(this.btnReporte_Click);
+            // 
+            // cmbEmp
+            // 
+            this.cmbEmp.FormattingEnabled = true;
+            this.cmbEmp.Location = new System.Drawing.Point(402, 29);
+            this.cmbEmp.Name = "cmbEmp";
+            this.cmbEmp.Size = new System.Drawing.Size(118, 21);
+            this.cmbEmp.TabIndex = 13;
+            this.cmbEmp.SelectedIndexChanged += new System.EventHandler(this.cmbEmp_SelectedIndexChanged);
+            // 
+            // btnBorrarBase
+            // 
+            this.btnBorrarBase.Location = new System.Drawing.Point(267, 29);
+            this.btnBorrarBase.Name = "btnBorrarBase";
+            this.btnBorrarBase.Size = new System.Drawing.Size(75, 23);
+            this.btnBorrarBase.TabIndex = 9;
+            this.btnBorrarBase.Text = "Borrar Base";
+            this.btnBorrarBase.UseVisualStyleBackColor = true;
+            this.btnBorrarBase.Click += new System.EventHandler(this.btnBorrarBase_Click);
             // 
             // FrmAsisencias
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 536);
+            this.ClientSize = new System.Drawing.Size(838, 536);
+            this.Controls.Add(this.btnReporte);
+            this.Controls.Add(this.cmbEmp);
             this.Controls.Add(this.cmbEmpleado);
             this.Controls.Add(this.dtpHasta);
             this.Controls.Add(this.dtpDesde);
             this.Controls.Add(this.lblStatus);
+            this.Controls.Add(this.btnBorrarBase);
             this.Controls.Add(this.btnSincronizar);
             this.Controls.Add(this.btnDatosDispositivo);
             this.Controls.Add(this.btnListaLocal);
             this.Controls.Add(this.dgvDatos);
             this.Name = "FrmAsisencias";
-            this.Text = "FrmAsisencia";
+            this.Text = "FrmAsistencia";
             this.Load += new System.EventHandler(this.FrmAsisencias_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvDatos)).EndInit();
             this.ResumeLayout(false);
@@ -144,5 +182,8 @@
         private System.Windows.Forms.DateTimePicker dtpDesde;
         private System.Windows.Forms.DateTimePicker dtpHasta;
         private System.Windows.Forms.ComboBox cmbEmpleado;
+        private System.Windows.Forms.Button btnReporte;
+        private System.Windows.Forms.ComboBox cmbEmp;
+        private System.Windows.Forms.Button btnBorrarBase;
     }
 }
