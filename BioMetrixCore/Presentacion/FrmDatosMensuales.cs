@@ -53,7 +53,7 @@ namespace BioMetrixCore.Presentacion
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            FrmDatosAnualesRegistrar form = new FrmDatosAnualesRegistrar();
+            FrmDatosMensualesRegistrar form = new FrmDatosMensualesRegistrar();
             form.txtId.Text = "";
             form.ShowDialog();
             FrmDatosMensuales_Load(null, null);
@@ -63,15 +63,13 @@ namespace BioMetrixCore.Presentacion
         {
             if (dgvDatos.CurrentRow != null)
             {
-                //Id, EmpleadoId, AfpCom, AfpPrimCom, Basico, MesId, AnioId
-                FrmDatosAnualesRegistrar form = new FrmDatosAnualesRegistrar();
+                FrmDatosMensualesRegistrar form = new FrmDatosMensualesRegistrar();
                 form.txtId.Text = dgvDatos.CurrentRow.Cells["Id"].Value.ToString();
-                form.cmbAnio.Text = dgvDatos.CurrentRow.Cells["Anio"].Value.ToString();
-                form.txtAsigfam.Text = dgvDatos.CurrentRow.Cells["Asigfam"].Value.ToString();
-                form.txtRemMin.Text = dgvDatos.CurrentRow.Cells["RemMin"].Value.ToString();
-                form.txtEssalud.Text = dgvDatos.CurrentRow.Cells["Essalud"].Value.ToString();
-                form.txtSnp.Text = dgvDatos.CurrentRow.Cells["Onpdat"].Value.ToString();
-                form.txtAfp.Text = dgvDatos.CurrentRow.Cells["AfpDat"].Value.ToString();
+                form.cmbEmpleado.Text = dgvDatos.CurrentRow.Cells["NombreTexto"].Value.ToString();                          
+                form.txtAfpCom.Text = dgvDatos.CurrentRow.Cells["AfpCom"].Value.ToString();
+                form.txtApfPrimCom.Text = dgvDatos.CurrentRow.Cells["AfpPrimCom"].Value.ToString();
+                form.txtBasico.Text = dgvDatos.CurrentRow.Cells["Basico"].Value.ToString();
+                form.cmbMes.Text = dgvDatos.CurrentRow.Cells["Mes"].Value.ToString();
                 form.ShowDialog();
                 FrmDatosMensuales_Load(null, null);
             }
@@ -89,6 +87,7 @@ namespace BioMetrixCore.Presentacion
 
                         if (FDatosAnuales.Eliminar(Convert.ToInt32(dgvDatos.CurrentRow.Cells["Id"].Value.ToString())) > 0)
                         {
+                            MessageBox.Show("Se iliminó el rgistro", "Eliminado.");
                             FrmDatosMensuales_Load(null, null);
                         }
                         else

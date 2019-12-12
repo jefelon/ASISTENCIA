@@ -64,7 +64,7 @@ namespace BioMetrixCore.Datos
                 {
                     SQLHelper.MakeParam("@Id", SqlDbType.Int, 0, id),
                 };
-            return Convert.ToInt32(SQLHelper.ExecuteScalar("usp_Datos_FDatosAnuales_Eliminar", dbParams));
+            return Convert.ToInt32(SQLHelper.ExecuteScalar("usp_Datos_FDatosMensuales_Eliminar", dbParams));
 
         }
     }

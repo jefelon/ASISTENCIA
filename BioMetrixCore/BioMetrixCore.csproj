@@ -133,6 +133,18 @@
     <Compile Include="Presentacion\FrmDatosMensualesRegistrar.Designer.cs">
       <DependentUpon>FrmDatosMensualesRegistrar.cs</DependentUpon>
     </Compile>
+    <Compile Include="Presentacion\FrmEmpleadoRegistrar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentacion\FrmEmpleadoRegistrar.Designer.cs">
+      <DependentUpon>FrmEmpleadoRegistrar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentacion\FrmEmpleados.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentacion\FrmEmpleados.Designer.cs">
+      <DependentUpon>FrmEmpleados.cs</DependentUpon>
+    </Compile>
     <Compile Include="Presentacion\FrmUsuarios.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -175,6 +187,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\FrmDatosMensualesRegistrar.resx">
       <DependentUpon>FrmDatosMensualesRegistrar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentacion\FrmEmpleadoRegistrar.resx">
+      <DependentUpon>FrmEmpleadoRegistrar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentacion\FrmEmpleados.resx">
+      <DependentUpon>FrmEmpleados.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\FrmUsuarios.resx">
       <DependentUpon>FrmUsuarios.cs</DependentUpon>

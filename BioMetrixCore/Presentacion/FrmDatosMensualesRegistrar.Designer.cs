@@ -28,28 +28,28 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.txtRemMin = new System.Windows.Forms.TextBox();
+            this.txtAfpCom = new System.Windows.Forms.TextBox();
             this.txtId = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.cmbEmpleado = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtApfPrimCom = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtBasico = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.cmbMes = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
             this.cmbAnio = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
-            // txtRemMin
+            // txtAfpCom
             // 
-            this.txtRemMin.Location = new System.Drawing.Point(161, 64);
-            this.txtRemMin.Name = "txtRemMin";
-            this.txtRemMin.Size = new System.Drawing.Size(181, 20);
-            this.txtRemMin.TabIndex = 7;
+            this.txtAfpCom.Location = new System.Drawing.Point(161, 64);
+            this.txtAfpCom.Name = "txtAfpCom";
+            this.txtAfpCom.Size = new System.Drawing.Size(181, 20);
+            this.txtAfpCom.TabIndex = 7;
             // 
             // txtId
             // 
@@ -76,10 +76,10 @@
             this.btnGuardar.TabIndex = 5;
             this.btnGuardar.Text = "GUARDAR";
             this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // cmbEmpleado
             // 
-            this.cmbEmpleado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbEmpleado.FormattingEnabled = true;
             this.cmbEmpleado.Location = new System.Drawing.Point(161, 25);
             this.cmbEmpleado.Name = "cmbEmpleado";
@@ -104,12 +104,12 @@
             this.label2.TabIndex = 6;
             this.label2.Text = "AFP PRIMA COM:";
             // 
-            // textBox1
+            // txtApfPrimCom
             // 
-            this.textBox1.Location = new System.Drawing.Point(161, 99);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(181, 20);
-            this.textBox1.TabIndex = 7;
+            this.txtApfPrimCom.Location = new System.Drawing.Point(161, 99);
+            this.txtApfPrimCom.Name = "txtApfPrimCom";
+            this.txtApfPrimCom.Size = new System.Drawing.Size(181, 20);
+            this.txtApfPrimCom.TabIndex = 7;
             // 
             // label4
             // 
@@ -120,12 +120,12 @@
             this.label4.TabIndex = 6;
             this.label4.Text = "SALARIO BÁSICO:";
             // 
-            // textBox2
+            // txtBasico
             // 
-            this.textBox2.Location = new System.Drawing.Point(161, 136);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(181, 20);
-            this.textBox2.TabIndex = 7;
+            this.txtBasico.Location = new System.Drawing.Point(161, 136);
+            this.txtBasico.Name = "txtBasico";
+            this.txtBasico.Size = new System.Drawing.Size(181, 20);
+            this.txtBasico.TabIndex = 7;
             // 
             // label5
             // 
@@ -138,7 +138,6 @@
             // 
             // cmbMes
             // 
-            this.cmbMes.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbMes.FormattingEnabled = true;
             this.cmbMes.Location = new System.Drawing.Point(246, 180);
             this.cmbMes.Name = "cmbMes";
@@ -156,7 +155,6 @@
             // 
             // cmbAnio
             // 
-            this.cmbAnio.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbAnio.FormattingEnabled = true;
             this.cmbAnio.Location = new System.Drawing.Point(102, 180);
             this.cmbAnio.Name = "cmbAnio";
@@ -173,9 +171,9 @@
             this.Controls.Add(this.label6);
             this.Controls.Add(this.cmbAnio);
             this.Controls.Add(this.cmbEmpleado);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.txtRemMin);
+            this.Controls.Add(this.txtBasico);
+            this.Controls.Add(this.txtApfPrimCom);
+            this.Controls.Add(this.txtAfpCom);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.txtId);
             this.Controls.Add(this.label2);
@@ -192,19 +190,19 @@
 
         #endregion
 
-        public System.Windows.Forms.TextBox txtRemMin;
+        public System.Windows.Forms.TextBox txtAfpCom;
         public System.Windows.Forms.TextBox txtId;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnGuardar;
-        private System.Windows.Forms.ComboBox cmbEmpleado;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        public System.Windows.Forms.TextBox textBox1;
+        public System.Windows.Forms.TextBox txtApfPrimCom;
         private System.Windows.Forms.Label label4;
-        public System.Windows.Forms.TextBox textBox2;
+        public System.Windows.Forms.TextBox txtBasico;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.ComboBox cmbMes;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.ComboBox cmbAnio;
+        public System.Windows.Forms.ComboBox cmbEmpleado;
+        public System.Windows.Forms.ComboBox cmbMes;
+        public System.Windows.Forms.ComboBox cmbAnio;
     }
 }

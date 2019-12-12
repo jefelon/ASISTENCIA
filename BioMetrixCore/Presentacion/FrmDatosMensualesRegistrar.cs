@@ -39,11 +39,48 @@ namespace BioMetrixCore.Presentacion
                 cmbMes.ValueMember = "Id";
                 cmbMes.DisplayMember = "Mes";
                 cmbMes.DataSource = dt2;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + ex.StackTrace);
+            }
+        }
 
+        private void btnGuardar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int id, empleadoId, mesId, anioId; double afpCom, afpPrimCom, basico;
 
-                DataSet ds = FDatosMensuales.GetAll();
-                DataTable dt = ds.Tables[0];
-                dgvDatos.DataSource = dt;
+                empleadoId= Convert.ToInt32(cmbEmpleado.SelectedValue.ToString());
+                mesId = Convert.ToInt32(cmbAnio.SelectedValue.ToString());
+                anioId = Convert.ToInt32(cmbAnio.SelectedValue.ToString());
+                afpCom = Convert.ToDouble(txtAfpCom.Text);
+                afpPrimCom = Convert.ToDouble(txtApfPrimCom.Text);
+                basico = Convert.ToDouble(txtBasico.Text);
+
+                if (txtId.Text == "")
+                {
+
+                    int returnId = FDatosMensuales.Insertar(empleadoId, mesId, anioId,afpCom, afpPrimCom, basico);
+                    if (returnId > 0)
+                    {
+                        MessageBox.Show("Se registró correctamente.");
+
+                        Close();
+
+                    }
+                }
+                else
+                {
+                    id = Convert.ToInt32(txtId.Text);
+                    if (FDatosMensuales.Actualizar(id, empleadoId, mesId, anioId, afpCom, afpPrimCom, basico) > 0)
+                    {
+                        MessageBox.Show("Se modificó correctamente.");
+
+                        Close();
+                    }
+                }
             }
             catch (Exception ex)
             {

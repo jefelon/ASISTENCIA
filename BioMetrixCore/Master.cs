@@ -422,5 +422,11 @@ namespace BioMetrixCore
             FrmDatosMensuales form = new FrmDatosMensuales();
             form.Show();
         }
+
+        private void empleadosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmEmpleados form = new FrmEmpleados();
+            form.Show();
+        }
     }
 }
