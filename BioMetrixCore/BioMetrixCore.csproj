@@ -109,6 +109,12 @@
     <Compile Include="Presentacion\FrmAsisencias.Designer.cs">
       <DependentUpon>FrmAsisencias.cs</DependentUpon>
     </Compile>
+    <Compile Include="Presentacion\FrmAsistencia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentacion\FrmAsistencia.Designer.cs">
+      <DependentUpon>FrmAsistencia.cs</DependentUpon>
+    </Compile>
     <Compile Include="Presentacion\FrmDatosAnuales.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -175,6 +181,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\FrmAsisencias.resx">
       <DependentUpon>FrmAsisencias.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentacion\FrmAsistencia.resx">
+      <DependentUpon>FrmAsistencia.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\FrmDatosAnuales.resx">
       <DependentUpon>FrmDatosAnuales.cs</DependentUpon>

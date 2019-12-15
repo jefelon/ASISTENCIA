@@ -232,13 +232,14 @@ namespace BioMetrixCore.Presentacion
                         oSheet.Cells[fila, 3] = cargo; //CARGO
                         oSheet.Cells[fila, 12] = porhora; //POR HORA
                         oSheet.Cells[fila, 13] = porhora * horacu; //BASICO
+                        //======DESCUENTO DOMINICAL
+                        //double saldo = horadom - 2;
+                        //double doshoras = horadom - saldo;
+                        //doshoras = doshoras * 1.25;
+                        //saldo = saldo * 1.35;
+                        double dominical = ((salario / 30) * horacu) / 48;
 
-                        double saldo = horadom - 2;
-                        double doshoras = horadom - saldo;
-                        doshoras = doshoras * 1.25;
-                        saldo = saldo * 1.35;
-
-                        oSheet.Cells[fila, 14] = doshoras + saldo; //DOMINICAL
+                        oSheet.Cells[fila, 14] = dominical; //DOMINICAL
 
                         //======ASIGNACION FAMILIAR
                         double asigfam = 0;
@@ -309,6 +310,11 @@ namespace BioMetrixCore.Presentacion
                         essalud = essalud / 100;
                         oSheet.Cells[fila, 27].Formula = string.Format("=+Q" + fila + "*" + essalud);
 
+                        //======ACCIDENTE DE TRABAJO
+                        double basico = (porhora * horacu);
+                        double accid= basico* 0.013;
+                        oSheet.Cells[fila, 27].Formula = accid;
+
                         //======TOTAL APORTAC                  
                         oSheet.Cells[fila, 27].Formula = string.Format("=SUMA(AA8:AC8)");
 
@@ -331,10 +337,18 @@ namespace BioMetrixCore.Presentacion
                 //========================SECCION EXCEL
                 ExApp.Visible = false;
                 ExApp.UserControl = true;
+                ExApp.DisplayAlerts = false;
+
+                System.Runtime.InteropServices.Marshal.ReleaseComObject(oSheet);
+
                 oWBook.Save();
-                ExApp.ActiveWorkbook.Close(true, Application.StartupPath+"/planilla-"+ DateTime.Now +".xlsx", Type.Missing);
+                //ExApp.ActiveWorkbook.Close(true, Application.StartupPath+"/planilla-"+ DateTime.Now +".xlsx", Type.Missing);
+                oWBook.SaveAs(Application.StartupPath + "/planilla(copy).xlsx", Microsoft.Office.Interop.Excel.XlFileFormat.xlWorkbookDefault, Type.Missing, Type.Missing, true, false, Microsoft.Office.Interop.Excel.XlSaveAsAccessMode.xlNoChange, Microsoft.Office.Interop.Excel.XlSaveConflictResolution.xlLocalSessionChanges, Type.Missing, Type.Missing);
+                oWBook.Close(true);
+                System.Runtime.InteropServices.Marshal.ReleaseComObject(oWBook);
                 ExApp.Quit();
-                ExApp = null;
+                System.Runtime.InteropServices.Marshal.ReleaseComObject(ExApp);
+
 
                 MessageBox.Show("ok");
                 //====================FIN SECCION EXCEL

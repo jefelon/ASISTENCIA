@@ -393,3 +393,4 @@ D:\SISTEMAS\ASISTENCIA\BioMetrixCore\obj\Debug\BioMetrixCore.Presentacion.FrmDat
 D:\SISTEMAS\ASISTENCIA\BioMetrixCore\obj\Debug\BioMetrixCore.Presentacion.FrmDatosMensualesRegistrar.resources
 D:\SISTEMAS\ASISTENCIA\BioMetrixCore\obj\Debug\BioMetrixCore.Presentacion.FrmEmpleadoRegistrar.resources
 D:\SISTEMAS\ASISTENCIA\BioMetrixCore\obj\Debug\BioMetrixCore.Presentacion.FrmEmpleados.resources
+D:\SISTEMAS\ASISTENCIA\BioMetrixCore\obj\Debug\BioMetrixCore.Presentacion.FrmAsistencia.resources
