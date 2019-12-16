@@ -391,20 +391,6 @@ namespace BioMetrixCore.Presentacion
         {
             try
             {
-                DataView dv = new DataView(dt.Copy()); //dt es la tabla que creamos al inicio de esta hoja
-                dv.RowFilter = " NombreTexto Like '" + cmbEmp.Text + "%'";
-                dgvDatos.DataSource = dv;
-            }
-            catch
-            {
-
-            }
-        }
-
-        private void dtpDesde_ValueChanged(object sender, EventArgs e)
-        {
-            try
-            {
                 ClearGrid();
                 DataSet ds = FAsistencia.GetFiltro(Convert.ToInt32(cmbEmp.SelectedValue.ToString()), dtpDesde.Value, dtpHasta.Value);
                 dt = ds.Tables[0];
@@ -416,7 +402,17 @@ namespace BioMetrixCore.Presentacion
             }
         }
 
+        private void dtpDesde_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
         private void dtpHasta_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnFiltrar_Click(object sender, EventArgs e)
         {
             try
             {

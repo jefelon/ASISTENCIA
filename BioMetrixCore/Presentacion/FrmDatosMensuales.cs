@@ -44,6 +44,9 @@ namespace BioMetrixCore.Presentacion
                 DataSet ds = FDatosMensuales.GetAll();
                 DataTable dt = ds.Tables[0];
                 dgvDatos.DataSource = dt;
+
+                dgvDatos.Columns["Id"].Visible = false;
+                dgvDatos.Columns["EmpleadoId"].Visible = false;
             }
             catch (Exception ex)
             {

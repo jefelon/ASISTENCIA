@@ -39,6 +39,7 @@
             this.btnReporte = new System.Windows.Forms.Button();
             this.cmbEmp = new System.Windows.Forms.ComboBox();
             this.btnBorrarBase = new System.Windows.Forms.Button();
+            this.btnFiltrar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDatos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -98,16 +99,16 @@
             // dtpDesde
             // 
             this.dtpDesde.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpDesde.Location = new System.Drawing.Point(526, 29);
+            this.dtpDesde.Location = new System.Drawing.Point(479, 29);
             this.dtpDesde.Name = "dtpDesde";
-            this.dtpDesde.Size = new System.Drawing.Size(101, 20);
+            this.dtpDesde.Size = new System.Drawing.Size(96, 20);
             this.dtpDesde.TabIndex = 12;
             this.dtpDesde.ValueChanged += new System.EventHandler(this.dtpDesde_ValueChanged);
             // 
             // dtpHasta
             // 
             this.dtpHasta.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpHasta.Location = new System.Drawing.Point(644, 29);
+            this.dtpHasta.Location = new System.Drawing.Point(583, 29);
             this.dtpHasta.Name = "dtpHasta";
             this.dtpHasta.Size = new System.Drawing.Size(101, 20);
             this.dtpHasta.TabIndex = 12;
@@ -135,7 +136,7 @@
             // cmbEmp
             // 
             this.cmbEmp.FormattingEnabled = true;
-            this.cmbEmp.Location = new System.Drawing.Point(402, 29);
+            this.cmbEmp.Location = new System.Drawing.Point(355, 29);
             this.cmbEmp.Name = "cmbEmp";
             this.cmbEmp.Size = new System.Drawing.Size(118, 21);
             this.cmbEmp.TabIndex = 13;
@@ -151,11 +152,22 @@
             this.btnBorrarBase.UseVisualStyleBackColor = true;
             this.btnBorrarBase.Click += new System.EventHandler(this.btnBorrarBase_Click);
             // 
+            // btnFiltrar
+            // 
+            this.btnFiltrar.Location = new System.Drawing.Point(690, 26);
+            this.btnFiltrar.Name = "btnFiltrar";
+            this.btnFiltrar.Size = new System.Drawing.Size(50, 23);
+            this.btnFiltrar.TabIndex = 15;
+            this.btnFiltrar.Text = "Filtrar";
+            this.btnFiltrar.UseVisualStyleBackColor = true;
+            this.btnFiltrar.Click += new System.EventHandler(this.btnFiltrar_Click);
+            // 
             // FrmAsisencias
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(838, 536);
+            this.Controls.Add(this.btnFiltrar);
             this.Controls.Add(this.btnReporte);
             this.Controls.Add(this.cmbEmp);
             this.Controls.Add(this.cmbEmpleado);
@@ -188,5 +200,6 @@
         private System.Windows.Forms.Button btnReporte;
         private System.Windows.Forms.ComboBox cmbEmp;
         private System.Windows.Forms.Button btnBorrarBase;
+        private System.Windows.Forms.Button btnFiltrar;
     }
 }
