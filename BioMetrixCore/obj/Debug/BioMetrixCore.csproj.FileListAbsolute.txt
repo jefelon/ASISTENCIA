@@ -394,3 +394,10 @@ D:\SISTEMAS\ASISTENCIA\BioMetrixCore\obj\Debug\BioMetrixCore.Presentacion.FrmDat
 D:\SISTEMAS\ASISTENCIA\BioMetrixCore\obj\Debug\BioMetrixCore.Presentacion.FrmEmpleadoRegistrar.resources
 D:\SISTEMAS\ASISTENCIA\BioMetrixCore\obj\Debug\BioMetrixCore.Presentacion.FrmEmpleados.resources
 D:\SISTEMAS\ASISTENCIA\BioMetrixCore\obj\Debug\BioMetrixCore.Presentacion.FrmAsistencia.resources
+D:\SISTEMA\ASISTENCIA\BioMetrixCore\obj\Debug\BioMetrixCore.Presentacion.FrmAsistencia.resources
+D:\SISTEMA\ASISTENCIA\BioMetrixCore\obj\Debug\BioMetrixCore.Presentacion.FrmDatosAnuales.resources
+D:\SISTEMA\ASISTENCIA\BioMetrixCore\obj\Debug\BioMetrixCore.Presentacion.FrmDatosAnualesRegistrar.resources
+D:\SISTEMA\ASISTENCIA\BioMetrixCore\obj\Debug\BioMetrixCore.Presentacion.FrmDatosMensuales.resources
+D:\SISTEMA\ASISTENCIA\BioMetrixCore\obj\Debug\BioMetrixCore.Presentacion.FrmDatosMensualesRegistrar.resources
+D:\SISTEMA\ASISTENCIA\BioMetrixCore\obj\Debug\BioMetrixCore.Presentacion.FrmEmpleadoRegistrar.resources
+D:\SISTEMA\ASISTENCIA\BioMetrixCore\obj\Debug\BioMetrixCore.Presentacion.FrmEmpleados.resources
