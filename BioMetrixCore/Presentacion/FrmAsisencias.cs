@@ -166,6 +166,7 @@ namespace BioMetrixCore.Presentacion
 
 
                 DateTime fechaInicio = dtpDesde.Value, fechaFin = dtpHasta.Value;
+                string tipo=cmbTipo.Text;
                 int anio = fechaInicio.Year;
                 int mes = fechaInicio.Month;
                 int col = 3, fila = 6;
@@ -191,7 +192,7 @@ namespace BioMetrixCore.Presentacion
 
                     for (var d = fechaInicio; d <= fechaFin; d = d.AddDays(1))
                     {
-                        DataSet ds = FAsistencia.GetFechas(Convert.ToDateTime(d.ToShortDateString()), idEmpleado);
+                        DataSet ds = FAsistencia.GetFechas(Convert.ToDateTime(d.ToShortDateString()), idEmpleado,tipo);
                         DataTable dt = ds.Tables[0];
                         col++;
 
@@ -392,7 +393,7 @@ namespace BioMetrixCore.Presentacion
             try
             {
                 ClearGrid();
-                DataSet ds = FAsistencia.GetFiltro(Convert.ToInt32(cmbEmp.SelectedValue.ToString()), dtpDesde.Value, dtpHasta.Value);
+                DataSet ds = FAsistencia.GetFiltro(Convert.ToInt32(cmbEmp.SelectedValue.ToString()), dtpDesde.Value, dtpHasta.Value,cmbTipo.Text);
                 dt = ds.Tables[0];
                 dgvDatos.DataSource = dt;
             }
@@ -417,7 +418,7 @@ namespace BioMetrixCore.Presentacion
             try
             {
                 ClearGrid();
-                DataSet ds = FAsistencia.GetFiltro(Convert.ToInt32(cmbEmp.SelectedValue.ToString()), dtpDesde.Value, dtpHasta.Value);
+                DataSet ds = FAsistencia.GetFiltro(Convert.ToInt32(cmbEmp.SelectedValue.ToString()), dtpDesde.Value, dtpHasta.Value,cmbTipo.Text);
                 dt = ds.Tables[0];
                 dgvDatos.DataSource = dt;
             }

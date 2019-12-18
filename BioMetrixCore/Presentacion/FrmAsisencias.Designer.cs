@@ -40,6 +40,7 @@
             this.cmbEmp = new System.Windows.Forms.ComboBox();
             this.btnBorrarBase = new System.Windows.Forms.Button();
             this.btnFiltrar = new System.Windows.Forms.Button();
+            this.cmbTipo = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDatos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -144,12 +145,13 @@
             // 
             // btnBorrarBase
             // 
-            this.btnBorrarBase.Location = new System.Drawing.Point(267, 29);
+            this.btnBorrarBase.Location = new System.Drawing.Point(136, 2);
             this.btnBorrarBase.Name = "btnBorrarBase";
             this.btnBorrarBase.Size = new System.Drawing.Size(75, 23);
             this.btnBorrarBase.TabIndex = 9;
             this.btnBorrarBase.Text = "Borrar Base";
             this.btnBorrarBase.UseVisualStyleBackColor = true;
+            this.btnBorrarBase.Visible = false;
             this.btnBorrarBase.Click += new System.EventHandler(this.btnBorrarBase_Click);
             // 
             // btnFiltrar
@@ -162,6 +164,19 @@
             this.btnFiltrar.UseVisualStyleBackColor = true;
             this.btnFiltrar.Click += new System.EventHandler(this.btnFiltrar_Click);
             // 
+            // cmbTipo
+            // 
+            this.cmbTipo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbTipo.FormattingEnabled = true;
+            this.cmbTipo.Items.AddRange(new object[] {
+            "TRABAJADOR",
+            "EMPLEADO"});
+            this.cmbTipo.Location = new System.Drawing.Point(264, 30);
+            this.cmbTipo.Name = "cmbTipo";
+            this.cmbTipo.Size = new System.Drawing.Size(76, 21);
+            this.cmbTipo.TabIndex = 13;
+            this.cmbTipo.SelectedIndexChanged += new System.EventHandler(this.cmbEmp_SelectedIndexChanged);
+            // 
             // FrmAsisencias
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -169,6 +184,7 @@
             this.ClientSize = new System.Drawing.Size(838, 536);
             this.Controls.Add(this.btnFiltrar);
             this.Controls.Add(this.btnReporte);
+            this.Controls.Add(this.cmbTipo);
             this.Controls.Add(this.cmbEmp);
             this.Controls.Add(this.cmbEmpleado);
             this.Controls.Add(this.dtpHasta);
@@ -201,5 +217,6 @@
         private System.Windows.Forms.ComboBox cmbEmp;
         private System.Windows.Forms.Button btnBorrarBase;
         private System.Windows.Forms.Button btnFiltrar;
+        private System.Windows.Forms.ComboBox cmbTipo;
     }
 }

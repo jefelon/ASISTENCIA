@@ -16,7 +16,7 @@ namespace BioMetrixCore.Datos
                 {
 
                 };
-            return SQLHelper.ExecuteDataSet("usp_Datos_FEmpleado_GetAll   ", dbParams);
+            return SQLHelper.ExecuteDataSet("usp_Datos_FEmpleado_GetAll", dbParams);
 
         }
         public static int Insertar(string codigo, double codigoEmpleado, string nombreTexto, string apellidos, int departamentoId, string cargo, int asigFam, int onp, int afp, int rentaQta)

@@ -43,13 +43,14 @@ namespace BioMetrixCore.Datos
             return SQLHelper.ExecuteDataSet("usp_Datos_FAsistencia_GetAllDatos", dbParams);
 
         }
-        public static DataSet GetFiltro(int empleadoId, DateTime desde, DateTime hasta)
+        public static DataSet GetFiltro(int empleadoId, DateTime desde, DateTime hasta, string tipo)
         {
             SqlParameter[] dbParams = new SqlParameter[]
                 {
                     SQLHelper.MakeParam("@EmpleadoId", SqlDbType.Int, 0, empleadoId),
                     SQLHelper.MakeParam("@Desde", SqlDbType.Date, 0, desde),
                     SQLHelper.MakeParam("@Hasta", SqlDbType.Date, 0, hasta),
+                    SQLHelper.MakeParam("@Tipo", SqlDbType.VarChar, 0, tipo),
                 };
             return SQLHelper.ExecuteDataSet("usp_Datos_FAsistencia_GetFiltro", dbParams);
 
