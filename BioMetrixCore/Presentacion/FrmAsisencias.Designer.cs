@@ -36,7 +36,6 @@
             this.dtpDesde = new System.Windows.Forms.DateTimePicker();
             this.dtpHasta = new System.Windows.Forms.DateTimePicker();
             this.cmbEmpleado = new System.Windows.Forms.ComboBox();
-            this.btnReporte = new System.Windows.Forms.Button();
             this.cmbEmp = new System.Windows.Forms.ComboBox();
             this.btnBorrarBase = new System.Windows.Forms.Button();
             this.btnFiltrar = new System.Windows.Forms.Button();
@@ -100,20 +99,18 @@
             // dtpDesde
             // 
             this.dtpDesde.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpDesde.Location = new System.Drawing.Point(479, 29);
+            this.dtpDesde.Location = new System.Drawing.Point(562, 28);
             this.dtpDesde.Name = "dtpDesde";
             this.dtpDesde.Size = new System.Drawing.Size(96, 20);
             this.dtpDesde.TabIndex = 12;
-            this.dtpDesde.ValueChanged += new System.EventHandler(this.dtpDesde_ValueChanged);
             // 
             // dtpHasta
             // 
             this.dtpHasta.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpHasta.Location = new System.Drawing.Point(583, 29);
+            this.dtpHasta.Location = new System.Drawing.Point(666, 28);
             this.dtpHasta.Name = "dtpHasta";
             this.dtpHasta.Size = new System.Drawing.Size(101, 20);
             this.dtpHasta.TabIndex = 12;
-            this.dtpHasta.ValueChanged += new System.EventHandler(this.dtpHasta_ValueChanged);
             // 
             // cmbEmpleado
             // 
@@ -124,20 +121,10 @@
             this.cmbEmpleado.TabIndex = 13;
             this.cmbEmpleado.Visible = false;
             // 
-            // btnReporte
-            // 
-            this.btnReporte.Location = new System.Drawing.Point(751, 26);
-            this.btnReporte.Name = "btnReporte";
-            this.btnReporte.Size = new System.Drawing.Size(75, 23);
-            this.btnReporte.TabIndex = 14;
-            this.btnReporte.Text = "Reporte";
-            this.btnReporte.UseVisualStyleBackColor = true;
-            this.btnReporte.Click += new System.EventHandler(this.btnReporte_Click);
-            // 
             // cmbEmp
             // 
             this.cmbEmp.FormattingEnabled = true;
-            this.cmbEmp.Location = new System.Drawing.Point(355, 29);
+            this.cmbEmp.Location = new System.Drawing.Point(438, 28);
             this.cmbEmp.Name = "cmbEmp";
             this.cmbEmp.Size = new System.Drawing.Size(118, 21);
             this.cmbEmp.TabIndex = 13;
@@ -156,7 +143,7 @@
             // 
             // btnFiltrar
             // 
-            this.btnFiltrar.Location = new System.Drawing.Point(690, 26);
+            this.btnFiltrar.Location = new System.Drawing.Point(773, 25);
             this.btnFiltrar.Name = "btnFiltrar";
             this.btnFiltrar.Size = new System.Drawing.Size(50, 23);
             this.btnFiltrar.TabIndex = 15;
@@ -171,7 +158,7 @@
             this.cmbTipo.Items.AddRange(new object[] {
             "TRABAJADOR",
             "EMPLEADO"});
-            this.cmbTipo.Location = new System.Drawing.Point(264, 30);
+            this.cmbTipo.Location = new System.Drawing.Point(347, 29);
             this.cmbTipo.Name = "cmbTipo";
             this.cmbTipo.Size = new System.Drawing.Size(76, 21);
             this.cmbTipo.TabIndex = 13;
@@ -183,7 +170,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(838, 536);
             this.Controls.Add(this.btnFiltrar);
-            this.Controls.Add(this.btnReporte);
             this.Controls.Add(this.cmbTipo);
             this.Controls.Add(this.cmbEmp);
             this.Controls.Add(this.cmbEmpleado);
@@ -213,7 +199,6 @@
         private System.Windows.Forms.DateTimePicker dtpDesde;
         private System.Windows.Forms.DateTimePicker dtpHasta;
         private System.Windows.Forms.ComboBox cmbEmpleado;
-        private System.Windows.Forms.Button btnReporte;
         private System.Windows.Forms.ComboBox cmbEmp;
         private System.Windows.Forms.Button btnBorrarBase;
         private System.Windows.Forms.Button btnFiltrar;
