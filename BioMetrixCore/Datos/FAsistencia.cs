@@ -27,7 +27,7 @@ namespace BioMetrixCore.Datos
                 {
                     SQLHelper.MakeParam("@Fecha", SqlDbType.DateTime, 0, fecha),
                     SQLHelper.MakeParam("@EmpleadoId", SqlDbType.Int, 0, empleadoId),
-                    SQLHelper.MakeParam("@Tipo", SqlDbType.Int, 0, tipo),
+                    SQLHelper.MakeParam("@Tipo", SqlDbType.VarChar, 0, tipo),
                 };
             return SQLHelper.ExecuteDataSet("usp_Datos_FAsistencia_GetFechas", dbParams);
 

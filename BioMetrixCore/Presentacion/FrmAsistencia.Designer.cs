@@ -67,7 +67,6 @@
             this.cmbEmpleado.Name = "cmbEmpleado";
             this.cmbEmpleado.Size = new System.Drawing.Size(118, 21);
             this.cmbEmpleado.TabIndex = 18;
-            this.cmbEmpleado.Visible = false;
             // 
             // dtpHasta
             // 
@@ -127,6 +126,7 @@
             this.Controls.Add(this.dtpDesde);
             this.Name = "FrmAsistencia";
             this.Text = "FrmAsistencia";
+            this.Load += new System.EventHandler(this.FrmAsistencia_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -104,25 +104,35 @@ namespace BioMetrixCore
                     return;
                 }
 
-                string ipAddress = tbxDeviceIP.Text.Trim();
-                string port = tbxPort.Text.Trim();
-                //if (ipAddress == string.Empty || port == string.Empty)
-                //    throw new Exception("The Device IP Address and Port is mandotory !!");
+                if (rbtUsb.Checked==true)
+                {
+                    objZkeeper = new ZkemClient(RaiseDeviceEvent);
+                    IsDeviceConnected = objZkeeper.Connect_USB(1);
+                }
+                else
+                {
+                    string ipAddress = tbxDeviceIP.Text.Trim();
+                    string port = tbxPort.Text.Trim();
+                    if (ipAddress == string.Empty || port == string.Empty)
+                        throw new Exception("La dirección IP y el puerto del dispositivo son obligatorios!");
 
-                //int portNumber = 4370;
-                //if (!int.TryParse(port, out portNumber))
-                //    throw new Exception("Not a valid port number");
+                    int portNumber = 4370;
+                    if (!int.TryParse(port, out portNumber))
+                        throw new Exception("No es un número de puerto válido");
 
-                //bool isValidIpA = UniversalStatic.ValidateIP(ipAddress);
-                //if (!isValidIpA)
-                //    throw new Exception("The Device IP is invalid !!");
+                    bool isValidIpA = UniversalStatic.ValidateIP(ipAddress);
+                    if (!isValidIpA)
+                        throw new Exception("¡La IP del dispositivo no es válida!");
 
-                //isValidIpA = UniversalStatic.PingTheDevice(ipAddress);
-                //if (!isValidIpA)
-                //    throw new Exception("The device at " + ipAddress + ":" + port + " did not respond!!");
+                    isValidIpA = UniversalStatic.PingTheDevice(ipAddress);
+                    if (!isValidIpA)
+                        throw new Exception("El dispositivo en " + ipAddress + ":" + port + " ¡¡no respondió!!");
 
-                objZkeeper = new ZkemClient(RaiseDeviceEvent);   
-                IsDeviceConnected = objZkeeper.Connect_USB(1);
+                    objZkeeper = new ZkemClient(RaiseDeviceEvent);
+                    IsDeviceConnected = objZkeeper.Connect_Net(ipAddress, portNumber);
+
+                }
+             
 
                 if (IsDeviceConnected)
                 {
@@ -389,7 +399,7 @@ namespace BioMetrixCore
 
         private void asistenciaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FrmReporteAsistencia form = new FrmReporteAsistencia();
+            FrmAsistencia form = new FrmAsistencia();
             form.Show();
         }
 
@@ -425,7 +435,7 @@ namespace BioMetrixCore
 
         private void empleadosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FrmEmpleados form = new FrmEmpleados();
+            FrmPersonales form = new FrmPersonales();
             form.Show();
         }
     }

@@ -18,17 +18,26 @@ namespace BioMetrixCore.Presentacion
             InitializeComponent();
         }
 
+        private void FrmAsistencia_Load(object sender, EventArgs e)
+        {
+            DataSet dse = FEmpleado.GetAll();
+            DataTable dte = dse.Tables[0];
+            cmbEmpleado.ValueMember = "Id";
+            cmbEmpleado.DisplayMember = "NombreTexto";
+            cmbEmpleado.DataSource = dte;
+        }
+
         private void btnReporte_Click(object sender, EventArgs e)
         {
             DateTime fechaInicio = dtpDesde.Value, fechaFin = dtpHasta.Value;
             string tipo = cmbTipo.Text;
             int anio = fechaInicio.Year;
             int mes = fechaInicio.Month;
-            int col = 3, fila = 6;
-            int filas = 0;
-
+            
             if (cmbTipo.Text=="TRABAJADOR")
-            {                  
+            {
+                int col = 3, fila = 6;
+                int filas = 6;
 
                     Microsoft.Office.Interop.Excel.Application ExApp;
                     ExApp = new Microsoft.Office.Interop.Excel.Application();
@@ -72,7 +81,7 @@ namespace BioMetrixCore.Presentacion
 
                             }
                             oSheet.Cells[fila, col] = horas;
-                            oSheet.Cells[fila, col].Interior.Color = Color.Green;
+                            //oSheet.Cells[fila, col].Interior.Color = Color.Green;
 
                         }
                         // OTROS DATOS                          
@@ -142,12 +151,12 @@ namespace BioMetrixCore.Presentacion
                                 oSheet.Cells[fila, 21].Formula = string.Format("=+Q" + fila + "*" + afpApo);
 
                                 // SUM
-                                oSheet.Cells[fila, 22].Formula = string.Format("=SUMA(S"+fila+":U"+fila);
+                                oSheet.Cells[fila, 22].Formula = string.Format("=SUM(S"+fila+":U"+fila);
                             }
                             //======RENTA 5                 
-                            if (dt2.Rows[0]["Afp"].ToString() == "1")
+                            if (dt2.Rows[0]["RentaQta"].ToString() == "1")
                             {
-                                // oSheet.Cells[fila, 24].Formula = string.Format("=Q" + fila + "*" + afpApo + "");
+                                oSheet.Cells[fila, 24].Formula = 0;
 
                             }
                             //======TOTAL DESCUENTO    
@@ -173,12 +182,13 @@ namespace BioMetrixCore.Presentacion
                             //======ACCIDENTE DE TRABAJO
                             double basico = (porhora * horacu);
                             double accid = basico * 0.013;
-                            oSheet.Cells[fila, 27].Formula = accid;
+                            oSheet.Cells[fila, 29].Formula = accid;
 
                             //======TOTAL APORTAC                  
-                            oSheet.Cells[fila, 27].Formula = string.Format("=SUMA(AA" + fila + ":AC" + fila);
+                            //oSheet.Cells[fila, 30].Formula = string.Format("=SUMA(AA" + fila + ":AC" + fila);
+                            oSheet.Cells[fila, 30].Formula = string.Format("=SUM(AA" + fila + ":AC" + fila);
 
-                        col = 3;
+                            col = 3;
                             fila++;
                             horas = 0;
                             horacu = 0;
@@ -189,8 +199,29 @@ namespace BioMetrixCore.Presentacion
                 //APLICANDO TOTALES
                 int filaTotal = filas + 1;         
                 
-                oSheet.Cells[filaTotal, 13].Formula = string.Format("=SUMA(M6:M"+filas); //TOTAL BASICO
-                
+                oSheet.Cells[filaTotal, 13].Formula = string.Format("=SUM(M6:M"+filas); //TOTAL BASICO               
+                oSheet.Cells[filaTotal, 14].Formula = string.Format("=SUM(N6:N"+filas); //DOMINICAL
+                oSheet.Cells[filaTotal, 15].Formula = string.Format("=SUM(N6:N" + filas); 
+                oSheet.Cells[filaTotal, 16].Formula = string.Format("=SUM(O6:O" + filas); 
+                oSheet.Cells[filaTotal, 17].Formula = string.Format("=SUM(P6:P" + filas); 
+                oSheet.Cells[filaTotal, 18].Formula = string.Format("=SUM(Q6:Q" + filas); 
+                oSheet.Cells[filaTotal, 19].Formula = string.Format("=SUM(R6:R" + filas); 
+                oSheet.Cells[filaTotal, 20].Formula = string.Format("=SUM(S6:S" + filas); 
+                oSheet.Cells[filaTotal, 21].Formula = string.Format("=SUM(T6:T" + filas); 
+                oSheet.Cells[filaTotal, 22].Formula = string.Format("=SUM(U6:U" + filas); 
+                oSheet.Cells[filaTotal, 23].Formula = string.Format("=SUM(V6:V" + filas); 
+                oSheet.Cells[filaTotal, 24].Formula = string.Format("=SUM(W6:W" + filas); 
+                oSheet.Cells[filaTotal, 25].Formula = string.Format("=SUM(X6:X" + filas); 
+                oSheet.Cells[filaTotal, 26].Formula = string.Format("=SUM(Y6:Y" + filas); 
+                oSheet.Cells[filaTotal, 27].Formula = string.Format("=SUM(Z6:Z" + filas); 
+                oSheet.Cells[filaTotal, 28].Formula = string.Format("=SUM(AA6:AA" + filas); 
+                oSheet.Cells[filaTotal, 29].Formula = string.Format("=SUM(AB6:AB" + filas); 
+                oSheet.Cells[filaTotal, 30].Formula = string.Format("=SUM(AC6:AC" + filas);
+
+                oSheet.get_Range("M" + filaTotal+":AD"+filaTotal, Type.Missing).Font.Bold = true;
+                oSheet.get_Range("M" + filaTotal + ":AD" + filaTotal, Type.Missing).Cells.Borders.LineStyle = Microsoft.Office.Interop.Excel.XlLineStyle.xlContinuous;
+
+
 
                 //========================SECCION EXCEL
                 ExApp.Visible = false;
@@ -212,6 +243,8 @@ namespace BioMetrixCore.Presentacion
             }
             else if (cmbTipo.Text == "EMPLEADO")
             {
+                int col = 3, fila = 7;
+                int filas = 7;
 
                 Microsoft.Office.Interop.Excel.Application ExApp;
                 ExApp = new Microsoft.Office.Interop.Excel.Application();
@@ -255,7 +288,7 @@ namespace BioMetrixCore.Presentacion
 
                         }
                         oSheet.Cells[fila, col] = horas;
-                        oSheet.Cells[fila, col].Interior.Color = Color.Green;
+                        //oSheet.Cells[fila, col].Interior.Color = Color.Green;
 
                     }
                     // OTROS DATOS                          
@@ -300,7 +333,7 @@ namespace BioMetrixCore.Presentacion
                         onp = onp / 100;
                         if (dt2.Rows[0]["Onp"].ToString() == "1")
                         {
-                            oSheet.Cells[fila, 18].Formula = string.Format("=+K" + fila + "*" + onp);
+                            oSheet.Cells[fila, 13].Formula = string.Format("=+K" + fila + "*" + onp);
                         }
 
                         //======AFP COM
@@ -325,12 +358,12 @@ namespace BioMetrixCore.Presentacion
                             oSheet.Cells[fila, 16].Formula = string.Format("=+K" + fila + "*" + afpApo);
 
                             // SUM
-                            oSheet.Cells[fila, 17].Formula = string.Format("=SUMA(+N"+fila  +":P"+ fila);
+                            oSheet.Cells[fila, 17].Formula = string.Format("=SUM(N"+fila  +":P"+ fila);
                         }
                         //======RENTA 5                 
-                        if (dt2.Rows[0]["Afp"].ToString() == "1")
+                        if (dt2.Rows[0]["RentaQta"].ToString() == "1")
                         {
-                            // oSheet.Cells[fila, 24].Formula = string.Format("=Q" + fila + "*" + afpApo + "");
+                            oSheet.Cells[fila, 18].Formula = 0;
 
                         }
                         //======TOTAL DESCUENTO    
@@ -368,6 +401,34 @@ namespace BioMetrixCore.Presentacion
                     }
 
                 }
+
+                //APLICANDO TOTALES
+                int filaTotal = filas + 1;
+
+                oSheet.Cells[filaTotal, 7].Formula = string.Format("=SUM(G7:G" + filas); //TOTAL BASICO               
+                oSheet.Cells[filaTotal, 8].Formula = string.Format("=SUM(H7:H" + filas); 
+                oSheet.Cells[filaTotal, 9].Formula = string.Format("=SUM(I7:I" + filas);
+                oSheet.Cells[filaTotal, 10].Formula = string.Format("=SUM(J7:J" + filas);
+                oSheet.Cells[filaTotal, 11].Formula = string.Format("=SUM(K7:K" + filas);
+
+                oSheet.Cells[filaTotal, 13].Formula = string.Format("=SUM(M7:M" + filas);
+                oSheet.Cells[filaTotal, 14].Formula = string.Format("=SUM(N7:N" + filas);
+                oSheet.Cells[filaTotal, 15].Formula = string.Format("=SUM(O7:O" + filas);
+                oSheet.Cells[filaTotal, 16].Formula = string.Format("=SUM(P7:P" + filas);
+                oSheet.Cells[filaTotal, 17].Formula = string.Format("=SUM(Q7:Q" + filas);
+                oSheet.Cells[filaTotal, 18].Formula = string.Format("=SUM(R7:R" + filas);
+                oSheet.Cells[filaTotal, 19].Formula = string.Format("=SUM(S7:S" + filas);
+                oSheet.Cells[filaTotal, 20].Formula = string.Format("=SUM(T7:T" + filas);
+                oSheet.Cells[filaTotal, 21].Formula = string.Format("=SUM(U7:U" + filas);
+                oSheet.Cells[filaTotal, 22].Formula = string.Format("=SUM(V7:V" + filas);
+                oSheet.Cells[filaTotal, 23].Formula = string.Format("=SUM(W7:W" + filas);
+                oSheet.Cells[filaTotal, 24].Formula = string.Format("=SUM(X7:X" + filas);
+                oSheet.Cells[filaTotal, 25].Formula = string.Format("=SUM(Y7:Y" + filas);
+
+                oSheet.get_Range("A" + filaTotal + ":Y" + filaTotal, Type.Missing).Cells.Borders.LineStyle = Microsoft.Office.Interop.Excel.XlLineStyle.xlContinuous;
+
+                oSheet.get_Range("G" + filaTotal + ":Y" + filaTotal, Type.Missing).Font.Bold = true;
+                oSheet.get_Range("G" + filaTotal + ":Y" + filaTotal, Type.Missing).Cells.Borders.LineStyle = Microsoft.Office.Interop.Excel.XlLineStyle.xlContinuous;
 
 
                 //========================SECCION EXCEL
