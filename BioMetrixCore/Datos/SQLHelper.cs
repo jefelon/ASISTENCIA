@@ -23,6 +23,8 @@ namespace BioMetrixCore.Datos
             //try
             //{
             ds = new DataSet();
+
+            string dfgfdg = ConfigurationManager.AppSettings.Get("connectionString");
             SqlConnection cn = new SqlConnection(ConfigurationManager.AppSettings.Get("connectionString"));
             SqlCommand cmd = new SqlCommand(sqlSpName, cn);
             cmd.CommandTimeout = 600;

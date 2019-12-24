@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="12/23/2019 15:49:57" ReportInfo.Modified="12/23/2019 18:34:12" ReportInfo.CreatorVersion="2014.1.3.0">
+  <Dictionary>
+    <Parameter Name="Nombres" DataType="System.String"/>
+    <Parameter Name="Cargo" DataType="System.String"/>
+    <Parameter Name="CarnetIpps" DataType="System.String"/>
+    <Parameter Name="Basico" DataType="System.String"/>
+    <Parameter Name="HoraExtra" DataType="System.String"/>
+    <Parameter Name="Dominical" DataType="System.String"/>
+    <Parameter Name="AsigFam" DataType="System.String"/>
+    <Parameter Name="Reintegro" DataType="System.String"/>
+    <Parameter Name="Gratificacion" DataType="System.String"/>
+    <Parameter Name="Descuento" DataType="System.String"/>
+    <Parameter Name="RegimenPs" DataType="System.String"/>
+    <Parameter Name="RegimenP" DataType="System.String"/>
+    <Parameter Name="ImpSol" DataType="System.String"/>
+    <Parameter Name="AccTra" DataType="System.String"/>
+    <Parameter Name="RegimenPensiones" DataType="System.String"/>
+    <Parameter Name="Fonavi" DataType="System.String"/>
+    <Parameter Name="RegimenPrestaciones" DataType="System.String"/>
+    <Parameter Name="AporteAfp" DataType="System.String"/>
+    <Parameter Name="SeguroSobrevivencia" DataType="System.String"/>
+    <Parameter Name="ComisionAfp" DataType="System.String"/>
+    <Parameter Name="SeguroVida" DataType="System.String"/>
+    <Parameter Name="RentaQuinta" DataType="System.String"/>
+    <Total Name="TotalIngresos" Expression="[Basico]+[HoraExtra]+[Dominical]+[AsigFam]+[Reintegro]+[Gratificacion]+[Descuento]" Evaluator="Data1"/>
+    <Total Name="TotalAporte" Expression="[RegimenPs]+[RegimenP]+[ImpSol]+[AccTra]" Evaluator="Data1"/>
+    <Total Name="TotalDescuentos" Expression="[RegimenPrestaciones]+[Fonavi]+[AporteAfp]+[SeguroSobrevivencia]+[ComisionAfp]+[SeguroVida]+[RentaQuinta]" Evaluator="Data1"/>
+    <Total Name="NetoPagar" Expression="[TotalIngresos]-[TotalDescuentos]" Evaluator="Data1"/>
+  </Dictionary>
+  <ReportPage Name="Page2">
+    <DataBand Name="Data2" Width="718.2" Height="548.1">
+      <ShapeObject Name="Shape2" Left="11.82" Top="9.45" Width="661.5" Height="519.75"/>
+      <TextObject Name="Text62" Left="9.45" Top="18.03" Width="662.27" Height="18.9" Border.Lines="Bottom" Text="FABRICA DE MAQUINARIAS MARIO GIANNINI S.A.C" HorzAlign="Center" Font="Arial, 12pt, style=Bold"/>
+      <TextObject Name="Text63" Left="19.98" Top="76.82" Width="51.77" Height="18.9" Text="RUC:" Font="Arial, 12pt, style=Bold"/>
+      <TextObject Name="Text64" Left="19.04" Top="104.43" Width="109.32" Height="18.9" Text="DIRECCIÓN:" Font="Arial, 12pt, style=Bold"/>
+      <TextObject Name="Text65" Left="129.31" Top="74.94" Width="94.5" Height="18.9" Text="20125097317" Font="Arial, 12pt"/>
+      <TextObject Name="Text66" Left="129.31" Top="103.76" Width="235.51" Height="18.9" Text="Pasaje Zarumilla Nro. 107 IV Centenario" Font="Arial, 12pt"/>
+      <TextObject Name="Text67" Left="11.82" Top="37.8" Width="661.5" Height="18.9" Text="BOLETA DE PAGO DE OBREROS" HorzAlign="Center" Font="Arial, 12pt"/>
+      <TextObject Name="Text68" Left="21.27" Top="141.75" Width="151.2" Height="18.9" Text="NOMBRE:" HorzAlign="Right" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text69" Left="21.27" Top="160.65" Width="151.2" Height="18.9" Text="CARGO:" HorzAlign="Right" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text70" Left="21.27" Top="179.55" Width="151.2" Height="18.9" Text="CARNET IPPS:" HorzAlign="Right" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text71" Left="21.27" Top="198.45" Width="151.2" Height="18.9" Text="BÁSICO:" HorzAlign="Right" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text72" Left="21.27" Top="217.35" Width="151.2" Height="18.9" Text="HORA EXTRA N.:" HorzAlign="Right" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text73" Left="21.27" Top="236.25" Width="151.2" Height="18.9" Text="DOMINICAL:" HorzAlign="Right" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text74" Left="21.27" Top="255.15" Width="151.2" Height="18.9" Text="ASIGNACION FAM.:" HorzAlign="Right" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text75" Left="21.27" Top="274.05" Width="151.2" Height="18.9" Text="REINTEGRO:" HorzAlign="Right" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text76" Left="21.27" Top="292.95" Width="151.2" Height="18.9" Text="GRATIFICACIÓN:" HorzAlign="Right" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text77" Left="21.27" Top="311.85" Width="151.2" Height="18.9" Text="DESCUENTO:" HorzAlign="Right" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text78" Left="21.27" Top="349.65" Width="156.57" Height="18.9" Text="TOTAL INGRESOS:" HorzAlign="Right" Font="Arial, 10pt, style=Bold" TextFill.Color="Green"/>
+      <TextObject Name="Text79" Left="21.27" Top="396.9" Width="151.2" Height="18.9" Text="REGIMEN DE P.S.:" HorzAlign="Right" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text80" Left="21.27" Top="415.8" Width="151.2" Height="18.9" Text="REGIMEN DE P.:" HorzAlign="Right" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text81" Left="11.82" Top="434.7" Width="160.65" Height="18.9" Text="IMP DE SOLIDARIDAD:" HorzAlign="Right" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text82" Left="11.82" Top="453.6" Width="160.65" Height="18.9" Text="ACC.DE TRAB.:" HorzAlign="Right" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text83" Left="11.82" Top="481.95" Width="160.65" Height="18.9" Text="TOTAL APORTE:" HorzAlign="Right" Font="Arial, 10pt, style=Bold" TextFill.Color="Green"/>
+      <TextObject Name="Text84" Left="172.47" Top="141.75" Width="189" Height="18.9" Text="[Nombres]"/>
+      <TextObject Name="Text85" Left="172.47" Top="160.65" Width="189" Height="18.9" Text="[Cargo]"/>
+      <TextObject Name="Text86" Left="172.47" Top="179.55" Width="189" Height="18.9" Text="[CarnetIpps]"/>
+      <TextObject Name="Text87" Left="172.47" Top="198.45" Width="113.4" Height="18.9" Text="[Basico]" Format="Number" Format.UseLocale="true"/>
+      <TextObject Name="Text88" Left="172.47" Top="217.35" Width="113.4" Height="18.9" Text="[HoraExtra]" Format="Number" Format.UseLocale="true"/>
+      <TextObject Name="Text89" Left="172.47" Top="236.25" Width="113.4" Height="18.9" Text="[Dominical]" Format="Number" Format.UseLocale="true"/>
+      <TextObject Name="Text90" Left="172.47" Top="255.15" Width="113.4" Height="18.9" Text="[AsigFam]" Format="Number" Format.UseLocale="true"/>
+      <TextObject Name="Text91" Left="172.47" Top="274.05" Width="113.4" Height="18.9" Text="[Reintegro]" Format="Number" Format.UseLocale="true"/>
+      <TextObject Name="Text92" Left="172.47" Top="292.95" Width="113.4" Height="18.9" Text="[Gratificacion]" Format="Number" Format.UseLocale="true"/>
+      <TextObject Name="Text93" Left="172.47" Top="311.85" Width="113.4" Height="18.9" Text="[Descuento]" Format="Number" Format.UseLocale="true"/>
+      <TextObject Name="Text94" Left="172.47" Top="349.65" Width="113.4" Height="18.9" Border.Lines="Top" Text="[TotalIngresos]" Format="Number" Format.UseLocale="true" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text95" Left="172.47" Top="396.9" Width="113.4" Height="18.9" Text="[RegimenPs]" Format="Number" Format.UseLocale="true"/>
+      <TextObject Name="Text96" Left="172.47" Top="415.8" Width="113.4" Height="18.9" Text="[RegimenP]" Format="Number" Format.UseLocale="true"/>
+      <TextObject Name="Text97" Left="172.47" Top="434.7" Width="113.4" Height="18.9" Text="[ImpSol]" Format="Number" Format.UseLocale="true"/>
+      <TextObject Name="Text98" Left="172.47" Top="453.6" Width="113.4" Height="18.9" Text="[AccTra]" Format="Number" Format.UseLocale="true"/>
+      <TextObject Name="Text99" Left="172.47" Top="481.95" Width="113.4" Height="18.9" Text="[TotalAporte]" Format="Number" Format.UseLocale="true" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text100" Left="285.87" Top="198.45" Width="245.7" Height="18.9" Text="REGIMEN PRESTACION DE SALUD:" HorzAlign="Right" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text101" Left="285.87" Top="217.35" Width="245.7" Height="18.9" Text="REGIMEN DE PENSIONES:&#13;&#10;" HorzAlign="Right" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text102" Left="285.87" Top="236.25" Width="245.7" Height="18.9" Text="FONAVI:&#13;&#10;" HorzAlign="Right" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text103" Left="285.87" Top="255.15" Width="245.7" Height="18.9" Text="APORTE A.F.P.:&#13;&#10;" HorzAlign="Right" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text104" Left="285.87" Top="274.05" Width="245.7" Height="18.9" Text="SEGURO SOBREVIVENCIA:&#13;&#10;" HorzAlign="Right" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text105" Left="285.87" Top="292.95" Width="245.7" Height="18.9" Text="COMISION % AFP:&#13;&#10;" HorzAlign="Right" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text106" Left="285.87" Top="311.85" Width="245.7" Height="18.9" Text="SEGURO VIDA:&#13;&#10;" HorzAlign="Right" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text107" Left="370.92" Top="349.65" Width="156.57" Height="18.9" Text="TOTAL DESCUENTOS:" HorzAlign="Right" Font="Arial, 10pt, style=Bold" TextFill.Color="Red"/>
+      <TextObject Name="Text108" Left="370.92" Top="396.9" Width="156.57" Height="18.9" Text="NETO A PAGAR:" HorzAlign="Right" Font="Arial, 10pt, style=Bold" TextFill.Color="Orange"/>
+      <TextObject Name="Text109" Left="399.27" Top="481.95" Width="217.35" Height="18.9" Border.Lines="Top" Text="[Nombres]" HorzAlign="Center"/>
+      <TextObject Name="Text110" Left="531.57" Top="217.35" Width="132.3" Height="18.9" Text="[RegimenPensiones]" Format="Number" Format.UseLocale="true" HorzAlign="Right"/>
+      <TextObject Name="Text111" Left="531.57" Top="236.25" Width="132.3" Height="18.9" Text="[Fonavi]" Format="Number" Format.UseLocale="true" HorzAlign="Right"/>
+      <TextObject Name="Text112" Left="531.57" Top="198.45" Width="132.3" Height="18.9" Text="[RegimenPrestaciones]" Format="Number" Format.UseLocale="true" HorzAlign="Right"/>
+      <TextObject Name="Text113" Left="531.57" Top="255.15" Width="132.3" Height="18.9" Text="[AporteAfp]" Format="Number" Format.UseLocale="true" HorzAlign="Right"/>
+      <TextObject Name="Text114" Left="531.57" Top="274.05" Width="132.3" Height="18.9" Text="[SeguroSobrevivencia]" Format="Number" Format.UseLocale="true" HorzAlign="Right"/>
+      <TextObject Name="Text115" Left="531.57" Top="292.95" Width="132.3" Height="18.9" Text="[ComisionAfp]" Format="Number" Format.UseLocale="true" HorzAlign="Right"/>
+      <TextObject Name="Text116" Left="531.57" Top="311.85" Width="132.3" Height="18.9" Text="[SeguroVida]" Format="Number" Format.UseLocale="true" HorzAlign="Right"/>
+      <TextObject Name="Text117" Left="285.87" Top="330.75" Width="245.7" Height="18.9" Text="RENTA QUINTA:&#13;&#10;" HorzAlign="Right" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text118" Left="531.57" Top="330.75" Width="132.3" Height="18.9" Text="[RentaQuinta]" Format="Number" Format.UseLocale="true" HorzAlign="Right"/>
+      <TextObject Name="Text119" Left="531.57" Top="349.65" Width="132.3" Height="18.9" Border.Lines="Top" Text="[TotalDescuentos]" Format="Number" Format.UseLocale="true" HorzAlign="Right" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text120" Left="531.57" Top="396.9" Width="132.3" Height="18.9" Border.Lines="Top" Text="[NetoPagar]" Format="Number" Format.UseLocale="true" HorzAlign="Right" Font="Arial, 10pt, style=Bold"/>
+    </DataBand>
+  </ReportPage>
+</Report>

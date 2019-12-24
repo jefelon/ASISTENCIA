@@ -401,3 +401,5 @@ D:\SISTEMA\ASISTENCIA\BioMetrixCore\obj\Debug\BioMetrixCore.Presentacion.FrmEmpl
 D:\SISTEMA\ASISTENCIA\BioMetrixCore\obj\Debug\BioMetrixCore.Presentacion.FrmEmpleados.resources
 D:\SISTEMAS\ASISTENCIA\BioMetrixCore\obj\Debug\BioMetrixCore.Presentacion.FrmPersonalRegistrar.resources
 D:\SISTEMAS\ASISTENCIA\BioMetrixCore\obj\Debug\BioMetrixCore.Presentacion.FrmPersonales.resources
+D:\SISTEMAS\ASISTENCIA\BioMetrixCore\obj\Debug\BioMetrixCore.Presentacion.FrmBoletaMensual.resources
+D:\SISTEMAS\ASISTENCIA\BioMetrixCore\bin\Debug\FastReport.Bars.dll

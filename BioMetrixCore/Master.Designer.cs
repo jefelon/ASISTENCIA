@@ -46,11 +46,12 @@
             this.lblDeviceInfo = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.archivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.datosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.asistenciasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.configuracionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.datosAnualesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.datosMensualesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.datosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.empleadosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.asistenciasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reportesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.asistenciaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.btnUploadUserInfo = new System.Windows.Forms.Button();
@@ -64,7 +65,7 @@
             this.btnPullData = new System.Windows.Forms.Button();
             this.btnDownloadFingerPrint = new System.Windows.Forms.Button();
             this.dgvRecords = new System.Windows.Forms.DataGridView();
-            this.empleadosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.boletaDePagoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pnlHeader.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -262,22 +263,6 @@
             this.archivoToolStripMenuItem.Size = new System.Drawing.Size(60, 20);
             this.archivoToolStripMenuItem.Text = "Archivo";
             // 
-            // datosToolStripMenuItem
-            // 
-            this.datosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.empleadosToolStripMenuItem,
-            this.asistenciasToolStripMenuItem});
-            this.datosToolStripMenuItem.Name = "datosToolStripMenuItem";
-            this.datosToolStripMenuItem.Size = new System.Drawing.Size(49, 20);
-            this.datosToolStripMenuItem.Text = "Datos";
-            // 
-            // asistenciasToolStripMenuItem
-            // 
-            this.asistenciasToolStripMenuItem.Name = "asistenciasToolStripMenuItem";
-            this.asistenciasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.asistenciasToolStripMenuItem.Text = "Asistencias";
-            this.asistenciasToolStripMenuItem.Click += new System.EventHandler(this.asistenciasToolStripMenuItem_Click);
-            // 
             // configuracionToolStripMenuItem
             // 
             this.configuracionToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -290,21 +275,45 @@
             // datosAnualesToolStripMenuItem
             // 
             this.datosAnualesToolStripMenuItem.Name = "datosAnualesToolStripMenuItem";
-            this.datosAnualesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.datosAnualesToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
             this.datosAnualesToolStripMenuItem.Text = "Datos Anuales";
             this.datosAnualesToolStripMenuItem.Click += new System.EventHandler(this.datosAnualesToolStripMenuItem_Click);
             // 
             // datosMensualesToolStripMenuItem
             // 
             this.datosMensualesToolStripMenuItem.Name = "datosMensualesToolStripMenuItem";
-            this.datosMensualesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.datosMensualesToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
             this.datosMensualesToolStripMenuItem.Text = "Datos Mensuales";
             this.datosMensualesToolStripMenuItem.Click += new System.EventHandler(this.datosMensualesToolStripMenuItem_Click);
+            // 
+            // datosToolStripMenuItem
+            // 
+            this.datosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.empleadosToolStripMenuItem,
+            this.asistenciasToolStripMenuItem});
+            this.datosToolStripMenuItem.Name = "datosToolStripMenuItem";
+            this.datosToolStripMenuItem.Size = new System.Drawing.Size(49, 20);
+            this.datosToolStripMenuItem.Text = "Datos";
+            // 
+            // empleadosToolStripMenuItem
+            // 
+            this.empleadosToolStripMenuItem.Name = "empleadosToolStripMenuItem";
+            this.empleadosToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
+            this.empleadosToolStripMenuItem.Text = "Empleados";
+            this.empleadosToolStripMenuItem.Click += new System.EventHandler(this.empleadosToolStripMenuItem_Click);
+            // 
+            // asistenciasToolStripMenuItem
+            // 
+            this.asistenciasToolStripMenuItem.Name = "asistenciasToolStripMenuItem";
+            this.asistenciasToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
+            this.asistenciasToolStripMenuItem.Text = "Asistencias";
+            this.asistenciasToolStripMenuItem.Click += new System.EventHandler(this.asistenciasToolStripMenuItem_Click);
             // 
             // reportesToolStripMenuItem
             // 
             this.reportesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.asistenciaToolStripMenuItem});
+            this.asistenciaToolStripMenuItem,
+            this.boletaDePagoToolStripMenuItem});
             this.reportesToolStripMenuItem.Name = "reportesToolStripMenuItem";
             this.reportesToolStripMenuItem.Size = new System.Drawing.Size(65, 20);
             this.reportesToolStripMenuItem.Text = "Reportes";
@@ -424,12 +433,12 @@
             this.dgvRecords.Size = new System.Drawing.Size(778, 344);
             this.dgvRecords.TabIndex = 894;
             // 
-            // empleadosToolStripMenuItem
+            // boletaDePagoToolStripMenuItem
             // 
-            this.empleadosToolStripMenuItem.Name = "empleadosToolStripMenuItem";
-            this.empleadosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.empleadosToolStripMenuItem.Text = "Empleados";
-            this.empleadosToolStripMenuItem.Click += new System.EventHandler(this.empleadosToolStripMenuItem_Click);
+            this.boletaDePagoToolStripMenuItem.Name = "boletaDePagoToolStripMenuItem";
+            this.boletaDePagoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.boletaDePagoToolStripMenuItem.Text = "Boleta de pago";
+            this.boletaDePagoToolStripMenuItem.Click += new System.EventHandler(this.boletaDePagoToolStripMenuItem_Click);
             // 
             // Master
             // 
@@ -508,6 +517,7 @@
         private System.Windows.Forms.ToolStripMenuItem datosAnualesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem datosMensualesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem empleadosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem boletaDePagoToolStripMenuItem;
     }
 }
 

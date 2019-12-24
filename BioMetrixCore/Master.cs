@@ -438,5 +438,11 @@ namespace BioMetrixCore
             FrmPersonales form = new FrmPersonales();
             form.Show();
         }
+
+        private void boletaDePagoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmBoletaMensual form = new FrmBoletaMensual();
+            form.Show();
+        }
     }
 }
