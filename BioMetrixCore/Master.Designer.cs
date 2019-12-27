@@ -46,6 +46,7 @@
             this.lblDeviceInfo = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.archivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.configuracionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.datosAnualesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.datosMensualesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -54,6 +55,7 @@
             this.asistenciasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reportesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.asistenciaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.boletaDePagoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.btnUploadUserInfo = new System.Windows.Forms.Button();
             this.btnPowerOff = new System.Windows.Forms.Button();
             this.btnRestartDevice = new System.Windows.Forms.Button();
@@ -65,7 +67,6 @@
             this.btnPullData = new System.Windows.Forms.Button();
             this.btnDownloadFingerPrint = new System.Windows.Forms.Button();
             this.dgvRecords = new System.Windows.Forms.DataGridView();
-            this.boletaDePagoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pnlHeader.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -259,9 +260,18 @@
             // 
             // archivoToolStripMenuItem
             // 
+            this.archivoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.salirToolStripMenuItem});
             this.archivoToolStripMenuItem.Name = "archivoToolStripMenuItem";
             this.archivoToolStripMenuItem.Size = new System.Drawing.Size(60, 20);
             this.archivoToolStripMenuItem.Text = "Archivo";
+            // 
+            // salirToolStripMenuItem
+            // 
+            this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
+            this.salirToolStripMenuItem.Size = new System.Drawing.Size(96, 22);
+            this.salirToolStripMenuItem.Text = "Salir";
+            this.salirToolStripMenuItem.Click += new System.EventHandler(this.salirToolStripMenuItem_Click);
             // 
             // configuracionToolStripMenuItem
             // 
@@ -321,23 +331,31 @@
             // asistenciaToolStripMenuItem
             // 
             this.asistenciaToolStripMenuItem.Name = "asistenciaToolStripMenuItem";
-            this.asistenciaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.asistenciaToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
             this.asistenciaToolStripMenuItem.Text = "Asistencia";
             this.asistenciaToolStripMenuItem.Click += new System.EventHandler(this.asistenciaToolStripMenuItem_Click);
             // 
+            // boletaDePagoToolStripMenuItem
+            // 
+            this.boletaDePagoToolStripMenuItem.Name = "boletaDePagoToolStripMenuItem";
+            this.boletaDePagoToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
+            this.boletaDePagoToolStripMenuItem.Text = "Boleta de pago";
+            this.boletaDePagoToolStripMenuItem.Click += new System.EventHandler(this.boletaDePagoToolStripMenuItem_Click);
+            // 
             // btnUploadUserInfo
             // 
-            this.btnUploadUserInfo.Location = new System.Drawing.Point(725, 98);
+            this.btnUploadUserInfo.Location = new System.Drawing.Point(477, 293);
             this.btnUploadUserInfo.Name = "btnUploadUserInfo";
             this.btnUploadUserInfo.Size = new System.Drawing.Size(65, 48);
             this.btnUploadUserInfo.TabIndex = 893;
             this.btnUploadUserInfo.Text = "Cargar Info Usuarios";
             this.btnUploadUserInfo.UseVisualStyleBackColor = true;
+            this.btnUploadUserInfo.Visible = false;
             this.btnUploadUserInfo.Click += new System.EventHandler(this.btnUploadUserInfo_Click);
             // 
             // btnPowerOff
             // 
-            this.btnPowerOff.Location = new System.Drawing.Point(654, 98);
+            this.btnPowerOff.Location = new System.Drawing.Point(376, 98);
             this.btnPowerOff.Name = "btnPowerOff";
             this.btnPowerOff.Size = new System.Drawing.Size(65, 48);
             this.btnPowerOff.TabIndex = 885;
@@ -347,7 +365,7 @@
             // 
             // btnRestartDevice
             // 
-            this.btnRestartDevice.Location = new System.Drawing.Point(583, 98);
+            this.btnRestartDevice.Location = new System.Drawing.Point(305, 98);
             this.btnRestartDevice.Name = "btnRestartDevice";
             this.btnRestartDevice.Size = new System.Drawing.Size(65, 48);
             this.btnRestartDevice.TabIndex = 886;
@@ -357,7 +375,7 @@
             // 
             // btnDisableDevice
             // 
-            this.btnDisableDevice.Location = new System.Drawing.Point(512, 98);
+            this.btnDisableDevice.Location = new System.Drawing.Point(234, 98);
             this.btnDisableDevice.Name = "btnDisableDevice";
             this.btnDisableDevice.Size = new System.Drawing.Size(65, 48);
             this.btnDisableDevice.TabIndex = 890;
@@ -367,7 +385,7 @@
             // 
             // btnEnableDevice
             // 
-            this.btnEnableDevice.Location = new System.Drawing.Point(441, 98);
+            this.btnEnableDevice.Location = new System.Drawing.Point(163, 98);
             this.btnEnableDevice.Name = "btnEnableDevice";
             this.btnEnableDevice.Size = new System.Drawing.Size(65, 48);
             this.btnEnableDevice.TabIndex = 889;
@@ -377,7 +395,7 @@
             // 
             // btnBeep
             // 
-            this.btnBeep.Location = new System.Drawing.Point(376, 98);
+            this.btnBeep.Location = new System.Drawing.Point(98, 98);
             this.btnBeep.Name = "btnBeep";
             this.btnBeep.Size = new System.Drawing.Size(59, 48);
             this.btnBeep.TabIndex = 5;
@@ -387,7 +405,7 @@
             // 
             // btnGetDeviceTime
             // 
-            this.btnGetDeviceTime.Location = new System.Drawing.Point(292, 98);
+            this.btnGetDeviceTime.Location = new System.Drawing.Point(14, 98);
             this.btnGetDeviceTime.Name = "btnGetDeviceTime";
             this.btnGetDeviceTime.Size = new System.Drawing.Size(78, 48);
             this.btnGetDeviceTime.TabIndex = 887;
@@ -397,32 +415,35 @@
             // 
             // btnGetAllUserID
             // 
-            this.btnGetAllUserID.Location = new System.Drawing.Point(214, 98);
+            this.btnGetAllUserID.Location = new System.Drawing.Point(376, 293);
             this.btnGetAllUserID.Name = "btnGetAllUserID";
             this.btnGetAllUserID.Size = new System.Drawing.Size(72, 48);
             this.btnGetAllUserID.TabIndex = 892;
             this.btnGetAllUserID.Text = "Get All User ID";
             this.btnGetAllUserID.UseVisualStyleBackColor = true;
+            this.btnGetAllUserID.Visible = false;
             this.btnGetAllUserID.Click += new System.EventHandler(this.btnGetAllUserID_Click);
             // 
             // btnPullData
             // 
-            this.btnPullData.Location = new System.Drawing.Point(128, 98);
+            this.btnPullData.Location = new System.Drawing.Point(278, 293);
             this.btnPullData.Name = "btnPullData";
             this.btnPullData.Size = new System.Drawing.Size(80, 48);
             this.btnPullData.TabIndex = 10;
             this.btnPullData.Text = "Obtener Registros";
             this.btnPullData.UseVisualStyleBackColor = true;
+            this.btnPullData.Visible = false;
             this.btnPullData.Click += new System.EventHandler(this.btnPullData_Click);
             // 
             // btnDownloadFingerPrint
             // 
-            this.btnDownloadFingerPrint.Location = new System.Drawing.Point(10, 98);
+            this.btnDownloadFingerPrint.Location = new System.Drawing.Point(148, 293);
             this.btnDownloadFingerPrint.Name = "btnDownloadFingerPrint";
             this.btnDownloadFingerPrint.Size = new System.Drawing.Size(112, 48);
             this.btnDownloadFingerPrint.TabIndex = 9;
             this.btnDownloadFingerPrint.Text = "Obtener Usuarios";
             this.btnDownloadFingerPrint.UseVisualStyleBackColor = true;
+            this.btnDownloadFingerPrint.Visible = false;
             this.btnDownloadFingerPrint.Click += new System.EventHandler(this.btnDownloadFingerPrint_Click);
             // 
             // dgvRecords
@@ -432,21 +453,16 @@
             this.dgvRecords.Name = "dgvRecords";
             this.dgvRecords.Size = new System.Drawing.Size(778, 344);
             this.dgvRecords.TabIndex = 894;
-            // 
-            // boletaDePagoToolStripMenuItem
-            // 
-            this.boletaDePagoToolStripMenuItem.Name = "boletaDePagoToolStripMenuItem";
-            this.boletaDePagoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.boletaDePagoToolStripMenuItem.Text = "Boleta de pago";
-            this.boletaDePagoToolStripMenuItem.Click += new System.EventHandler(this.boletaDePagoToolStripMenuItem_Click);
+            this.dgvRecords.Visible = false;
             // 
             // Master
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::BioMetrixCore.Properties.Resources.fondo;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(815, 541);
             this.Controls.Add(this.btnDownloadFingerPrint);
-            this.Controls.Add(this.dgvRecords);
             this.Controls.Add(this.btnPullData);
             this.Controls.Add(this.lblDeviceInfo);
             this.Controls.Add(this.btnGetAllUserID);
@@ -460,6 +476,7 @@
             this.Controls.Add(this.btnRestartDevice);
             this.Controls.Add(this.btnEnableDevice);
             this.Controls.Add(this.btnDisableDevice);
+            this.Controls.Add(this.dgvRecords);
             this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
@@ -467,6 +484,7 @@
             this.Name = "Master";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Biometric Device Demo";
+            this.Load += new System.EventHandler(this.Master_Load);
             this.pnlHeader.ResumeLayout(false);
             this.pnlHeader.PerformLayout();
             this.groupBox1.ResumeLayout(false);
@@ -518,6 +536,7 @@
         private System.Windows.Forms.ToolStripMenuItem datosMensualesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem empleadosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem boletaDePagoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem salirToolStripMenuItem;
     }
 }
 

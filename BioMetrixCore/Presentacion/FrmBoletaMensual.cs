@@ -175,7 +175,7 @@ namespace BioMetrixCore.Presentacion
 
             string hula= ConfigurationManager.AppSettings.Get("connectionString");
             Report report = new Report();
-            report.Load(@"Reportes/BoletaTrabajador.frx");
+            report.Load(@"Reportes/Boleta.frx");
             //report.Dictionary.Connections[0].ConnectionString = hula;
             report.SetParameterValue("Nombres", nombreTexto+ " "+apellidos);
             report.SetParameterValue("Cargo", cargo);

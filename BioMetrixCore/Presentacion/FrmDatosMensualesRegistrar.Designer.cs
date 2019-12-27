@@ -49,7 +49,7 @@
             this.txtAfpCom.Location = new System.Drawing.Point(161, 64);
             this.txtAfpCom.Name = "txtAfpCom";
             this.txtAfpCom.Size = new System.Drawing.Size(181, 20);
-            this.txtAfpCom.TabIndex = 7;
+            this.txtAfpCom.TabIndex = 1;
             // 
             // txtId
             // 
@@ -84,7 +84,7 @@
             this.cmbEmpleado.Location = new System.Drawing.Point(161, 25);
             this.cmbEmpleado.Name = "cmbEmpleado";
             this.cmbEmpleado.Size = new System.Drawing.Size(181, 21);
-            this.cmbEmpleado.TabIndex = 15;
+            this.cmbEmpleado.TabIndex = 0;
             // 
             // label1
             // 
@@ -109,7 +109,7 @@
             this.txtApfPrimCom.Location = new System.Drawing.Point(161, 99);
             this.txtApfPrimCom.Name = "txtApfPrimCom";
             this.txtApfPrimCom.Size = new System.Drawing.Size(181, 20);
-            this.txtApfPrimCom.TabIndex = 7;
+            this.txtApfPrimCom.TabIndex = 2;
             // 
             // label4
             // 
@@ -125,7 +125,7 @@
             this.txtBasico.Location = new System.Drawing.Point(161, 136);
             this.txtBasico.Name = "txtBasico";
             this.txtBasico.Size = new System.Drawing.Size(181, 20);
-            this.txtBasico.TabIndex = 7;
+            this.txtBasico.TabIndex = 3;
             // 
             // label5
             // 
@@ -142,7 +142,7 @@
             this.cmbMes.Location = new System.Drawing.Point(246, 180);
             this.cmbMes.Name = "cmbMes";
             this.cmbMes.Size = new System.Drawing.Size(96, 21);
-            this.cmbMes.TabIndex = 18;
+            this.cmbMes.TabIndex = 5;
             // 
             // label6
             // 
@@ -159,10 +159,11 @@
             this.cmbAnio.Location = new System.Drawing.Point(102, 180);
             this.cmbAnio.Name = "cmbAnio";
             this.cmbAnio.Size = new System.Drawing.Size(87, 21);
-            this.cmbAnio.TabIndex = 16;
+            this.cmbAnio.TabIndex = 4;
             // 
             // FrmDatosMensualesRegistrar
             // 
+            this.AcceptButton = this.btnGuardar;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(381, 315);

@@ -55,20 +55,18 @@ namespace BioMetrixCore.Datos
             return SQLHelper.ExecuteDataSet("usp_Datos_FAsistencia_GetFiltro", dbParams);
 
         }
-        public static int Insertar(Asistencia asistencia)
+        public static DataSet Comparar(int numEqu,double codEmp, DateTime fecha)
         {
             SqlParameter[] dbParams = new SqlParameter[]
                 {
-                    //NumeroEquipo, CodigoEmpleado, ModoAcceso,TipoRegistro,Fecha
-                    SQLHelper.MakeParam("@NumeroEquipo", SqlDbType.Int, 0, asistencia.NumeroEquipo),
-                    SQLHelper.MakeParam("@CodigoEmpleado", SqlDbType.Decimal, 0, asistencia.CodigoEmpleado),
-                    SQLHelper.MakeParam("@ModoAcceso", SqlDbType.Int, 0, asistencia.ModoAcceso),
-                    SQLHelper.MakeParam("@TipoRegistro", SqlDbType.Int, 0, asistencia.TipoRegistro),
-                    SQLHelper.MakeParam("@Fecha", SqlDbType.DateTime, 0, asistencia.Fecha),
+                    SQLHelper.MakeParam("@NumeroEquipo", SqlDbType.Int, 0, numEqu),
+                    SQLHelper.MakeParam("@CodigoEmpleado", SqlDbType.Int, 0, codEmp),
+                    SQLHelper.MakeParam("@Fecha", SqlDbType.DateTime, 0, fecha)
                 };
-            return Convert.ToInt32(SQLHelper.ExecuteScalar("insert into tblAsistencia(NumeroEquipo, CodigoEmpleado, ModoAcceso,TipoRegistro,Fecha) values(@NumeroEquipo, @CodigoEmpleado, @ModoAcceso,@TipoRegistro,@Fecha); select last_insert_rowid();", dbParams));
+            return SQLHelper.ExecuteDataSet("usp_Datos_FDatos_FAsistencia_Comparar", dbParams);
+
         }
-        public static int InsertarIngreso(Asistencia asistencia)
+        public static int Insertar(Asistencia asistencia)
         {
             SqlParameter[] dbParams = new SqlParameter[]
                 {
@@ -81,35 +79,8 @@ namespace BioMetrixCore.Datos
                 };
             return Convert.ToInt32(SQLHelper.ExecuteScalar("usp_Datos_FAsistencia_InsertarRegistro", dbParams));
         }
-        public static int InsertarSalida(Asistencia asistencia)
-        {
-            SqlParameter[] dbParams = new SqlParameter[]
-                {
-                    //NumeroEquipo, CodigoEmpleado, ModoAcceso,TipoRegistro,Fecha
-                    SQLHelper.MakeParam("@NumeroEquipo", SqlDbType.Int, 0, asistencia.NumeroEquipo),
-                    SQLHelper.MakeParam("@CodigoEmpleado", SqlDbType.Decimal, 0, asistencia.CodigoEmpleado),
-                    SQLHelper.MakeParam("@ModoAcceso", SqlDbType.Int, 0, asistencia.ModoAcceso),
-                    SQLHelper.MakeParam("@TipoRegistro", SqlDbType.Int, 0, asistencia.TipoRegistro),
-                    SQLHelper.MakeParam("@Fecha", SqlDbType.DateTime, 0, asistencia.Fecha),
-                };
-            return Convert.ToInt32(SQLHelper.ExecuteScalar("insert into tblSalida(NumeroEquipo, CodigoEmpleado, ModoAcceso,TipoRegistro,Fecha) values(@NumeroEquipo, @CodigoEmpleado, @ModoAcceso,@TipoRegistro,@Fecha); select last_insert_rowid();", dbParams));
-        }
 
         public static int Actualizar(Asistencia asistencia)
-        {
-            SqlParameter[] dbParams = new SqlParameter[]
-                {
-                    SQLHelper.MakeParam("@Id", SqlDbType.Int, 0, asistencia.Id),
-                    SQLHelper.MakeParam("@NumeroEquipo", SqlDbType.Int, 0, asistencia.NumeroEquipo),
-                    SQLHelper.MakeParam("@CodigoEmpleado", SqlDbType.Decimal, 0, asistencia.CodigoEmpleado),
-                    SQLHelper.MakeParam("@ModoAcceso", SqlDbType.Int, 0, asistencia.ModoAcceso),
-                    SQLHelper.MakeParam("@TipoRegistro", SqlDbType.Int, 0, asistencia.TipoRegistro),
-                    SQLHelper.MakeParam("@Fecha", SqlDbType.DateTime, 0, asistencia.Fecha),
-                };
-            return Convert.ToInt32(SQLHelper.ExecuteScalar("update tblAsistencia set NumeroEquipo=@NumeroEquipo, CodigoEmpleado=@CodigoEmpleado,ModoAcceso=@ModoAcceso,TipoRegistro=@TipoRegistro,Fecha=@Fecha   WHERE Id=@Id", dbParams));
-
-        }
-        public static int Sincronizar(Asistencia asistencia)
         {
             SqlParameter[] dbParams = new SqlParameter[]
                 {
@@ -130,7 +101,7 @@ namespace BioMetrixCore.Datos
                 {
                     SQLHelper.MakeParam("@Id", SqlDbType.Int, 0, asistencia.Id),
                 };
-            return Convert.ToInt32(SQLHelper.ExecuteScalar("DELETE FROM tblAsistencia WHERE Id= @Id", dbParams));
+            return Convert.ToInt32(SQLHelper.ExecuteScalar("usp_Datos_FAsistencia_Eliminar", dbParams));
 
         }
         public static int EliminarTodo()

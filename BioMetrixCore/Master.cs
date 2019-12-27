@@ -399,7 +399,7 @@ namespace BioMetrixCore
 
         private void asistenciaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FrmAsistencia form = new FrmAsistencia();
+            FrmReporte form = new FrmReporte();
             form.Show();
         }
 
@@ -443,6 +443,16 @@ namespace BioMetrixCore
         {
             FrmBoletaMensual form = new FrmBoletaMensual();
             form.Show();
+        }
+
+        private void salirToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void Master_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

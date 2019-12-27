@@ -40,6 +40,9 @@
             this.btnBorrarBase = new System.Windows.Forms.Button();
             this.btnFiltrar = new System.Windows.Forms.Button();
             this.cmbTipo = new System.Windows.Forms.ComboBox();
+            this.btnAgregarRegistro = new System.Windows.Forms.Button();
+            this.btnBorrar = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDatos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -47,11 +50,11 @@
             // 
             this.lblStatus.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.lblStatus.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.lblStatus.Location = new System.Drawing.Point(0, 511);
+            this.lblStatus.Location = new System.Drawing.Point(0, 540);
             this.lblStatus.Margin = new System.Windows.Forms.Padding(3, 5, 3, 0);
             this.lblStatus.Name = "lblStatus";
             this.lblStatus.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
-            this.lblStatus.Size = new System.Drawing.Size(838, 25);
+            this.lblStatus.Size = new System.Drawing.Size(882, 25);
             this.lblStatus.TabIndex = 11;
             this.lblStatus.Text = "label3";
             // 
@@ -80,10 +83,11 @@
             this.dgvDatos.AllowUserToAddRows = false;
             this.dgvDatos.AllowUserToDeleteRows = false;
             this.dgvDatos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvDatos.Location = new System.Drawing.Point(12, 77);
+            this.dgvDatos.Location = new System.Drawing.Point(12, 100);
             this.dgvDatos.Name = "dgvDatos";
             this.dgvDatos.ReadOnly = true;
-            this.dgvDatos.Size = new System.Drawing.Size(814, 426);
+            this.dgvDatos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvDatos.Size = new System.Drawing.Size(858, 434);
             this.dgvDatos.TabIndex = 8;
             // 
             // btnSincronizar
@@ -99,7 +103,7 @@
             // dtpDesde
             // 
             this.dtpDesde.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpDesde.Location = new System.Drawing.Point(562, 28);
+            this.dtpDesde.Location = new System.Drawing.Point(607, 28);
             this.dtpDesde.Name = "dtpDesde";
             this.dtpDesde.Size = new System.Drawing.Size(96, 20);
             this.dtpDesde.TabIndex = 12;
@@ -107,7 +111,7 @@
             // dtpHasta
             // 
             this.dtpHasta.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpHasta.Location = new System.Drawing.Point(666, 28);
+            this.dtpHasta.Location = new System.Drawing.Point(711, 28);
             this.dtpHasta.Name = "dtpHasta";
             this.dtpHasta.Size = new System.Drawing.Size(101, 20);
             this.dtpHasta.TabIndex = 12;
@@ -124,9 +128,9 @@
             // cmbEmp
             // 
             this.cmbEmp.FormattingEnabled = true;
-            this.cmbEmp.Location = new System.Drawing.Point(438, 28);
+            this.cmbEmp.Location = new System.Drawing.Point(448, 28);
             this.cmbEmp.Name = "cmbEmp";
-            this.cmbEmp.Size = new System.Drawing.Size(118, 21);
+            this.cmbEmp.Size = new System.Drawing.Size(153, 21);
             this.cmbEmp.TabIndex = 13;
             this.cmbEmp.SelectedIndexChanged += new System.EventHandler(this.cmbEmp_SelectedIndexChanged);
             // 
@@ -143,7 +147,7 @@
             // 
             // btnFiltrar
             // 
-            this.btnFiltrar.Location = new System.Drawing.Point(773, 25);
+            this.btnFiltrar.Location = new System.Drawing.Point(818, 25);
             this.btnFiltrar.Name = "btnFiltrar";
             this.btnFiltrar.Size = new System.Drawing.Size(50, 23);
             this.btnFiltrar.TabIndex = 15;
@@ -158,17 +162,49 @@
             this.cmbTipo.Items.AddRange(new object[] {
             "TRABAJADOR",
             "EMPLEADO"});
-            this.cmbTipo.Location = new System.Drawing.Point(347, 29);
+            this.cmbTipo.Location = new System.Drawing.Point(326, 29);
             this.cmbTipo.Name = "cmbTipo";
-            this.cmbTipo.Size = new System.Drawing.Size(76, 21);
+            this.cmbTipo.Size = new System.Drawing.Size(106, 21);
             this.cmbTipo.TabIndex = 13;
             this.cmbTipo.SelectedIndexChanged += new System.EventHandler(this.cmbEmp_SelectedIndexChanged);
+            // 
+            // btnAgregarRegistro
+            // 
+            this.btnAgregarRegistro.Location = new System.Drawing.Point(12, 58);
+            this.btnAgregarRegistro.Name = "btnAgregarRegistro";
+            this.btnAgregarRegistro.Size = new System.Drawing.Size(75, 23);
+            this.btnAgregarRegistro.TabIndex = 16;
+            this.btnAgregarRegistro.Text = "Agregar";
+            this.btnAgregarRegistro.UseVisualStyleBackColor = true;
+            this.btnAgregarRegistro.Click += new System.EventHandler(this.btnAgregarRegistro_Click);
+            // 
+            // btnBorrar
+            // 
+            this.btnBorrar.Location = new System.Drawing.Point(93, 58);
+            this.btnBorrar.Name = "btnBorrar";
+            this.btnBorrar.Size = new System.Drawing.Size(75, 23);
+            this.btnBorrar.TabIndex = 16;
+            this.btnBorrar.Text = "Borrar";
+            this.btnBorrar.UseVisualStyleBackColor = true;
+            this.btnBorrar.Click += new System.EventHandler(this.btnBorrar_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(289, 32);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(31, 13);
+            this.label1.TabIndex = 17;
+            this.label1.Text = "Tipo:";
             // 
             // FrmAsisencias
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(838, 536);
+            this.ClientSize = new System.Drawing.Size(882, 565);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.btnBorrar);
+            this.Controls.Add(this.btnAgregarRegistro);
             this.Controls.Add(this.btnFiltrar);
             this.Controls.Add(this.cmbTipo);
             this.Controls.Add(this.cmbEmp);
@@ -186,6 +222,7 @@
             this.Load += new System.EventHandler(this.FrmAsisencias_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvDatos)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -203,5 +240,8 @@
         private System.Windows.Forms.Button btnBorrarBase;
         private System.Windows.Forms.Button btnFiltrar;
         private System.Windows.Forms.ComboBox cmbTipo;
+        private System.Windows.Forms.Button btnAgregarRegistro;
+        private System.Windows.Forms.Button btnBorrar;
+        private System.Windows.Forms.Label label1;
     }
 }

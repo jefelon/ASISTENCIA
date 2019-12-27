@@ -25,6 +25,10 @@ namespace BioMetrixCore.Presentacion
                 DataSet ds = FEmpleado.GetAll();
                 DataTable dt = ds.Tables[0];
                 dgvDatos.DataSource = dt;
+
+                dgvDatos.Columns["Id"].Visible = false;
+                dgvDatos.Columns["DepartamentoId"].Visible = false;
+                dgvDatos.Columns["CodigoEmpleado"].Visible = false;
             }
             catch (Exception ex)
             {

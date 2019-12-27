@@ -121,8 +121,19 @@ namespace BioMetrixCore.Presentacion
                             asistencia.TipoRegistro = Convert.ToInt32(row.Cells["TipoRegistro"].Value.ToString());
                             asistencia.Fecha = Convert.ToDateTime(row.Cells["Fecha"].Value.ToString());
 
+                            DataSet ds = FAsistencia.Comparar(asistencia.NumeroEquipo,asistencia.CodigoEmpleado,asistencia.Fecha);
+                            DataTable dt = ds.Tables[0];
+                            dgvDatos.DataSource = dt;
 
-                            int returnDetalleId = FAsistencia.InsertarIngreso(asistencia);
+                            if (dt.Rows.Count>0)
+                            {
+                                //int returnDetalleId = FAsistencia.Actualizar(asistencia);
+                            }
+
+                            else
+                            {
+                                int returnDetalleId = FAsistencia.Insertar(asistencia);
+                            }                          
                             
 
                         }
@@ -130,7 +141,7 @@ namespace BioMetrixCore.Presentacion
 
                     MessageBox.Show("Se sincronizó correctamente.");
                 }
-                else
+                        else
                 {
                     MessageBox.Show("Conéctese al dispositivo de asistencia.");
                 }
@@ -213,6 +224,43 @@ namespace BioMetrixCore.Presentacion
                 DataSet ds = FAsistencia.GetFiltro(Convert.ToInt32(cmbEmp.SelectedValue.ToString()), dtpDesde.Value, dtpHasta.Value,cmbTipo.Text);
                 dt = ds.Tables[0];
                 dgvDatos.DataSource = dt;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + ex.StackTrace);
+            }
+        }
+
+        private void btnAgregarRegistro_Click(object sender, EventArgs e)
+        {
+            FrmAgregarAsistencia frm = new FrmAgregarAsistencia();
+            frm.ShowDialog();
+            btnListaLocal.PerformClick();
+        }
+
+        private void btnBorrar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (MessageBox.Show("¿Está seguro de eliminar este registro de la base de datos? \n " +
+                    "No se borrará del dispositivo de asistencia. Si sincroniza nuevamente, volverá a aparecer.", "Eliminar Asistencia",
+                MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+                {
+                    int id = Convert.ToInt32(dgvDatos.CurrentRow.Cells["Id"].Value.ToString());
+
+                    Asistencia asistencia = new Asistencia();
+                    asistencia.Id = id;
+                    if (FAsistencia.Eliminar(asistencia) > 0)
+                    {
+                        btnListaLocal.PerformClick();
+                    }
+                    else
+                    {
+                        MessageBox.Show("No se pudo eliminar...", "No se puede eliminar");
+
+                    }
+                }
+
             }
             catch (Exception ex)
             {

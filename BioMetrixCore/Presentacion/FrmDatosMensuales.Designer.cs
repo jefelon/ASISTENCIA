@@ -98,7 +98,8 @@
             this.dgvDatos.Location = new System.Drawing.Point(13, 82);
             this.dgvDatos.Name = "dgvDatos";
             this.dgvDatos.ReadOnly = true;
-            this.dgvDatos.Size = new System.Drawing.Size(776, 256);
+            this.dgvDatos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvDatos.Size = new System.Drawing.Size(776, 394);
             this.dgvDatos.TabIndex = 5;
             // 
             // label2
@@ -144,7 +145,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 356);
+            this.ClientSize = new System.Drawing.Size(800, 488);
             this.Controls.Add(this.cmbEmpleado);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.cmbMes);

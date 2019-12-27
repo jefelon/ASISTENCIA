@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BioMetrixCore.Presentacion;
+using System;
 using System.Windows.Forms;
 
 namespace BioMetrixCore
@@ -13,7 +14,7 @@ namespace BioMetrixCore
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Master());
+            Application.Run(new FrmLogin());
         }
     }
 }

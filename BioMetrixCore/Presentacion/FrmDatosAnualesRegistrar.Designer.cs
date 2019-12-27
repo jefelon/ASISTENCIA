@@ -72,7 +72,7 @@
             this.cmbAnio.Location = new System.Drawing.Point(196, 25);
             this.cmbAnio.Name = "cmbAnio";
             this.cmbAnio.Size = new System.Drawing.Size(181, 21);
-            this.cmbAnio.TabIndex = 3;
+            this.cmbAnio.TabIndex = 0;
             // 
             // label2
             // 
@@ -88,7 +88,7 @@
             this.txtAsigfam.Location = new System.Drawing.Point(196, 60);
             this.txtAsigfam.Name = "txtAsigfam";
             this.txtAsigfam.Size = new System.Drawing.Size(181, 20);
-            this.txtAsigfam.TabIndex = 4;
+            this.txtAsigfam.TabIndex = 1;
             // 
             // label3
             // 
@@ -104,7 +104,7 @@
             this.txtRemMin.Location = new System.Drawing.Point(196, 97);
             this.txtRemMin.Name = "txtRemMin";
             this.txtRemMin.Size = new System.Drawing.Size(181, 20);
-            this.txtRemMin.TabIndex = 4;
+            this.txtRemMin.TabIndex = 2;
             // 
             // label4
             // 
@@ -120,7 +120,7 @@
             this.txtEssalud.Location = new System.Drawing.Point(196, 133);
             this.txtEssalud.Name = "txtEssalud";
             this.txtEssalud.Size = new System.Drawing.Size(181, 20);
-            this.txtEssalud.TabIndex = 4;
+            this.txtEssalud.TabIndex = 3;
             // 
             // label5
             // 
@@ -152,7 +152,7 @@
             this.txtAfp.Location = new System.Drawing.Point(196, 207);
             this.txtAfp.Name = "txtAfp";
             this.txtAfp.Size = new System.Drawing.Size(181, 20);
-            this.txtAfp.TabIndex = 4;
+            this.txtAfp.TabIndex = 5;
             // 
             // label7
             // 
@@ -168,7 +168,7 @@
             this.txtUit.Location = new System.Drawing.Point(196, 244);
             this.txtUit.Name = "txtUit";
             this.txtUit.Size = new System.Drawing.Size(181, 20);
-            this.txtUit.TabIndex = 4;
+            this.txtUit.TabIndex = 6;
             // 
             // txtId
             // 
@@ -180,6 +180,7 @@
             // 
             // FrmDatosAnualesRegistrar
             // 
+            this.AcceptButton = this.btnGuardar;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(409, 375);

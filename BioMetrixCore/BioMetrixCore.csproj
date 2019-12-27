@@ -107,17 +107,29 @@
     <Compile Include="Entidad\Asistencia.cs" />
     <Compile Include="Entidad\Usuario.cs" />
     <Compile Include="Info\UserIDInfo.cs" />
+    <Compile Include="Presentacion\FrmAgregarAsistencia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentacion\FrmAgregarAsistencia.Designer.cs">
+      <DependentUpon>FrmAgregarAsistencia.cs</DependentUpon>
+    </Compile>
     <Compile Include="Presentacion\FrmAsisencias.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Presentacion\FrmAsisencias.Designer.cs">
       <DependentUpon>FrmAsisencias.cs</DependentUpon>
     </Compile>
-    <Compile Include="Presentacion\FrmAsistencia.cs">
+    <Compile Include="Presentacion\FrmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Presentacion\FrmAsistencia.Designer.cs">
-      <DependentUpon>FrmAsistencia.cs</DependentUpon>
+    <Compile Include="Presentacion\FrmLogin.Designer.cs">
+      <DependentUpon>FrmLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentacion\FrmReporte.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentacion\FrmReporte.Designer.cs">
+      <DependentUpon>FrmReporte.cs</DependentUpon>
     </Compile>
     <Compile Include="Presentacion\FrmBoletaMensual.cs">
       <SubType>Form</SubType>
@@ -189,11 +201,17 @@
     <EmbeddedResource Include="Master.resx">
       <DependentUpon>Master.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Presentacion\FrmAgregarAsistencia.resx">
+      <DependentUpon>FrmAgregarAsistencia.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\FrmAsisencias.resx">
       <DependentUpon>FrmAsisencias.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Presentacion\FrmAsistencia.resx">
-      <DependentUpon>FrmAsistencia.cs</DependentUpon>
+    <EmbeddedResource Include="Presentacion\FrmLogin.resx">
+      <DependentUpon>FrmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentacion\FrmReporte.resx">
+      <DependentUpon>FrmReporte.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\FrmBoletaMensual.resx">
       <DependentUpon>FrmBoletaMensual.cs</DependentUpon>
@@ -248,6 +266,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="dlls\zkemkeeper.dll" />
+    <None Include="Resources\fondo.jpg" />
+    <None Include="Resources\login.png" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
