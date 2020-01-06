@@ -22,5 +22,17 @@ namespace BioMetrixCore.Properties {
                 return defaultInstance;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("192.168.0.100")]
+        public string ip {
+            get {
+                return ((string)(this["ip"]));
+            }
+            set {
+                this["ip"] = value;
+            }
+        }
     }
 }

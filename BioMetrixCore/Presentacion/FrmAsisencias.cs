@@ -65,7 +65,11 @@ namespace BioMetrixCore.Presentacion
                         DisplayListOutput(lstMachineInfo.Count + " regristros encontrados!!");
                     }
                     else
+                    {
                         DisplayListOutput("No se encontraro registros.");
+                    }
+
+                    btnSincronizar.Enabled = false;
                 }
                 else
                 {
@@ -109,7 +113,7 @@ namespace BioMetrixCore.Presentacion
                 if (estado==true)
                 {
                     if (MessageBox.Show("¿Está seguro de sincronizar el dispositivo con la base de datos.?  Esto es lo que pasará. \n " +
-                    "Se eliminará todo y se insertará nuevamente todos los registros.", "Sincronizando...",
+                    "Se insertará solo los nuevos registros.", "Sincronizando...",
                     MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
                     {
                         foreach (DataGridViewRow row in dgvDatos.Rows)
@@ -122,10 +126,10 @@ namespace BioMetrixCore.Presentacion
                             asistencia.Fecha = Convert.ToDateTime(row.Cells["Fecha"].Value.ToString());
 
                             DataSet ds = FAsistencia.Comparar(asistencia.NumeroEquipo,asistencia.CodigoEmpleado,asistencia.Fecha);
-                            DataTable dt = ds.Tables[0];
-                            dgvDatos.DataSource = dt;
+                            DataTable dt2 = ds.Tables[0];
+                            //dgvDatos.DataSource = dt;
 
-                            if (dt.Rows.Count>0)
+                            if (dt2.Rows.Count>0)
                             {
                                 //int returnDetalleId = FAsistencia.Actualizar(asistencia);
                             }
@@ -162,6 +166,11 @@ namespace BioMetrixCore.Presentacion
                 DataSet ds = FAsistencia.GetAll();
                 dt = ds.Tables[0];
                 dgvDatos.DataSource = dt;
+
+                dgvDatos.Columns["Id"].Visible = false;
+                dgvDatos.Columns["NumeroEquipo"].Visible = false;
+
+                btnSincronizar.Enabled = false;
             }
             catch (Exception ex)
             {
@@ -266,6 +275,11 @@ namespace BioMetrixCore.Presentacion
             {
                 MessageBox.Show(ex.Message + ex.StackTrace);
             }
+        }
+
+        private void dgvDatos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

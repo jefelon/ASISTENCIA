@@ -2,7 +2,7 @@
 using System.Configuration;
 using System.Windows.Forms;
 
-namespace SisttVentas
+namespace BioMetrixCore
 {
     class EditarAppConfig
     {

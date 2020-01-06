@@ -138,6 +138,9 @@ namespace BioMetrixCore
                 {
                     string deviceInfo = manipulator.FetchDeviceInfo(objZkeeper, int.Parse(tbxMachineNumber.Text.Trim()));
                     lblDeviceInfo.Text = deviceInfo;
+
+                    EditarAppConfig app = new EditarAppConfig();
+                    app.guardarValorConfiguracion("ip", tbxDeviceIP.Text);
                 }
 
             }
@@ -452,7 +455,8 @@ namespace BioMetrixCore
 
         private void Master_Load(object sender, EventArgs e)
         {
-
+            EditarAppConfig app = new EditarAppConfig();
+            tbxDeviceIP.Text = app.leerValorConfiguracion("ip");
         }
     }
 }

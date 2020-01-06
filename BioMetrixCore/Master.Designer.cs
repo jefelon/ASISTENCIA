@@ -81,7 +81,7 @@
             this.tbxDeviceIP.Name = "tbxDeviceIP";
             this.tbxDeviceIP.Size = new System.Drawing.Size(86, 22);
             this.tbxDeviceIP.TabIndex = 0;
-            this.tbxDeviceIP.Text = "172.18.12.222";
+            this.tbxDeviceIP.Text = "192.168.0.100";
             // 
             // label1
             // 
