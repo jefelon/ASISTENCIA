@@ -33,7 +33,7 @@ namespace BioMetrixCore.Presentacion
             try
             {
                 Asistencia asistencia = new Asistencia();
-                asistencia.NumeroEquipo = 1;
+                asistencia.NumeroEquipo = Convert.ToInt32(txtNumDispositivo.Text);
                 asistencia.CodigoEmpleado = Convert.ToDouble(txtCodEmp.Text);
                 asistencia.ModoAcceso = 1;
                 if(cmbTipo.Text=="INGRESO")

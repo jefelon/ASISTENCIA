@@ -48,6 +48,10 @@ namespace BioMetrixCore.Presentacion
                 lblStatus.BackColor = Color.Red;
                 lblStatus.Text = "Desconectado.";
             }
+
+            txtNumDispositivo.Text = numeroDispositivo.ToString();
+
+            botones(false);
         }
 
         private void btnDatosDispositivo_Click(object sender, EventArgs e)
@@ -69,12 +73,14 @@ namespace BioMetrixCore.Presentacion
                         DisplayListOutput("No se encontraro registros.");
                     }
 
-                    btnSincronizar.Enabled = false;
+                    btnSincronizar.Enabled = true;
                 }
                 else
                 {
                     MessageBox.Show("Conéctese al dispositivo de asistencia.");
+                    btnSincronizar.Enabled = false;
                 }
+
             }
             catch (Exception ex)
             {
@@ -170,6 +176,7 @@ namespace BioMetrixCore.Presentacion
                 dgvDatos.Columns["Id"].Visible = false;
                 dgvDatos.Columns["NumeroEquipo"].Visible = false;
 
+                botones(true);
                 btnSincronizar.Enabled = false;
             }
             catch (Exception ex)
@@ -243,6 +250,7 @@ namespace BioMetrixCore.Presentacion
         private void btnAgregarRegistro_Click(object sender, EventArgs e)
         {
             FrmAgregarAsistencia frm = new FrmAgregarAsistencia();
+            frm.txtNumDispositivo.Text = txtNumDispositivo.Text;
             frm.ShowDialog();
             btnListaLocal.PerformClick();
         }
@@ -281,5 +289,67 @@ namespace BioMetrixCore.Presentacion
         {
 
         }
+
+        private void btnHorasExtras_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                ClearGrid();
+                DataSet ds = FAsistencia.GetHoraExtraFecha(dtpDesde.Value,dtpHasta.Value);
+                dt = ds.Tables[0];
+                dgvDatos.DataSource = dt;
+
+                botones(false);
+                dgvDatos.Columns["Horas"].Width = 50;
+                dgvDatos.Columns["Minutos"].Width = 50;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + ex.StackTrace);
+            }
+        }
+        private void botones(bool estado)
+        {
+            btnSincronizar.Enabled = estado;
+            btnBorrar.Enabled = estado;
+            btnAgregarRegistro.Enabled = estado;
+            btnBorrar.Enabled = estado;
+            cmbTipo.Enabled = estado;
+            cmbEmp.Enabled = estado;
+            btnFiltrar.Enabled = estado;
+        }
+
+        private void btnExcel_Click(object sender, EventArgs e)
+        {
+            ExportarDataGridViewExcel(dgvDatos);
+        }
+        private void ExportarDataGridViewExcel(DataGridView grd)
+        {
+            SaveFileDialog fichero = new SaveFileDialog();
+            fichero.Filter = "Excel (*.xls)|*.xls";
+            if (fichero.ShowDialog() == DialogResult.OK)
+            {
+                Microsoft.Office.Interop.Excel.Application aplicacion;
+                Microsoft.Office.Interop.Excel.Workbook libros_trabajo;
+                Microsoft.Office.Interop.Excel.Worksheet hoja_trabajo;
+                aplicacion = new Microsoft.Office.Interop.Excel.Application();
+                libros_trabajo = aplicacion.Workbooks.Add();
+                hoja_trabajo =
+                    (Microsoft.Office.Interop.Excel.Worksheet)libros_trabajo.Worksheets.get_Item(1);
+                //Recorremos el DataGridView rellenando la hoja de trabajo
+                for (int i = 0; i < grd.Rows.Count - 1; i++)
+                {
+                    for (int j = 0; j < grd.Columns.Count; j++)
+                    {
+                        hoja_trabajo.Cells[i + 1, j + 1] = grd.Rows[i].Cells[j].Value.ToString();
+                    }
+                }
+                libros_trabajo.SaveAs(fichero.FileName,
+                    Microsoft.Office.Interop.Excel.XlFileFormat.xlWorkbookNormal);
+                libros_trabajo.Close(true);
+                aplicacion.Quit();
+            }
+        }
+
     }
 }

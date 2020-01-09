@@ -32,6 +32,17 @@ namespace BioMetrixCore.Datos
             return SQLHelper.ExecuteDataSet("usp_Datos_FAsistencia_GetFechas", dbParams);
 
         }
+        public static DataSet GetHoraExtraFecha(DateTime desde, DateTime hasta)
+        {
+            SqlParameter[] dbParams = new SqlParameter[]
+                {
+                    SQLHelper.MakeParam("@Desde", SqlDbType.DateTime, 0, desde),
+                    SQLHelper.MakeParam("@Hasta", SqlDbType.DateTime, 0, hasta),
+                };
+            return SQLHelper.ExecuteDataSet("usp_Datos_FAsistencia_GetHoraExtraFechas", dbParams);
+
+        }
+        
         public static DataSet GetAllDatos(int anio, int mes,int empleadoId)
         {
             SqlParameter[] dbParams = new SqlParameter[]

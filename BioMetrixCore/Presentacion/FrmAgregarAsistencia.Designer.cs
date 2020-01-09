@@ -37,6 +37,7 @@
             this.btnGuardar = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.txtCodEmp = new System.Windows.Forms.TextBox();
+            this.txtNumDispositivo = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label1
@@ -123,11 +124,20 @@
             this.txtCodEmp.Size = new System.Drawing.Size(203, 20);
             this.txtCodEmp.TabIndex = 19;
             // 
+            // txtNumDispositivo
+            // 
+            this.txtNumDispositivo.Location = new System.Drawing.Point(27, 12);
+            this.txtNumDispositivo.Name = "txtNumDispositivo";
+            this.txtNumDispositivo.Size = new System.Drawing.Size(30, 20);
+            this.txtNumDispositivo.TabIndex = 20;
+            this.txtNumDispositivo.Visible = false;
+            // 
             // FrmAgregarAsistencia
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(324, 256);
+            this.Controls.Add(this.txtNumDispositivo);
             this.Controls.Add(this.txtCodEmp);
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.dtpFecha);
@@ -155,5 +165,6 @@
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtCodEmp;
+        public System.Windows.Forms.TextBox txtNumDispositivo;
     }
 }

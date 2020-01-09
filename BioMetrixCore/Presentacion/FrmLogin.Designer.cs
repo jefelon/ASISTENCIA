@@ -73,7 +73,7 @@
             this.txtUsuario.Location = new System.Drawing.Point(333, 49);
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.Size = new System.Drawing.Size(131, 26);
-            this.txtUsuario.TabIndex = 2;
+            this.txtUsuario.TabIndex = 0;
             this.txtUsuario.Text = "admin";
             // 
             // txtClave
@@ -83,7 +83,7 @@
             this.txtClave.Name = "txtClave";
             this.txtClave.PasswordChar = '*';
             this.txtClave.Size = new System.Drawing.Size(131, 26);
-            this.txtClave.TabIndex = 2;
+            this.txtClave.TabIndex = 1;
             this.txtClave.Text = "clave2";
             // 
             // btnIngresar
@@ -91,13 +91,14 @@
             this.btnIngresar.Location = new System.Drawing.Point(277, 163);
             this.btnIngresar.Name = "btnIngresar";
             this.btnIngresar.Size = new System.Drawing.Size(138, 41);
-            this.btnIngresar.TabIndex = 3;
+            this.btnIngresar.TabIndex = 2;
             this.btnIngresar.Text = "INGRESAR";
             this.btnIngresar.UseVisualStyleBackColor = true;
             this.btnIngresar.Click += new System.EventHandler(this.btnIngresar_Click);
             // 
             // FrmLogin
             // 
+            this.AcceptButton = this.btnIngresar;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(491, 225);

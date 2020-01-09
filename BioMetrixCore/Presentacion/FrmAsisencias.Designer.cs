@@ -43,6 +43,9 @@
             this.btnAgregarRegistro = new System.Windows.Forms.Button();
             this.btnBorrar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnHorasExtras = new System.Windows.Forms.Button();
+            this.txtNumDispositivo = new System.Windows.Forms.TextBox();
+            this.btnExcel = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDatos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -171,7 +174,7 @@
             // 
             // btnAgregarRegistro
             // 
-            this.btnAgregarRegistro.Location = new System.Drawing.Point(12, 58);
+            this.btnAgregarRegistro.Location = new System.Drawing.Point(713, 71);
             this.btnAgregarRegistro.Name = "btnAgregarRegistro";
             this.btnAgregarRegistro.Size = new System.Drawing.Size(75, 23);
             this.btnAgregarRegistro.TabIndex = 16;
@@ -181,7 +184,7 @@
             // 
             // btnBorrar
             // 
-            this.btnBorrar.Location = new System.Drawing.Point(93, 58);
+            this.btnBorrar.Location = new System.Drawing.Point(794, 71);
             this.btnBorrar.Name = "btnBorrar";
             this.btnBorrar.Size = new System.Drawing.Size(75, 23);
             this.btnBorrar.TabIndex = 16;
@@ -198,11 +201,42 @@
             this.label1.TabIndex = 17;
             this.label1.Text = "Tipo:";
             // 
+            // btnHorasExtras
+            // 
+            this.btnHorasExtras.Location = new System.Drawing.Point(12, 59);
+            this.btnHorasExtras.Name = "btnHorasExtras";
+            this.btnHorasExtras.Size = new System.Drawing.Size(75, 23);
+            this.btnHorasExtras.TabIndex = 18;
+            this.btnHorasExtras.Text = "Horas Extras";
+            this.btnHorasExtras.UseVisualStyleBackColor = true;
+            this.btnHorasExtras.Click += new System.EventHandler(this.btnHorasExtras_Click);
+            // 
+            // txtNumDispositivo
+            // 
+            this.txtNumDispositivo.Location = new System.Drawing.Point(219, 2);
+            this.txtNumDispositivo.Name = "txtNumDispositivo";
+            this.txtNumDispositivo.Size = new System.Drawing.Size(30, 20);
+            this.txtNumDispositivo.TabIndex = 19;
+            this.txtNumDispositivo.Visible = false;
+            // 
+            // btnExcel
+            // 
+            this.btnExcel.Location = new System.Drawing.Point(93, 58);
+            this.btnExcel.Name = "btnExcel";
+            this.btnExcel.Size = new System.Drawing.Size(75, 23);
+            this.btnExcel.TabIndex = 20;
+            this.btnExcel.Text = "Excel";
+            this.btnExcel.UseVisualStyleBackColor = true;
+            this.btnExcel.Click += new System.EventHandler(this.btnExcel_Click);
+            // 
             // FrmAsisencias
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(882, 565);
+            this.Controls.Add(this.btnExcel);
+            this.Controls.Add(this.txtNumDispositivo);
+            this.Controls.Add(this.btnHorasExtras);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnBorrar);
             this.Controls.Add(this.btnAgregarRegistro);
@@ -244,5 +278,8 @@
         private System.Windows.Forms.Button btnAgregarRegistro;
         private System.Windows.Forms.Button btnBorrar;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnHorasExtras;
+        private System.Windows.Forms.TextBox txtNumDispositivo;
+        private System.Windows.Forms.Button btnExcel;
     }
 }
