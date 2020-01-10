@@ -28,7 +28,6 @@ namespace BioMetrixCore.Presentacion
 
                 dgvDatos.Columns["Id"].Visible = false;
                 dgvDatos.Columns["DepartamentoId"].Visible = false;
-                dgvDatos.Columns["CodigoEmpleado"].Visible = false;
             }
             catch (Exception ex)
             {
@@ -51,7 +50,6 @@ namespace BioMetrixCore.Presentacion
                 FrmPersonalRegistrar form = new FrmPersonalRegistrar();
                 form.txtId.Text = dgvDatos.CurrentRow.Cells["Id"].Value.ToString();
                 form.txtCodigoEmpleado.Text = dgvDatos.CurrentRow.Cells["CodigoEmpleado"].Value.ToString();
-                form.txtCodigoNombre.Text = dgvDatos.CurrentRow.Cells["Codigo"].Value.ToString();
                 form.txtNombreTexto.Text = dgvDatos.CurrentRow.Cells["NombreTexto"].Value.ToString();
                 form.txtApellidos.Text = dgvDatos.CurrentRow.Cells["Apellidos"].Value.ToString();
                 form.txtCargo.Text = dgvDatos.CurrentRow.Cells["Cargo"].Value.ToString();

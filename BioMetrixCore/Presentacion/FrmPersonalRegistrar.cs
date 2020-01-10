@@ -22,10 +22,10 @@ namespace BioMetrixCore.Presentacion
         {
             try
             {
-                int id; string codigo; int codigoEmpleado; string nombreTexto, apellidos; int departamentoId; string cargo; int asigFam; int onp; int afp; int rentaQta; string tipo;
+                int id; int codigoEmpleado; double dni; string nombreTexto, apellidos; int departamentoId; string cargo; int asigFam; int onp; int afp; int rentaQta; string tipo;
 
-                codigo = txtCodigoNombre.Text;
                 codigoEmpleado = Convert.ToInt32(txtCodigoEmpleado.Text);
+                dni = Convert.ToDouble(txtDni.Text);
                 nombreTexto = txtNombreTexto.Text;
                 apellidos = txtApellidos.Text;
                 departamentoId = 1;
@@ -40,7 +40,7 @@ namespace BioMetrixCore.Presentacion
                 if (txtId.Text == "")
                 {
 
-                    int returnId = FEmpleado.Insertar(codigo, codigoEmpleado, nombreTexto, apellidos,  departamentoId,  cargo,  asigFam,  onp, afp, rentaQta,tipo);
+                    int returnId = FEmpleado.Insertar(codigoEmpleado,dni, nombreTexto, apellidos,  departamentoId,  cargo,  asigFam,  onp, afp, rentaQta,tipo);
                     if (returnId > 0)
                     {
                         MessageBox.Show("Se registró correctamente.");
@@ -52,7 +52,7 @@ namespace BioMetrixCore.Presentacion
                 else
                 {
                     id = Convert.ToInt32(txtId.Text);
-                    if (FEmpleado.Actualizar(id, codigo, codigoEmpleado, nombreTexto, apellidos, departamentoId, cargo, asigFam, onp, afp, rentaQta,tipo) > 0)
+                    if (FEmpleado.Actualizar(id, codigoEmpleado,dni, nombreTexto, apellidos, departamentoId, cargo, asigFam, onp, afp, rentaQta,tipo) > 0)
                     {
                         MessageBox.Show("Se modificó correctamente.");
 

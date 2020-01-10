@@ -483,7 +483,7 @@
             this.MinimumSize = new System.Drawing.Size(615, 425);
             this.Name = "Master";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Biometric Device Demo";
+            this.Text = "Sistema Reloj Giannini 1.0 2020";
             this.Load += new System.EventHandler(this.Master_Load);
             this.pnlHeader.ResumeLayout(false);
             this.pnlHeader.PerformLayout();

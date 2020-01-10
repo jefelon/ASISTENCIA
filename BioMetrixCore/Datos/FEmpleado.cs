@@ -28,12 +28,12 @@ namespace BioMetrixCore.Datos
             return SQLHelper.ExecuteDataSet("usp_Datos_FEmpleado_Get", dbParams);
 
         }
-        public static int Insertar(string codigo, double codigoEmpleado, string nombreTexto, string apellidos, int departamentoId, string cargo, int asigFam, int onp, int afp, int rentaQta, string tipo)
+        public static int Insertar(double codigoEmpleado, double dni,string nombreTexto, string apellidos, int departamentoId, string cargo, int asigFam, int onp, int afp, int rentaQta, string tipo)
         {
             SqlParameter[] dbParams = new SqlParameter[]
                 {
-                    SQLHelper.MakeParam("@Codigo", SqlDbType.Int, 0, codigo),
                     SQLHelper.MakeParam("@CodigoEmpleado", SqlDbType.Decimal, 0, codigoEmpleado),
+                    SQLHelper.MakeParam("@Dni", SqlDbType.Decimal, 0, dni),
                     SQLHelper.MakeParam("@NombreTexto", SqlDbType.VarChar, 0, nombreTexto),
                     SQLHelper.MakeParam("@Apellidos", SqlDbType.VarChar, 0, apellidos),
                     SQLHelper.MakeParam("@departamentoId", SqlDbType.Int, 0, departamentoId),
@@ -46,13 +46,13 @@ namespace BioMetrixCore.Datos
                 };
             return Convert.ToInt32(SQLHelper.ExecuteScalar("usp_Datos_FEmpleado_Insertar", dbParams));
         }
-        public static int Actualizar(int id,string codigo, double codigoEmpleado, string nombreTexto, string apellidos, int departamentoId, string cargo, int asigFam, int onp, int afp, int rentaQta, string tipo)
+        public static int Actualizar(int id, double codigoEmpleado,double dni, string nombreTexto, string apellidos, int departamentoId, string cargo, int asigFam, int onp, int afp, int rentaQta, string tipo)
         {
             SqlParameter[] dbParams = new SqlParameter[]
                 {
                     SQLHelper.MakeParam("@Id", SqlDbType.Int, 0, id),
-                    SQLHelper.MakeParam("@Codigo", SqlDbType.Int, 0, codigo),
                     SQLHelper.MakeParam("@CodigoEmpleado", SqlDbType.Decimal, 0, codigoEmpleado),
+                    SQLHelper.MakeParam("@Dni", SqlDbType.Decimal, 0, dni),
                     SQLHelper.MakeParam("@NombreTexto", SqlDbType.VarChar, 0, nombreTexto),
                     SQLHelper.MakeParam("@Apellidos", SqlDbType.VarChar, 0, apellidos),
                     SQLHelper.MakeParam("@departamentoId", SqlDbType.Int, 0, departamentoId),
