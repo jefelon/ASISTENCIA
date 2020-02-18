@@ -365,7 +365,7 @@
             this.txtDni.Location = new System.Drawing.Point(171, 64);
             this.txtDni.Name = "txtDni";
             this.txtDni.Size = new System.Drawing.Size(205, 20);
-            this.txtDni.TabIndex = 0;
+            this.txtDni.TabIndex = 1;
             // 
             // FrmPersonalRegistrar
             // 

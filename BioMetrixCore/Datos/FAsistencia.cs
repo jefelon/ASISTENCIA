@@ -21,12 +21,12 @@ namespace BioMetrixCore.Datos
             return SQLHelper.ExecuteDataSet("usp_Datos_FAsistencia_GetAll", dbParams);
 
         }
-        public static DataSet GetFechas(DateTime fecha, int empleadoId,string tipo)
+        public static DataSet GetFechas(DateTime fecha, int codEmpleado, string tipo)
         {
             SqlParameter[] dbParams = new SqlParameter[]
                 {
                     SQLHelper.MakeParam("@Fecha", SqlDbType.DateTime, 0, fecha),
-                    SQLHelper.MakeParam("@EmpleadoId", SqlDbType.Int, 0, empleadoId),
+                    SQLHelper.MakeParam("@CodigoEmpleado", SqlDbType.Int, 0, codEmpleado),
                     SQLHelper.MakeParam("@Tipo", SqlDbType.VarChar, 0, tipo),
                 };
             return SQLHelper.ExecuteDataSet("usp_Datos_FAsistencia_GetFechas", dbParams);
@@ -43,22 +43,22 @@ namespace BioMetrixCore.Datos
 
         }
         
-        public static DataSet GetAllDatos(int anio, int mes,int empleadoId)
+        public static DataSet GetAllDatos(int anio, int mes,int codEmpleado)
         {
             SqlParameter[] dbParams = new SqlParameter[]
                 {
                     SQLHelper.MakeParam("@Anio", SqlDbType.Int, 0, anio),
                     SQLHelper.MakeParam("@Mes", SqlDbType.Int, 0, mes),
-                    SQLHelper.MakeParam("@EmpleadoId", SqlDbType.Int, 0, empleadoId),
+                    SQLHelper.MakeParam("@CodigoEmpleado", SqlDbType.Int, 0, codEmpleado),
                 };
             return SQLHelper.ExecuteDataSet("usp_Datos_FAsistencia_GetAllDatos", dbParams);
 
         }
-        public static DataSet GetFiltro(int empleadoId, DateTime desde, DateTime hasta, string tipo)
+        public static DataSet GetFiltro(int codEmpleado, DateTime desde, DateTime hasta, string tipo)
         {
             SqlParameter[] dbParams = new SqlParameter[]
                 {
-                    SQLHelper.MakeParam("@EmpleadoId", SqlDbType.Int, 0, empleadoId),
+                    SQLHelper.MakeParam("@CodigoEmpleado", SqlDbType.Int, 0, codEmpleado),
                     SQLHelper.MakeParam("@Desde", SqlDbType.Date, 0, desde),
                     SQLHelper.MakeParam("@Hasta", SqlDbType.Date, 0, hasta),
                     SQLHelper.MakeParam("@Tipo", SqlDbType.VarChar, 0, tipo),

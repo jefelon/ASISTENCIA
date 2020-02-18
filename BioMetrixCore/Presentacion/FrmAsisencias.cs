@@ -28,13 +28,13 @@ namespace BioMetrixCore.Presentacion
         {
             DataSet dse = FEmpleado.GetAll();
             DataTable dte = dse.Tables[0];
-            cmbEmpleado.ValueMember = "Id";
+            cmbEmpleado.ValueMember = "CodigoEmpleado";
             cmbEmpleado.DisplayMember = "NombreTexto";
             cmbEmpleado.DataSource = dte;
 
             DataSet dse2 = FEmpleado.GetAll();
             DataTable dte2 = dse2.Tables[0];
-            cmbEmp.ValueMember = "Id";
+            cmbEmp.ValueMember = "CodigoEmpleado";
             cmbEmp.DisplayMember = "NombreTexto";
             cmbEmp.DataSource = dte2;
 
@@ -351,5 +351,13 @@ namespace BioMetrixCore.Presentacion
             }
         }
 
+        private void dgvDatos_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (this.dgvDatos.Columns[e.ColumnIndex].Name == "Marcación")
+                if (Convert.ToInt32(e.Value.ToString())>4)
+                {
+                    dgvDatos.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.Red;
+                }
+        }
     }
 }

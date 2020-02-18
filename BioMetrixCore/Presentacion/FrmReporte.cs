@@ -21,11 +21,7 @@ namespace BioMetrixCore.Presentacion
 
         private void FrmAsistencia_Load(object sender, EventArgs e)
         {
-            DataSet dse = FEmpleado.GetAll();
-            DataTable dte = dse.Tables[0];
-            cmbEmpleado.ValueMember = "Id";
-            cmbEmpleado.DisplayMember = "NombreTexto";
-            cmbEmpleado.DataSource = dte;
+
         }
         static void OpenMicrosoftExcel(string f)
         {
@@ -55,18 +51,21 @@ namespace BioMetrixCore.Presentacion
 
                     oWBook = ExApp.Workbooks.Open(Application.StartupPath + "/planilla-trabajador.xlsx", Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing);
                     oSheet = (Microsoft.Office.Interop.Excel._Worksheet)oWBook.ActiveSheet;
+
+                if (checkBoxTodos.Checked==true)
+                {
                     foreach (DataRowView item in cmbEmpleado.Items)
                     {
                         double horas = 0;
                         double horacu = 0;
                         double horadom = 0;
-                        int idEmpleado = Convert.ToInt32(item.Row[0].ToString());
+                        int codEmpleado = Convert.ToInt32(item.Row[0].ToString());
 
                         filas++;
 
                         for (var d = fechaInicio; d <= fechaFin; d = d.AddDays(1))
                         {
-                            DataSet ds = FAsistencia.GetFechas(Convert.ToDateTime(d.ToShortDateString()), idEmpleado, tipo);
+                            DataSet ds = FAsistencia.GetFechas(Convert.ToDateTime(d.ToShortDateString()), codEmpleado, tipo);
                             DataTable dt = ds.Tables[0];
                             col++;
 
@@ -92,18 +91,18 @@ namespace BioMetrixCore.Presentacion
 
                         }
                         // OTROS DATOS                          
-                        DataSet ds2 = FAsistencia.GetAllDatos(anio, mes, idEmpleado);
+                        DataSet ds2 = FAsistencia.GetAllDatos(anio, mes, codEmpleado);
                         DataTable dt2 = ds2.Tables[0];
                         if (dt2.Rows.Count > 0)
                         {
-                            var empleadoId = dt2.Rows[0]["EmpleadoId"].ToString();
+                            var codigoEmpleado = dt2.Rows[0]["CodigoEmpleado"].ToString();
                             var nombreTexto = dt2.Rows[0]["NombreTexto"].ToString();
                             var apellidos = dt2.Rows[0]["Apellidos"].ToString();
                             var cargo = dt2.Rows[0]["Cargo"].ToString();
                             double salario = Convert.ToDouble(dt2.Rows[0]["Salario"].ToString());
                             double porhora = (salario / 30) / 8;
 
-                            oSheet.Cells[fila, 1] = empleadoId;//ID EMPLEADO
+                            oSheet.Cells[fila, 1] = codigoEmpleado;//ID EMPLEADO
                             oSheet.Cells[fila, 2] = nombreTexto + " " + apellidos;//NOMBRES APELLIDOS
                             oSheet.Cells[fila, 3] = cargo; //CARGO
                             oSheet.Cells[fila, 12] = porhora; //POR HORA
@@ -158,7 +157,7 @@ namespace BioMetrixCore.Presentacion
                                 oSheet.Cells[fila, 21].Formula = string.Format("=+Q" + fila + "*" + afpApo);
 
                                 // SUM
-                                oSheet.Cells[fila, 22].Formula = string.Format("=SUM(S"+fila+":U"+fila);
+                                oSheet.Cells[fila, 22].Formula = string.Format("=SUM(S" + fila + ":U" + fila);
                             }
                             //======RENTA 5                 
                             if (dt2.Rows[0]["RentaQta"].ToString() == "1")
@@ -202,6 +201,154 @@ namespace BioMetrixCore.Presentacion
                         }
 
                     }
+                }
+                else
+                {
+
+                        double horas = 0;
+                        double horacu = 0;
+                        double horadom = 0;
+                        int codEmpleado = Convert.ToInt32(lblCod.Text);
+
+                        filas++;
+
+                        for (var d = fechaInicio; d <= fechaFin; d = d.AddDays(1))
+                        {
+                            DataSet ds = FAsistencia.GetFechas(Convert.ToDateTime(d.ToShortDateString()), codEmpleado, tipo);
+                            DataTable dt = ds.Tables[0];
+                            col++;
+
+                            if (d.DayOfWeek == DayOfWeek.Sunday)
+                            {
+                                if (dt.Rows.Count > 0)
+                                {
+                                    horadom = Convert.ToDouble(dt.Rows[0]["HorasAc"]);
+                                }
+                            }
+
+                            else
+                            {
+                                if (dt.Rows.Count > 0)
+                                {
+                                    horas = Convert.ToDouble(dt.Rows[0]["HorasAc"]);
+                                    horacu += horas;
+                                }
+
+                            }
+                            oSheet.Cells[fila, col] = horas;
+                            //oSheet.Cells[fila, col].Interior.Color = Color.Green;
+
+                        }
+                        // OTROS DATOS                          
+                        DataSet ds2 = FAsistencia.GetAllDatos(anio, mes, codEmpleado);
+                        DataTable dt2 = ds2.Tables[0];
+                        if (dt2.Rows.Count > 0)
+                        {
+                            var codigoEmpleado = dt2.Rows[0]["CdigoEmpleado"].ToString();
+                            var nombreTexto = dt2.Rows[0]["NombreTexto"].ToString();
+                            var apellidos = dt2.Rows[0]["Apellidos"].ToString();
+                            var cargo = dt2.Rows[0]["Cargo"].ToString();
+                            double salario = Convert.ToDouble(dt2.Rows[0]["Salario"].ToString());
+                            double porhora = (salario / 30) / 8;
+
+                            oSheet.Cells[fila, 1] = codigoEmpleado;//ID EMPLEADO
+                            oSheet.Cells[fila, 2] = nombreTexto + " " + apellidos;//NOMBRES APELLIDOS
+                            oSheet.Cells[fila, 3] = cargo; //CARGO
+                            oSheet.Cells[fila, 12] = porhora; //POR HORA
+                            oSheet.Cells[fila, 13] = porhora * horacu; //BASICO
+                                                                       //======DESCUENTO DOMINICAL
+                                                                       //double saldo = horadom - 2;
+                                                                       //double doshoras = horadom - saldo;
+                                                                       //doshoras = doshoras * 1.25;
+                                                                       //saldo = saldo * 1.35;
+                            double dominical = ((salario / 30) * horacu) / 48;
+
+                            oSheet.Cells[fila, 14] = dominical; //DOMINICAL
+
+                            //======ASIGNACION FAMILIAR
+                            double asigfam = 0;
+                            double remMin = Convert.ToDouble(dt2.Rows[0]["RemMin"].ToString());
+                            double porAsigfam = Convert.ToDouble(dt2.Rows[0]["AsigFam"].ToString());
+                            porAsigfam = porAsigfam / 100;
+                            if (dt2.Rows[0]["AsigFam"].ToString() == "1")
+                            {
+                                asigfam = ((((porAsigfam * remMin) / 30) * 7) / 48) * horacu; // ES MAS SIMPLE
+                            }
+                            oSheet.Cells[fila, 15] = asigfam; //ASIGNACION FAMILIAR
+
+                            //======SNP ONP
+                            double onp = Convert.ToDouble(dt2.Rows[0]["OnpDat"].ToString());
+                            onp = onp / 100;
+                            if (dt2.Rows[0]["Onp"].ToString() == "1")
+                            {
+                                oSheet.Cells[fila, 18].Formula = string.Format("=+Q" + fila + "*" + onp);
+                            }
+
+                            //======AFP COM
+                            double afpCom = Convert.ToDouble(dt2.Rows[0]["AfpCom"].ToString());
+                            afpCom = afpCom / 100;
+                            if (dt2.Rows[0]["Afp"].ToString() == "1")
+                            {
+                                oSheet.Cells[fila, 19].Formula = string.Format("=+Q" + fila + "*" + afpCom);
+                            }
+                            //======AFP PRIM COM
+                            double afpPrimCom = Convert.ToDouble(dt2.Rows[0]["AfpPrimCom"].ToString());
+                            afpPrimCom = afpCom / 100;
+                            if (dt2.Rows[0]["Afp"].ToString() == "1")
+                            {
+                                oSheet.Cells[fila, 20].Formula = string.Format("=+Q" + fila + "*" + afpPrimCom);
+                            }
+                            //======AFP APORTE
+                            double afpApo = Convert.ToDouble(dt2.Rows[0]["AfpDat"].ToString());
+                            afpApo = afpApo / 100;
+                            if (dt2.Rows[0]["Afp"].ToString() == "1")
+                            {
+                                oSheet.Cells[fila, 21].Formula = string.Format("=+Q" + fila + "*" + afpApo);
+
+                                // SUM
+                                oSheet.Cells[fila, 22].Formula = string.Format("=SUM(S" + fila + ":U" + fila);
+                            }
+                            //======RENTA 5                 
+                            if (dt2.Rows[0]["RentaQta"].ToString() == "1")
+                            {
+                                oSheet.Cells[fila, 24].Formula = 0;
+
+                            }
+                            //======TOTAL DESCUENTO    
+                            double totDesc = 0;
+                            if (dt2.Rows[0]["Afp"].ToString() == "1")
+                            {
+                                oSheet.Cells[fila, 25].Formula = string.Format("=+V" + fila);
+
+                            }
+                            else if (dt2.Rows[0]["Onp"].ToString() == "1")
+                            {
+                                oSheet.Cells[fila, 25].Formula = string.Format("=+R" + fila + "+W" + fila + "+X" + fila + "");
+                            }
+
+                            //======NETO A PAGAR 
+                            oSheet.Cells[fila, 26].Formula = string.Format("=+Y" + fila);
+
+                            //======ESSALUD
+                            double essalud = Convert.ToDouble(dt2.Rows[0]["Essalud"].ToString());
+                            essalud = essalud / 100;
+                            oSheet.Cells[fila, 27].Formula = string.Format("=+Q" + fila + "*" + essalud);
+
+                            //======ACCIDENTE DE TRABAJO
+                            double basico = (porhora * horacu);
+                            double accid = basico * 0.013;
+                            oSheet.Cells[fila, 29].Formula = accid;
+
+                            //======TOTAL APORTAC                  
+                            //oSheet.Cells[fila, 30].Formula = string.Format("=SUMA(AA" + fila + ":AC" + fila);
+                            oSheet.Cells[fila, 30].Formula = string.Format("=SUM(AA" + fila + ":AC" + fila);
+
+                            col = 3;
+                            fila++;
+                            horas = 0;
+                            horacu = 0;
+                        }
+                }
 
                 //APLICANDO TOTALES
                 int filaTotal = filas + 1;         
@@ -269,13 +416,13 @@ namespace BioMetrixCore.Presentacion
                     double horas = 0;
                     double horacu = 0;
                     double horadom = 0;
-                    int idEmpleado = Convert.ToInt32(item.Row[0].ToString());
+                    int codEmpleado = Convert.ToInt32(item.Row[0].ToString());
 
                     filas++;
 
                     for (var d = fechaInicio; d <= fechaFin; d = d.AddDays(1))
                     {
-                        DataSet ds = FAsistencia.GetFechas(Convert.ToDateTime(d.ToShortDateString()), idEmpleado, tipo);
+                        DataSet ds = FAsistencia.GetFechas(Convert.ToDateTime(d.ToShortDateString()), codEmpleado, tipo);
                         DataTable dt = ds.Tables[0];
                         col++;
 
@@ -301,18 +448,18 @@ namespace BioMetrixCore.Presentacion
 
                     }
                     // OTROS DATOS                          
-                    DataSet ds2 = FAsistencia.GetAllDatos(anio, mes, idEmpleado);
+                    DataSet ds2 = FAsistencia.GetAllDatos(anio, mes, codEmpleado);
                     DataTable dt2 = ds2.Tables[0];
                     if (dt2.Rows.Count > 0)
                     {
-                        var empleadoId = dt2.Rows[0]["EmpleadoId"].ToString();
+                        var codigoEmpleado = dt2.Rows[0]["CodigoEmpleado"].ToString();
                         var nombreTexto = dt2.Rows[0]["NombreTexto"].ToString();
                         var apellidos = dt2.Rows[0]["Apellidos"].ToString();
                         var cargo = dt2.Rows[0]["Cargo"].ToString();
                         double salario = Convert.ToDouble(dt2.Rows[0]["Salario"].ToString());
                         double porhora = (salario / 30) / 8;
 
-                        oSheet.Cells[fila, 1] = empleadoId;//ID EMPLEADO
+                        oSheet.Cells[fila, 1] = codigoEmpleado;//ID EMPLEADO
                         oSheet.Cells[fila, 2] = nombreTexto + " " + apellidos;//NOMBRES APELLIDOS
                         oSheet.Cells[fila, 3] = cargo; //CARGO
                         oSheet.Cells[fila, 6] = porhora; //POR HORA
@@ -457,6 +604,28 @@ namespace BioMetrixCore.Presentacion
 
                 MessageBox.Show("ok");
                 OpenMicrosoftExcel(@"planilla-empleado(copy).xlsx");
+            }
+        }
+
+        private void cmbTipo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            DataSet dse = FEmpleado.GetTipo(cmbTipo.Text);
+            DataTable dte = dse.Tables[0];
+            cmbEmpleado.ValueMember = "CodigoEmpleado";
+            cmbEmpleado.DisplayMember = "NombreTexto";
+            cmbEmpleado.DataSource = dte;
+        }
+
+        private void cmbEmpleado_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            lblCod.Text = cmbEmpleado.SelectedValue.ToString();
+        }
+
+        private void checkBoxTodos_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBoxTodos.Checked==true)
+            {
+                cmbEmpleado.Enabled = false;
             }
         }
     }

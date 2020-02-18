@@ -18,27 +18,40 @@ namespace BioMetrixCore.Presentacion
             InitializeComponent();
         }
 
+        public string anio;public string mes; public string empleado;
         private void FrmDatosMensualesRegistrar_Load(object sender, EventArgs e)
         {
             try
             {
+                DateTime fechaActual = DateTime.Today;
+
                 DataSet dsem = FEmpleado.GetAll();
                 DataTable dtem = dsem.Tables[0];
-                cmbEmpleado.ValueMember = "Id";
+                cmbEmpleado.ValueMember = "CodigoEmpleado";
                 cmbEmpleado.DisplayMember = "NombreTexto";
                 cmbEmpleado.DataSource = dtem;
+                cmbEmpleado.Text = empleado;
 
                 DataSet dse = FDatosAnuales.GetAnio();
                 DataTable dte = dse.Tables[0];
                 cmbAnio.ValueMember = "Id";
                 cmbAnio.DisplayMember = "Anio";
                 cmbAnio.DataSource = dte;
+                cmbAnio.Text = anio;
+                
 
                 DataSet ds2 = FDatosMensuales.GetMes();
                 DataTable dt2 = ds2.Tables[0];
                 cmbMes.ValueMember = "Id";
                 cmbMes.DisplayMember = "Mes";
                 cmbMes.DataSource = dt2;
+                cmbMes.Text = mes;
+                if (txtId.Text=="")
+                {
+                    cmbAnio.Text = fechaActual.Year.ToString();
+                    cmbMes.Text = fechaActual.ToString("MMMM");
+                }
+                
             }
             catch (Exception ex)
             {
@@ -50,9 +63,9 @@ namespace BioMetrixCore.Presentacion
         {
             try
             {
-                int id, empleadoId, mesId, anioId; double afpCom, afpPrimCom, basico;
+                int id, codigoEmpleado, mesId, anioId; double afpCom, afpPrimCom, basico;
 
-                empleadoId= Convert.ToInt32(cmbEmpleado.SelectedValue.ToString());
+                codigoEmpleado = Convert.ToInt32(cmbEmpleado.SelectedValue.ToString());
                 mesId = Convert.ToInt32(cmbAnio.SelectedValue.ToString());
                 anioId = Convert.ToInt32(cmbAnio.SelectedValue.ToString());
                 afpCom = Convert.ToDouble(txtAfpCom.Text);
@@ -62,7 +75,7 @@ namespace BioMetrixCore.Presentacion
                 if (txtId.Text == "")
                 {
 
-                    int returnId = FDatosMensuales.Insertar(empleadoId, mesId, anioId,afpCom, afpPrimCom, basico);
+                    int returnId = FDatosMensuales.Insertar(codigoEmpleado, mesId, anioId,afpCom, afpPrimCom, basico);
                     if (returnId > 0)
                     {
                         MessageBox.Show("Se registró correctamente.");
@@ -74,7 +87,7 @@ namespace BioMetrixCore.Presentacion
                 else
                 {
                     id = Convert.ToInt32(txtId.Text);
-                    if (FDatosMensuales.Actualizar(id, empleadoId, mesId, anioId, afpCom, afpPrimCom, basico) > 0)
+                    if (FDatosMensuales.Actualizar(id, codigoEmpleado, mesId, anioId, afpCom, afpPrimCom, basico) > 0)
                     {
                         MessageBox.Show("Se modificó correctamente.");
 
@@ -85,6 +98,30 @@ namespace BioMetrixCore.Presentacion
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message + ex.StackTrace);
+            }
+        }
+
+        private void btnCopiar_Click(object sender, EventArgs e)
+        {
+            if (cmbEmpleado.Text=="")
+            {
+                MessageBox.Show("Debe seleccionar a un empleado.");
+            }
+            else
+            {
+                DataSet ds = FDatosMensuales.GetUltimoRegistro(Convert.ToInt32(cmbEmpleado.SelectedValue.ToString()), cmbAnio.Text, Convert.ToInt32(cmbMes.SelectedValue.ToString()));
+                DataTable dt = ds.Tables[0];
+
+                if (dt.Rows.Count > 0)
+                {
+                    txtAfpCom.Text = dt.Rows[0]["AfpCom"].ToString();
+                    txtApfPrimCom.Text = dt.Rows[0]["AfpPrimCom"].ToString();
+                    txtBasico.Text = dt.Rows[0]["Basico"].ToString();
+                }
+                else
+                {
+                    MessageBox.Show("No hay registro del mes anterior de este año para esta persona..., Ingrese manualmente.");
+                }
             }
         }
     }

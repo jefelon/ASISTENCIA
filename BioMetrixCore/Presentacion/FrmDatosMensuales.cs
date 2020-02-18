@@ -24,7 +24,7 @@ namespace BioMetrixCore.Presentacion
             {
                 DataSet dsem = FEmpleado.GetAll();
                 DataTable dtem = dsem.Tables[0];
-                cmbEmpleado.ValueMember = "Id";
+                cmbEmpleado.ValueMember = "CodigoEmpleado";
                 cmbEmpleado.DisplayMember = "NombreTexto";
                 cmbEmpleado.DataSource = dtem;
 
@@ -46,7 +46,7 @@ namespace BioMetrixCore.Presentacion
                 dgvDatos.DataSource = dt;
 
                 dgvDatos.Columns["Id"].Visible = false;
-                dgvDatos.Columns["EmpleadoId"].Visible = false;
+                dgvDatos.Columns["CodigoEmpleado"].Visible = false;
             }
             catch (Exception ex)
             {
@@ -68,11 +68,12 @@ namespace BioMetrixCore.Presentacion
             {
                 FrmDatosMensualesRegistrar form = new FrmDatosMensualesRegistrar();
                 form.txtId.Text = dgvDatos.CurrentRow.Cells["Id"].Value.ToString();
-                form.cmbEmpleado.Text = dgvDatos.CurrentRow.Cells["NombreTexto"].Value.ToString();                          
+                form.empleado = dgvDatos.CurrentRow.Cells["NombreTexto"].Value.ToString();                          
                 form.txtAfpCom.Text = dgvDatos.CurrentRow.Cells["AfpCom"].Value.ToString();
                 form.txtApfPrimCom.Text = dgvDatos.CurrentRow.Cells["AfpPrimCom"].Value.ToString();
                 form.txtBasico.Text = dgvDatos.CurrentRow.Cells["Basico"].Value.ToString();
-                form.cmbMes.Text = dgvDatos.CurrentRow.Cells["Mes"].Value.ToString();
+                form.anio = dgvDatos.CurrentRow.Cells["Anio"].Value.ToString();
+                form.mes = dgvDatos.CurrentRow.Cells["Mes"].Value.ToString();
                 form.ShowDialog();
                 FrmDatosMensuales_Load(null, null);
             }

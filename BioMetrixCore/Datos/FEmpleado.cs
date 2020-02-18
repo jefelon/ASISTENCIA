@@ -19,6 +19,15 @@ namespace BioMetrixCore.Datos
             return SQLHelper.ExecuteDataSet("usp_Datos_FEmpleado_GetAll", dbParams);
 
         }
+        public static DataSet GetTipo( string tipo)
+        {
+            SqlParameter[] dbParams = new SqlParameter[]
+                {
+                    SQLHelper.MakeParam("@Tipo", SqlDbType.VarChar, 0, tipo),
+                };
+            return SQLHelper.ExecuteDataSet("usp_Datos_FEmpleado_GetTipo", dbParams);
+
+        }
         public static DataSet Get(int id)
         {
             SqlParameter[] dbParams = new SqlParameter[]

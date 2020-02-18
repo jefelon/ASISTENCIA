@@ -93,6 +93,7 @@
             this.dgvDatos.Size = new System.Drawing.Size(858, 434);
             this.dgvDatos.TabIndex = 8;
             this.dgvDatos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDatos_CellContentClick);
+            this.dgvDatos.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvDatos_CellFormatting);
             // 
             // btnSincronizar
             // 

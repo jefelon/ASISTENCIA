@@ -24,7 +24,7 @@ namespace BioMetrixCore.Presentacion
         {
             DataSet dse = FEmpleado.GetAll();
             DataTable dte = dse.Tables[0];
-            cmbPersona.ValueMember = "Id";
+            cmbPersona.ValueMember = "CodigoEmpleado";
             cmbPersona.DisplayMember = "NombreTexto";
             cmbPersona.DataSource = dte;
         }
@@ -45,13 +45,13 @@ namespace BioMetrixCore.Presentacion
                     double horas = 0;
                     double horacu = 0;
                     double horadom = 0;
-                    int idEmpleado = Convert.ToInt32(cmbPersona.SelectedValue.ToString());
+                    int codEmpleado = Convert.ToInt32(cmbPersona.SelectedValue.ToString());
 
                     filas++;
 
                     for (var d = fechaInicio; d <= fechaFin; d = d.AddDays(1))
                     {
-                        DataSet ds = FAsistencia.GetFechas(Convert.ToDateTime(d.ToShortDateString()), idEmpleado, tipo);
+                        DataSet ds = FAsistencia.GetFechas(Convert.ToDateTime(d.ToShortDateString()), codEmpleado, tipo);
                         DataTable dt = ds.Tables[0];
                         col++;
 
@@ -75,7 +75,7 @@ namespace BioMetrixCore.Presentacion
 
                     }
                     // OTROS DATOS                          
-                    DataSet ds2 = FAsistencia.GetAllDatos(anio, mes, idEmpleado);
+                    DataSet ds2 = FAsistencia.GetAllDatos(anio, mes, codEmpleado);
                     DataTable dt2 = ds2.Tables[0];
                     if (dt2.Rows.Count > 0)
                     {        
