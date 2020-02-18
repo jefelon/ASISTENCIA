@@ -134,6 +134,7 @@
             this.lblCod.Size = new System.Drawing.Size(29, 13);
             this.lblCod.TabIndex = 20;
             this.lblCod.Text = "Cod:";
+            this.lblCod.Visible = false;
             // 
             // checkBoxTodos
             // 

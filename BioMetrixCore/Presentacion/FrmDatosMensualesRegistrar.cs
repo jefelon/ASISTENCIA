@@ -66,7 +66,7 @@ namespace BioMetrixCore.Presentacion
                 int id, codigoEmpleado, mesId, anioId; double afpCom, afpPrimCom, basico;
 
                 codigoEmpleado = Convert.ToInt32(cmbEmpleado.SelectedValue.ToString());
-                mesId = Convert.ToInt32(cmbAnio.SelectedValue.ToString());
+                mesId = Convert.ToInt32(cmbMes.SelectedValue.ToString());
                 anioId = Convert.ToInt32(cmbAnio.SelectedValue.ToString());
                 afpCom = Convert.ToDouble(txtAfpCom.Text);
                 afpPrimCom = Convert.ToDouble(txtApfPrimCom.Text);

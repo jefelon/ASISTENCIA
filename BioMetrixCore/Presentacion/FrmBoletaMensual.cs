@@ -22,11 +22,7 @@ namespace BioMetrixCore.Presentacion
 
         private void FrmBoletaMensual_Load(object sender, EventArgs e)
         {
-            DataSet dse = FEmpleado.GetAll();
-            DataTable dte = dse.Tables[0];
-            cmbPersona.ValueMember = "CodigoEmpleado";
-            cmbPersona.DisplayMember = "NombreTexto";
-            cmbPersona.DataSource = dte;
+
         }
 
         private void btnBoleta_Click(object sender, EventArgs e)
@@ -57,7 +53,7 @@ namespace BioMetrixCore.Presentacion
 
                         if (d.DayOfWeek == DayOfWeek.Sunday)
                         {
-                            if (dt.Rows.Count > 0)
+                            if (dt.Rows.Count > 0 && dt.Rows[0]["HorasAc"].ToString()!="")
                             {
                                 horadom = Convert.ToDouble(dt.Rows[0]["HorasAc"]);
                             }
@@ -65,7 +61,7 @@ namespace BioMetrixCore.Presentacion
 
                         else
                         {
-                            if (dt.Rows.Count > 0)
+                            if (dt.Rows.Count > 0 && dt.Rows[0]["HorasAc"].ToString() != "")
                             {
                                 horas = Convert.ToDouble(dt.Rows[0]["HorasAc"]);
                                 horacu += horas;
@@ -196,6 +192,15 @@ namespace BioMetrixCore.Presentacion
 
 
 
+        }
+
+        private void cmbTipo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            DataSet dse = FEmpleado.GetTipo(cmbTipo.Text);
+            DataTable dte = dse.Tables[0];
+            cmbPersona.ValueMember = "CodigoEmpleado";
+            cmbPersona.DisplayMember = "NombreTexto";
+            cmbPersona.DataSource = dte;
         }
     }
 }

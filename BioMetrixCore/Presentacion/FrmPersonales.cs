@@ -50,6 +50,7 @@ namespace BioMetrixCore.Presentacion
                 FrmPersonalRegistrar form = new FrmPersonalRegistrar();
                 form.txtId.Text = dgvDatos.CurrentRow.Cells["Id"].Value.ToString();
                 form.txtCodigoEmpleado.Text = dgvDatos.CurrentRow.Cells["CodigoEmpleado"].Value.ToString();
+                form.txtDni.Text = dgvDatos.CurrentRow.Cells["Dni"].Value.ToString();
                 form.txtNombreTexto.Text = dgvDatos.CurrentRow.Cells["NombreTexto"].Value.ToString();
                 form.txtApellidos.Text = dgvDatos.CurrentRow.Cells["Apellidos"].Value.ToString();
                 form.txtCargo.Text = dgvDatos.CurrentRow.Cells["Cargo"].Value.ToString();
